@@ -18,10 +18,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Cuda-Chen's Blog
+title: Cuda Chen's Blog
 email: clh960524@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Image Processing, Machine Learning, Parallel Computing, and other stuffs.
+  Image Processing, Machine Learning, Parallel Computing, video games, and other stuffs.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
