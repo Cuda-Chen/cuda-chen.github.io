@@ -22,10 +22,10 @@ recommend you to install ```rvm``` because it not only installs newer version of
 Ruby but also provides as a great manager of your Ruby environments, especilly you 
 are going to learn Ruby of Ruby on Rails later. Most of all, it gets rid of the problem
 of needing ```sudo``` privilege. <br>
-So here're are the steps when I was installing ```rvm```[2]: <br>
-    (1) install GPG keys:
+So here are the steps when I was installing ```rvm```[2]: <br>
+    (1) install GPG keys: <br>
     ```$ gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB``` <br>
-    (2) install ```rvm```:
+    (2) install ```rvm```: <br>
     ```$ \curl -sSL https://get.rvm.io | bash -s stable```
 
 4. Install ```jekyll``` and ```bundler```. <br>
