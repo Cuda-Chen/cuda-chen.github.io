@@ -15,7 +15,7 @@ GitHub Pages only works when <username> is *exactly* matched to your username. [
 
 2. Clone the repo create in step #1 to your computer.
 
-3. Install ```rvm```.
+3. Install ```rvm```. <br>
 At first, I wanted to install Ruby via ```yum```, but I found the version
 of Ruby installed by ```yum``` is toooooo old. After some searching, I will
 recommend you to install ```rvm``` because it not only installs newer version of
