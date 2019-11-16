@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "How to build your Website with GitHub Pages and Jekyll"
+category: [programming]
+tags: [CentOS, Ruby, Jekyll, Blog]
 ---
  
 After some struggles, I finally built my personal website with GitHub
