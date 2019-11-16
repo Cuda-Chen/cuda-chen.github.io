@@ -154,7 +154,11 @@ to to the package from source.
 After installing required packages, I clone the repo of my Mask R-CNN and 
 build some binaries of it.
 
-Eventually, I set the working directory to `/root` and start `bash`.
+At the end of `Dockefile`, I set the working directory to `/root` and start `bash`.
+
+At last, I push the Dockerfile repo to my GitHub and link the repo with Docker Hub 
+to build the Docker image automatically 
+(you can see how to link your GitHub repo with Docker Hub from [here](https://docs.docker.com/docker-hub/builds/link-source/)).
 
 That's all, thanks for your reading.
 
