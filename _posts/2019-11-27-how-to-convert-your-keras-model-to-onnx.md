@@ -125,7 +125,8 @@ What's more, `sess.run(None, feed)[0]` returns the 0-th elemnent as a numpy matr
 4. `np.squeeze(pred_onnx)` squeezes the numpy matrix to numpy vector, i.e., remove
 the 0-th dimension, so that we can get the probabilities of each class.
 
-## Inference time
+## Inference Time
+### Total Inference Time (load model + inference)
 Some reports say ONNX run faster both mode loading time and inferencing time.
 Hence, I make an inference time experiment on my laptop in this section.
 
@@ -187,6 +188,107 @@ Whoa! What a huge improvement! The inferencing tims is about (2.576+2.530+2.560)
 
 > The code infercing with Keras can be found [on my GitHub repo](https://github.com/Cuda-Chen/fish-classifier/tree/master/cnn).
 >
+
+### Inference Time (only inference)
+> Edit: One of my friend said I should test only inference time between Keras and ONNX
+> because we load model once in practice. As a result, I will test only inference
+> time between Keras and ONNX, and I will split to two parts: 
+> 1. Keras (with TensorFlow installed by `pip`) v.s. ONNX
+> 2. Keras (with TensorFlow installed by `conda`) v.s. ONNX
+
+Of course, I write `comparison.py` in order to make comparison test which is 
+shown below:
+```pyton=
+from tensorflow.python.keras import backend as K
+from tensorflow.python.keras.models import load_model
+from tensorflow.python.keras.preprocessing import image
+import sys
+import numpy as np
+import onnxruntime
+import time
+
+IMAGE_SIZE = 224
+loop_count = 10
+img_path = sys.argv[1]
+
+# load Keras and ONNX model
+net = load_model('model-resnet50-final.h5')
+onnx_model = 'fish-resnet50.onnx'
+sess = onnxruntime.InferenceSession(onnx_model)
+
+# 41 + 1 classes
+cls_list = ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19',
+    '1', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29',
+    '2', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39',
+    '3', '40', '41', '42', '4', '5', '6', '7', '8', '9']
+
+# image preprocessing
+img = image.load_img(img_path, target_size=(IMAGE_SIZE, IMAGE_SIZE))
+x = image.img_to_array(img)
+x = np.expand_dims(x, axis=0)
+
+# Keras predtion
+start_time = time.time()
+for i in range(loop_count):
+    pred = net.predict(x)[0]
+print("Keras inferences with %s second in average" %((time.time() - start_time) / loop_count))
+
+# ONNX prediction
+x = x if isinstance(x, list) else [x]
+feed = dict([(input.name, x[n]) for n, input in enumerate(sess.get_inputs())])
+
+start_time = time.time()
+for i in range(loop_count):
+    pred_onnx = sess.run(None, feed)[0]
+print("ONNX inferences with %s second in average" %((time.time() - start_time) / loop_count))
+
+```
+
+You can see I run each inference method with 10 times and take the average time,
+and I run `comparison.py` three times for easing the error.
+
+#### Keras (with TensorFlow installed by `pip`) v.s. ONNX
+The comparison is shown below:
+```
+$ python comparison.py
+...
+Keras inferences with 0.8759469270706177 second in average
+ONNX inferences with 0.3100883007049561 second in average
+...
+Keras inferences with 0.8891681671142578 second in average
+ONNX inferences with 0.313812255859375 second in average
+...
+Keras inferences with 0.9052883148193359 second in average
+ONNX inferences with 0.3306725025177002 second in average
+```
+
+We find that Keras inference needs (0.88+0.87+0.91)/3 = 0.87 seconds, while ONNX
+inference need (0.31+0.31+0.33)/3 = 0.32 seconds. That's a speedup ratio of 
+0.87/0.32 = 2.72x between ONNX and Keras.
+
+#### Keras (with TensorFlow installed by `conda`) v.s. ONNX
+Wait a minute! `pip install tensorflow` installs TensorFlow without optimization
+of Intel's processor. So let's remove TensorFlow first then install it via `conda`
+(the version I install is `1.13.1`).
+
+Then run `comparison.py` again:
+```
+$ python comparison.py
+...
+Keras inferences with 0.9810404300689697 second in average
+ONNX inferences with 0.604683232307434 second in average
+...
+Keras inferences with 0.8862279415130615 second in average
+ONNX inferences with 0.6059059381484986 second in average
+...
+Keras inferences with 0.9496192932128906 second in average
+ONNX inferences with 0.5927849292755127 second in average
+```
+
+We find Keras takes (0.98+0.89+0.95)/3 = 0.94 seconds to inference. Compared to ONNX,
+it spend (0.60+0.61+0.59)/3 = 0.6 seconds for inferencing. That's a speedup of 0.94/0.6
+= 1.57x. Interestingly, both Keras and ONNX become slower after install TensorFlow via
+`conda`.
 
 ## Conclusion
 In this post, I make an introduction of ONNX and show how to convert your Keras 
