@@ -2,7 +2,7 @@
 layout: post
 title: "A Detailed Guide of YOLO on OpenCV Python"
 categories: [programming]
-tags: [OpenCV, machine learning, YOLO, Python]
+tags: [OpenCV, machine learning, YOLO, YOLOv3, Python]
 ---
 
 # Introduction
