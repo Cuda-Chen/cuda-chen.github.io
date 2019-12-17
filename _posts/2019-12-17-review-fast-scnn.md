@@ -35,7 +35,7 @@ DCNN architectures such as Xception, MobileNet, and Contextnet.
 
 # 2. Learning to Downsample
 - Current state-of-the-art real-time semantic segmentaiton methods are built by networks with two
-braches operating on distict resolutions on each side.
+braches operating on distinct resolutions on each side.
     - The methods learn global information from low-resolution versions of the input image, and
 shallow networks refine the precision of the segmentation results on full input resolution.
 - As the well-known fact that DCNNs extract the low-level features such as corners and edges on
@@ -47,7 +47,7 @@ the first few layers, the authors think that sharing feature computation between
     - Furthermore, they add 20,000 weakly annotated images, or coarse labels, on training.
 - They report results with three groups: both, fine only, and fine with coarse labeled data.
 - They Use *only 19 classes* on evaluation.
-- As comparison, ContextNet, BiSeNet, GUN, ENet, and ICNet are chosen as they are STOA real-time
+- As comparison, ContextNet, BiSeNet, GUN, ENet, and ICNet are chosen as they are SOTA real-time
 semantic segmentation methods.
 - The proposed Fast-SCNN is divided to two types: Fast-SCNN cls and Fast-SCNN prob on the part
 of runtime comparison.
@@ -68,7 +68,7 @@ consequence, they replace softmax to argmax when the network is on inference mod
 # 4. Ablation Studies
 #### Pre-training and Weakly Labeled Data
 - High capacity DCNNs such as R-CNN and PSPNet have shown that performance can be boosted
-with pre-training through constract auxiliary missions.
+with pre-training through contrast auxiliary missions.
 - As the authors specify Fast-SCNN having low capacity, they want to test performance with
 and withoug pre-training, and with the connection with and without additional weakly 
 labeled data.
@@ -80,7 +80,7 @@ on DCNNs with low capacity has not been studied before.
 performance for low capacity DCNN.
 
 #### Zero-out Skip Connection
-- The authors make this test to comfirm whether skip connection benefits Fast-SCNN or not.
+- The authors make this test to confirm whether skip connection benefits Fast-SCNN or not.
 - By zeroing-out skip connection, the mIoU drops from 69.22% to 64.30% on the validation
 dataset, and Figure 3 shows the results between without and with zeroing-out skip
 connection.
