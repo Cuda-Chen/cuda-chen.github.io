@@ -5,7 +5,7 @@ categories: [paper review]
 tags: [semantic segmentation, machine learning, image processing, image segmentation]
 ---
 
-In this post, Fast-SCNN (fast segmentation convolutional neural network) is briefly reviewed.
+In this post, Fast-SCNN (fast segmentation convolutional neural network) [1] is briefly reviewed.
 This architecture aims on real-time semantic segmentation tasks, and it can reach 123.5 frames
 per second on Cityscapes dataset with a high resolution of input image (1024 x 2048 px), while
 with small capacity network size.
@@ -94,3 +94,6 @@ resolutions.
 resolution without modification.
 ![Runtime and accuracy of Fast-SCNN](/assets/images/2019/12/17/Table_7.png)
 <center>Runtime and Accuracy of Fast-SCNN on Different Input Resolution</center>
+
+# Reference 
+[1] https://arxiv.org/abs/1902.04502
