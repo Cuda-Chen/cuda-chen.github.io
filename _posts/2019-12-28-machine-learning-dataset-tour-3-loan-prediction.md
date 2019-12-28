@@ -8,7 +8,7 @@ tags: [machine learning dataset, random forest, loan prediction]
 > TL;DR: you can view my work on my [GitHub](https://github.com/Cuda-Chen/machine-learning-note/blob/master/loan-prediction/loan_predict.ipynb).
 
 In this post, I am going to make a brief introduction of loan prediction
-dataset, and I will share my solution with some explaination.
+dataset, and I will share my solution with some explanation.
 
 ## Brief Introduction of Loan Prediction Dataset
 Provided by Analytics Vidhya, the loan prediction task is to dicide
