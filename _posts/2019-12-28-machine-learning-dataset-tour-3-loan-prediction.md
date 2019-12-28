@@ -14,20 +14,22 @@ dataset, and I will share my solution with some explaination.
 Provided by Analytics Vidhya, the loan prediction task is to dicide
 whether we should approve the loan request according to their status. Each
 record contains the following variables with description:
-> Variable              Description
-> Loan_ID               Unique Loan ID
-> Gender                Male/Female
-> Married               Applicant married (Y/N)
-> Dependents            Number of dependents
-> Education             Applicant Education (Graduate/ Under Graduate)
-> Self_Employed         Self employed (Y/N)
-> ApplicantIncome       Applicant income
-> CoapplicantIncome     Coapplicant income
-> LoanAmount            Loan amount in thousands
-> Loan_Amount_Term      Term of loan in months
-> Credit_History        credit history meets guidelines
-> Property_Area         Urban/ Semi Urban/ Rural
-> Loan_Status           Loan approved (Y/N)
+
+| Variable              | Description                                       |
+|-------------------    |------------------------------------------------   |
+| Loan_ID               | Unique Loan ID                                    |
+| Gender                | Male/Female                                       |
+| Married               | Applicant married (Y/N)                           |
+| Dependents            | Number of dependents                              |
+| Education             | Applicant Education (Graduate/ Under Graduate)    |
+| Self_Employed         | Self employed (Y/N)                               |
+| ApplicantIncome       | Applicant income                                  |
+| CoapplicantIncome     | Coapplicant income                                |
+| LoanAmount            | Loan amount in thousands                          |
+| Loan_Amount_Term      | Term of loan in months                            |
+| Credit_History        | credit history meets guidelines                   |
+| Property_Area         | Urban/ Semi Urban/ Rural                          |
+| Loan_Status           | Loan approved (Y/N)                               | 
 
 For more details, you can visit the official [post](https://datahack.analyticsvidhya.com/contest/practice-problem-loan-prediction-iii/).
 
@@ -49,46 +51,46 @@ For more details, you can visit the official [post](https://datahack.analyticsvi
 ## Step-by-step Explaination
 ### 1. Prepare Data and Make Some Explorations
 Using pandas' `info()` method, I find some features' type is `object`: 
-(1) Loan
-(2) Gender
-(3) Married
-(4) Dependents
-(5) Education
-(6) Self_Employed
-(7) Property_Area
-(8) Loan_Status
+1. Loan
+2. Gender
+3. Married
+4. Dependents
+5. Education
+6. Self_Employed
+7. Property_Area
+8. Loan_Status
 
 Using pandas' `isnull()` method, I find some features contain null value:
-(1) Gender
-(2) Married
-(3) Dependents
-(4) Self_Employed
-(5) LoanAmount
-(6) Loan_Amount_Term
-(7) Credit_History
+1. Gender
+2. Married
+3. Dependents
+4. Self_Employed
+5. LoanAmount
+6. Loan_Amount_Term
+7. Credit_History
 
 I then use `seaborn` to check the distribution of each variable between Loan_Status = 'Y' v.s. 'N':
-![image alt](feature_exploration_0.png)
-![image alt](feature_exploration_1.png)
-![image alt](feature_exploration_2.png)
-![image alt](feature_exploration_3.png)
-![image alt](feature_exploration_4.png)
-![image alt](feature_exploration_5.png)
+![image alt](/assets/images/2019/12/28/feature_exploration_0.png)
+![image alt](/assets/images/2019/12/28/feature_exploration_1.png)
+![image alt](/assets/images/2019/12/28/feature_exploration_2.png)
+![image alt](/assets/images/2019/12/28/feature_exploration_3.png)
+![image alt](/assets/images/2019/12/28/feature_exploration_4.png)
+![image alt](/assets/images/2019/12/28/feature_exploration_5.png)
 
 In summary, I make some outlines:
-(1) Loan_ID is not relevent (it should not be treated as a feature because it just the ID of each record).
-(2) Loan_Status should not be treated as a feature because it is the target.
-(3) The higher Y/N ratio, the more possible to get the loan to be approved.
+1. Loan_ID is not relevent (it should not be treated as a feature because it just the ID of each record).
+2. Loan_Status should not be treated as a feature because it is the target.
+3. The higher Y/N ratio, the more possible to get the loan to be approved.
 
 ### 2. Feature Engineering
 The feature engineering methods I use in this mission includes:
-(1) Fill the missing values with `mode()` <br>
+1. Fill the missing values with `mode()` <br>
 Thanks to the few training data, I fill the missing value with `mode()` method in pandas.
 The `mode()` method will return the value appear the most often [1].
-(2) One-hot encoding to categorical features <br>
+2. One-hot encoding to categorical features <br>
 Mentioned in previous part, some of the features are categorical type, so I use one-hot
 encoding to indicate which class the feature belongs to.
-(3) Label encoding to target value <br>
+3. Label encoding to target value <br>
 I think applyig one-hot encoding is not suitable to represent target value. Therefore, I
 adopt label encoding to represent the class of target value. 
 
@@ -100,8 +102,8 @@ Hmm, pretty plain. Let's try we can improve it by tuning its hyperparameters.
 
 ### 4. Hyperparameter Searching with Random Search
 To find the best hyperparameters of a model, we can use the following two methods:
-(1) random search
-(2) grid search
+1. random search
+2. grid search
 
 Random search tries the combination of hyperparameters randomly, while grid search tries the combination of
 hyperparameters one by one. In general, grid search produces the better result but takes much more time to
