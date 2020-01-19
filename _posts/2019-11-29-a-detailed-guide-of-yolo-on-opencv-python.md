@@ -5,7 +5,7 @@ categories: [programming]
 tags: [OpenCV, machine learning, YOLO, YOLOv3, Python]
 ---
 
-# Introduction
+## Introduction
 When I was undergoing internship in Weeview, it was the first I
 heard OpenCV. With the help of OpenCV, I wrote the code of barrel 
 distortion, camera calibration, and video pip program. (you can 
@@ -39,13 +39,13 @@ especially on CPU. Summing up, I write this article as a record
 of inferencing YOLO using OpenCV `DNN` model and make an experiment
 of inferencing time comparison between pjreddic, AlexeyAB, and OpenCV.
 
-# Goal of This Article
+## Goal of This Article
 In this article, I am going to:
 1. Make an example of fish YOLO object detection on OpenCV (you can 
 copy and paste my code at will on your custom object detection work).
 2. Make an execution time experiment between pjreddid, AlexeyAB, and OpenCV YOLO inference.
 
-# Prepare
+## Prepare
 1. Clone my repo from [here](https://github.com/Cuda-Chen/fish-opencv-yolo-python).
 2. Download the pretrained weights from [my Google Drive](https://drive.google.com/file/d/1L6JgzbFhC7Bb_5w_V-stAkPSgMplvsmq/view?usp=sharing) and put it to `yolo-fish`
 directory.
@@ -61,11 +61,11 @@ $ pip install -r requirements.txt
 You should get a pop-up window if there is no any problem:
 ![image alt](/assets/images/2019/11/29/2019-11-29-00.jpg)
 
-# Explanations
+## Explanations
 Of course, you would like to know how to use OpenCV for YOLO object detection.
 In this section, I will write the keypoints one-by-one.
 
-## read weights
+### read weights
 OpenCV provides a lot of `readNet`-like functions for ease of reading weights trained by other frameworks.
 In version 4.1.1, OpenCV supports the following frameworks' format:
 - Caffe
@@ -77,7 +77,7 @@ In version 4.1.1, OpenCV supports the following frameworks' format:
 
 I am going to use my pre-trained model of Darknet, so choose `readNetFromDarknet()` to read Darknet weights.
 
-## create blob (tensor)
+### create blob (tensor)
 In DNN module of OpenCV, it requires your input transform to a blob, or tensor in other neural network
 framework. To create a blob, I use `blobFromImage()` function to create a 4-dimentional blob shown below:
 ```python=45
@@ -95,7 +95,7 @@ will work improperly on OpenCV. See Trivia part for more description.
 
 After this operation, we get a 4-D blob with `NCHW` format.
 
-## perform a forward pass through YOLO network
+### perform a forward pass through YOLO network
 Before I make a forward pass, I have to determine the output layer names from my YOLO model by these means:
 ```python=37
 ln = net.getLayerNames()
@@ -113,7 +113,7 @@ end = time.time()
 print("[INFO] YOLO took {:.6f} seconds.".format(end - start))
 ```
 
-## non-maxima supression
+### non-maxima supression
 For object detection, we usually use non-maxima supression to choose the bounding box that is the most
 suitable for marking the location of a detected object. While YOLO doesn't do that, we can in turn craft
 a non-maxima supression instead:
@@ -125,11 +125,11 @@ a non-maxima supression instead:
 What you have to do is just submit bounding boxes (`box`), confidences, (`confidences`), confidence 
 threshold, and NMS threshold.
 
-# Inferencing time Comparison
+## Inferencing time Comparison
 In introduction section I have mentioned YOLO object detection runs much faster than darknet written by
 pjreddie and AlexeyAB. Therefore, I would like to make an experiment to show you this fact is true.
 
-## Specification
+### Specification
 The hardware specification is listed below:
 - CPU: Core i5-3230M
 - RAM: 16GB
@@ -172,13 +172,13 @@ I make a comparison time table in the following:
 
 You can find Darknet running on OpenCV runs the fastest.
 
-# Conclusion
+## Conclusion
 In this article, I demonstrate how to do custom data YOLO object detection with OpenCV via
 an example of fish object image. I also show some outlines when using YOLO object detection
 with OpenCV. Finally, I made a inferencing time comparison and show the OpenCV version runs
 the fastest.
 
-# Trivia
+## Trivia
 I found using 416x416 resolution as input will produce more desirable result compared to 608x608
 resulution in OpenCV.
 
@@ -198,7 +198,7 @@ Taking DSC_0061.JPG and 七星斑.jpg as examples:
 You can realize when setting resolution to 416x416 produces more desirable results (the bounding box localizes
 the fish more precisely).
 
-# Special Thanks
+## Special Thanks
 This article would not appear if [pyimagesearch](https://www.pyimagesearch.com/) did not write an awesome
 article about teaching you how to use OpenCV for YOLO object detection. You can find his work on this
 [article](https://www.pyimagesearch.com/2018/11/12/yolo-object-detection-with-opencv/).
