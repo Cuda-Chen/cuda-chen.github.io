@@ -25,7 +25,7 @@ OS: Windows 10 64-bit
 Compiler: Mingw-w64 (Specifically, x86_64-8.1.0-posix-seh-rt_v6-rev0)
 Compiler binaries' path: C:\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin
 OpenCV version: 4.1.1
-OpenCV binaries' path: 
+OpenCV binaries' path: C:\\opencv\\OpenCV-MinGW-Build-OpenCV-4.1.1-x64\\x64\\mingw\\bin
 ```
 The `\\` delimiters are added in purpose.
 
@@ -48,6 +48,8 @@ setting when installing:
 ![image alt](/assets/images/2020/01/21/mingw_installation_settings.png)
 > The reason of choosing these settings will be mentioned in the next part.
 
+> I assume you install all of the compiler stuffs in `C:\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0`
+
 ### 3. Download pre-built OpenCV package
 Download pre-built OpenCV package from [OpenCV-MinGW-Build](https://github.com/huihut/OpenCV-MinGW-Build).
 Because we choose version 4.1.1, there are some specification of this build:
@@ -64,6 +66,8 @@ your account with the binaries of compiler as well as OpenCV package.
 > Properties window and click "Environment Variables" button.
 > At last, edit the `Path` variable of your account (add compiler and
 > OpenCV binaries path).
+
+> I assume you install all of the OpenCV stuffs in `C:\opencv\OpenCV-MinGW-Build-OpenCV-4.1.1-x64`
 
 ### 5. Configure the `.vscode` files of your project.
 First, create a new project called `opencvexample`.
