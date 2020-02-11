@@ -203,5 +203,7 @@ language and platform.
 
 # References
 [1] http://ds.iris.edu/ds/nodes/dmc/data/formats/miniseed/
+
 [2] https://github.com/iris-edu/libmseed/blob/master/ChangeLog#L62
+
 [3] https://stackoverflow.com/questions/17889799/libraries-in-usr-local-lib-not-found
