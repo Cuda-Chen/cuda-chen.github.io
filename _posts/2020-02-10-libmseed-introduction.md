@@ -13,7 +13,7 @@ miniSEED is famous of its simplexity compared to its superset SEED,
 which stands for Standard for the Exchange of Earthquake Data. The
 biggest difference between them is that miniSEED only contains a
 header -- to carry necessary information about the data -- and 
-the values representing the amplitude of the seismic wave. [^1]
+the values representing the amplitude of the seismic wave. [1]
 As usual, numeruous libraries support to read and write miniSEED
 data in ease. For instance, `libmseed` is provided by IRIS team
 to let people to maniplulate miniSEED data and create their own
@@ -25,7 +25,7 @@ familiar with the data maniplulating tool is a good start for
 realizing what seismologists are doing.
 2. Compared to the version before 3, `libmseed` made a great
 number of changes in order to support the newer version standard
-of miniSEED (or miniSEED 3.x). [^2] And writing this post makes 
+of miniSEED (or miniSEED 3.x). [2] And writing this post makes 
 not only some records what I have done for porting this library but also 
 a brief introduction for others to use this work.
 
@@ -44,7 +44,7 @@ following ways to let the runtime linker where the `libmseed` is:
 ```
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/libmseed/shared/lib
 ```
-2. Create a new `*.conf` file in `/etc/ld.so.conf.d/`: [^3]
+2. Create a new `*.conf` file in `/etc/ld.so.conf.d/`: [3]
 For instance:
 ```
 /etc/ld.so.conf.d/99local.conf
@@ -202,6 +202,6 @@ people who want to port version 3 and above of `libmseed` to other programming
 language and platform.
 
 # References
-[^1] http://ds.iris.edu/ds/nodes/dmc/data/formats/miniseed/
-[^2] https://github.com/iris-edu/libmseed/blob/master/ChangeLog#L62
-[^3] https://stackoverflow.com/questions/17889799/libraries-in-usr-local-lib-not-found
+[1] http://ds.iris.edu/ds/nodes/dmc/data/formats/miniseed/
+[2] https://github.com/iris-edu/libmseed/blob/master/ChangeLog#L62
+[3] https://stackoverflow.com/questions/17889799/libraries-in-usr-local-lib-not-found
