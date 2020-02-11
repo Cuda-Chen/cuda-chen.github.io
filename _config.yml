@@ -28,6 +28,9 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 github_username:  Cuda-Chen
 
+# Enter your liker ID to enable LikeButton
+liker_id: clh0524
+
 # Build settings
 theme: minima
 plugins:

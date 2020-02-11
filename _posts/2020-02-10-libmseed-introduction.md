@@ -9,19 +9,19 @@ I am working on a project about seismic wave analysis these days.
 For reading data containing seismic waves, it comes up to several
 format, and the one I get in touch frequently is miniSEED. 
 
-miniSEED is famous of its simplexity compared to its superset SEED,
+miniSEED is famous of its simplicity compared to its superset SEED,
 which stands for Standard for the Exchange of Earthquake Data. The
 biggest difference between them is that miniSEED only contains a
 header -- to carry necessary information about the data -- and 
 the values representing the amplitude of the seismic wave. [1]
-As usual, numeruous libraries support to read and write miniSEED
+As usual, numerous libraries support to read and write miniSEED
 data in ease. For instance, `libmseed` is provided by IRIS team
-to let people to maniplulate miniSEED data and create their own
+to let people to manipulate miniSEED data and create their own
 binding on other programming languages.
 
 ## Why I Write This Post
 1. Seismology is a fresh new area to me, and I think getting
-familiar with the data maniplulating tool is a good start for
+familiar with the data manipulating tool is a good start for
 realizing what seismologists are doing.
 2. Compared to the version before 3, `libmseed` made a great
 number of changes in order to support the newer version standard
@@ -73,7 +73,7 @@ $ gcc -I/usr/local/include -o main main.c -L/usr/local/lib -lmseed
 ```
 
 ## Demo
-In this part, I am going to demostrate how to read the infomation of header
+In this part, I am going to demoinstrate how to read the infomation of header
 and the values of each record. The demo procedures are shown as follows:
 1. Clone the [repo](https://github.com/Cuda-Chen/libmseed-hello-world) written by me.
 2. Compile it.
@@ -161,7 +161,7 @@ $ ./libmseed_hello_world -s test.mseed
 Records: 107, Samples: 12600
 ```
 
-## Explaination of Code
+## Explanation of Code
 Let's deep dive into `libmseed`'s functions!
 
 First, to read one record from a miniSEED file, we can use `ms3_readmsr()`.
@@ -196,7 +196,7 @@ ms3_readmsr (&msr, NULL, NULL, NULL, 0, 0);
 
 ## Conclusion and Thoughts
 In this post, I introduce what is miniSEED and `libmseed`. Also, I demonstrate how
-to easily read the miniSEED file with explainations of necessary functions. I hope
+to easily read the miniSEED file with explanations of necessary functions. I hope
 this post will be a great introduction to those who are working on seismic wave and
 people who want to port version 3 and above of `libmseed` to other programming 
 language and platform.
@@ -207,3 +207,10 @@ language and platform.
 [2] https://github.com/iris-edu/libmseed/blob/master/ChangeLog#L62
 
 [3] https://stackoverflow.com/questions/17889799/libraries-in-usr-local-lib-not-found
+
+{% if site.liker_id %}
+<iframe
+  style="width: 100%; max-width: 485px; height: 240px; margin: auto; overflow: hidden; display: block;"
+  src="https://button.like.co/in/embed/{{site.liker_id}}/button?referrer={{ page.url | absolute_url | cgi_escape }}">
+</iframe>
+{% endif %}
