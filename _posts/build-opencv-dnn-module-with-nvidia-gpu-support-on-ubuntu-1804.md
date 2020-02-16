@@ -98,7 +98,7 @@ First, download the runfile suitable of your system from [here](https://develope
 Then type the following command to run the runfile:
 `sudo sh cuda_<version>_linux.run --override`
 
-After finishing the installation, update your bash profile (`.bashrc`) by insert the following lines
+After finishing the installation, update your bash profile (`~/.bashrc`) by insert the following lines
 at the bottom of the profile:
 ```
 # NVIDIA CUDA Toolkit
@@ -169,6 +169,98 @@ $ cd opencv_contrib
 $ git checkout 4.2.0
 $ cd ../opencv
 ```
+
+### Step #4 Configure Python Virtual Environment (If You're Using Python)
+For developping with Python, it is a good practice to use virtual environment due to using
+different versions of Python libraries in isolation and causing less problem in production
+environment.
+
+In this part, I will use `virtualenv` and `virtualenvwrapper` as the virtual environment.
+
+1. Install `virtualenv` and `virtualenvwrapper` using `pip`.
+```
+$ sudo pip install virtualenv virtualenvwrapper
+```
+
+After installing these two packages, you need to add these lines in `~/.bashrc` in order to
+let bash load virtualenv and virtualenvwrapper each time when termianl is up:
+```
+# virtualenv and virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
+```
+
+Then reload you `~/.bashrc` to let the settings activate immediately:
+```
+$ source ~/.bashrc
+```
+
+2. Create a virtual environment.
+The first step is to create the virtual environment:
+```
+$ mkvirtualenv opencv_cuda -p python3
+```
+This command will create a virtual environment called `opencv_cuda` with Python 3. After the
+creation, your current working virtual environment should be `opencv_cuda`.
+
+**NOTE**: If you ever close your terminal or deactivate the virtual environment, you can re-activate
+it by typing:
+```
+$ workon opencv_cuda
+```
+
+Because OpenCV Python will use `numpy`, we then install `numpy`:
+```
+$ pip install numpy
+```
+
+### Step #5 Determine Your CUDA Architecture Version
+As a experienced CUDA programmer, determining the CUDA architecture version is a required practice
+because it lets the compiler generate more efficient code on your GPU. Furthermore, setting architecture 
+params which does not include the architecture of your Nvidia GPU will let your program not working
+while executing.
+
+We can use `nvidia-smi` to figure out what model of your Nvidia GPU is:
+```
+$ nvidia-smi
+Sat Feb 15 23:44:41 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.33.01    Driver Version: 440.33.01    CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 108...  On   | 00000000:01:00.0 Off |                  N/A |
+|  0%   38C    P8    10W / 250W |    124MiB / 11176MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0      1336      G   /usr/lib/xorg/Xorg                            49MiB |
+|    0      1377      G   /usr/bin/gnome-shell                          71MiB |
++-----------------------------------------------------------------------------+
+```
+
+You can see that I am using an **Nvidia Geforce GTX 1080 GPU**. Please make sure you have *verfied your
+GPU model* by running `nvidia-smi` before you continue the next part.
+
+After you get the model of Nvidia GPU, you can find your CUDA Architecture using this page:
+> https://developer.nvidia.com/cuda-gpus
+>
+
+Scroll down to the Paragraph of "Your GPU Compute Capability". As I'm using GTX 1080, I will click on
+the "CUDA-Enabled GeForce and TITAN Products" sections.
+
+After examining it, I realize my Nvidia GPU architecture version is `6.1`. As a reminder, your GPU
+architecture version may vary.
+
+Once you got the GPU architecture version, *leave a note of it* because we will use it on the next
+section.
+
+### Step #6
 
 ## to be continued ...
 
