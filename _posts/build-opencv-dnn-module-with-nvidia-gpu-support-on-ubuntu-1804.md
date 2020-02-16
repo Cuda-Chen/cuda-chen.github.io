@@ -155,7 +155,8 @@ python3-dev
 Currently there is no python wheels or dpkg packages that built with Nvidia GPU support. So we 
 have to compile OpenCV from source.
 
-I will use `git` to download the source code so that I can change the version I like.
+In this tutorial, I put both `opencv` and `opencv_contrib` repository in `~/opencv` directory.
+I will use `git` to download the source code so that I can change the version I like:
 ```
 $ cd ~
 $ mkdir opencv
@@ -258,9 +259,68 @@ After examining it, I realize my Nvidia GPU architecture version is `6.1`. As a 
 architecture version may vary.
 
 Once you got the GPU architecture version, *leave a note of it* because we will use it on the next
-section.
+step.
 
-### Step #6
+### Step #6 Configure OpenCV with Nvidia GPU Support
+OpenCV uses CMake to configure and generate the build. First of all activate the `opencv_cuda`
+virtual environment:
+```
+$ workon opencv_cuda
+```
+
+Then, change directory to the location you cloned the OpenCV source code (e.g., `~/opencv`, and then 
+create a build directory (we use out-of-source building):
+```
+$ cd ~/opencv
+$ cd opencv
+$ mkdir build && cd build
+```
+
+Next, run the following `cmake` command, and **change the `CUDA_ARCH_BIN` variable you wrote down 
+in step #5**:
+```
+$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
+-D CMAKE_INSTALL_PREFIX=/usr/local \
+-D INSTALL_PYTHON_EXAMPLES=ON \
+-D INSTALL_C_EXAMPLES=OFF \
+-D OPENCV_ENABLE_NONFREE=ON \
+-D WITH_CUDA=ON \
+-D WITH_CUDNN=ON \
+-D OPENCV_DNN_CUDA=ON \
+-D ENABLE_FAST_MATH=1 \
+-D CUDA_FAST_MATH=1 \
+-D CUDA_ARCH_BIN=6.1 \
+-D WITH_CUBLAS=1 \
+-D OPENCV_EXTRA_MODULES_PATH=~/opencv/opencv_contrib-4.2.0/modules/ \
+-D HAVE_opencv_python3=ON \
+-D PYTHON_EXECUTABLE=~/.virtualenvs/opencv_cuda/bin/python \
+-D BUILD_EXAMPLES=ON
+```
+
+For one more point, check the `install path` in `Python 3` section of CMake output. We will use
+`install path` in step #8. **So please leave a not of `install path`**.
+```
+--   Python 3:
+--     Interpreter:                 /home/cudachen/.virtualenvs/opencv_cuda/bin/python3 (ver 3.6.9)
+--     Libraries:                   /usr/lib/x86_64-linux-gnu/libpython3.6m.so (ver 3.6.9)
+--     numpy:                       /home/cudachen/.virtualenvs/opencv_cuda/lib/python3.6/site-packages/numpy/core/include (ver 1.18.1)
+--     install path:                lib/python3.6/site-packages/cv2/python-3.6
+```
+
+### Step #7 Compile OpenCV
+If `cmake` exited with no errors, you then compile OpenCV with the following command:
+```
+$ make -j$(nproc)
+```
+
+### Step #8 Install OpenCV with CUDA DNN Module
+If `make` completed in success, you the type the following commands to install OpenCV:
+```
+$ sudo make install
+$ sudo ldconfig
+```
+
+Then, we are going to create a sym-link the OpenCV library into your Python virtual environment.
 
 ## to be continued ...
 
