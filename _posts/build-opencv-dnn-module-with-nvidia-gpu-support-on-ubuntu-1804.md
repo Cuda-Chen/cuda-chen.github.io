@@ -23,16 +23,16 @@ OpenCV DNN module finally [supports Nvidia GPU](https://summerofcode.withgoogle.
 and [Yashas Samaga](https://github.com/YashasSamaga), and this work was made in public in [version 4.2.0](https://github.com/opencv/opencv/wiki/ChangeLog#version420).
 As a programmer expertised with OpenCV,
 I think I should share this exciting news in the first moment. Besides, I will teach you how to compile and install 
-OpenCV with the utility of Nvidia GPU for deep neural network inference, and I will provide the workable
+OpenCV with the utility of Nvidia GPU for deep neural network inference, and I will provide the minimal workable
 example code both C++ and Python.
 
 ## Compile OpenCV with CUDA and cuDNN-enabled DNN Module
 ### Assumptions
 1. A Nvidia GPU (of course!).
 2. Ubuntu 18.04 (or other equivalent Debian-based distro).
-3. CUDA 10.0 and corresponding version of cuDNN.
+3. CUDA 10.0 and corresponding version of cuDNN (in here I use v7.6.5).
 4. Your system account has `sudo` privilege.
-5. OpenCV 4.2.0.
+5. OpenCV version 4.2.0.
 
 ### Step #1: Install Nvidia CUDA driver, CUDA toolkit, and cuDNN
 ![image alt](/assets/images/2020/02/15/opencv_dnn_gpu_cuda_drivers.png)
@@ -54,7 +54,7 @@ I make some outlines here. For detailed information you can visit
     - `sudo apt-get install linux-headers-$(uname -r)`: install the kernel headers and development packages of
 current running kernel.
 3. Install CUDA driver
-Install CUDA drive by typing the following commands:
+Install CUDA driver by typing the following commands:
 ```
 $ sudo add-apt-repository ppa:graphics-drivers/ppa
 $ sudo apt-get update
@@ -135,7 +135,7 @@ $ sudo cp -P include/* /usr/local/cuda/include/
 $ cd ~
 ```
 
-If you do not encounter any problem, Congrats! You have finish the hardest part!
+If you are here and do not encounter any problem, Congrats! You have finish the hardest part!
 
 ### Step #2 Install OpenCV Dependencies
 OpenCV has a huge of dependencies, and I write in here so that you just copy and past the following command:
@@ -171,7 +171,8 @@ $ git checkout 4.2.0
 $ cd ../opencv
 ```
 
-### Step #4 Configure Python Virtual Environment (If You're Using Python)
+### Step #4 Configure Python Virtual Environment 
+
 For developping with Python, it is a good practice to use virtual environment due to using
 different versions of Python libraries in isolation and causing less problem in production
 environment.
@@ -320,7 +321,40 @@ $ sudo make install
 $ sudo ldconfig
 ```
 
-Then, we are going to create a sym-link the OpenCV library into your Python virtual environment.
+Then, we are going to create a sym-link the OpenCV Python bindings into your Python virtual environment. 
+Mentioned in Step #6, we know that the `install path` is `/usr/local/lib/python3.6/site-packages/cv2/python-3.6`.
+
+To confirm, you can use the `ls` command:
+```
+$ ls -l /usr/local/lib/python3.6/site-packages/cv2/python-3.6
+...
+```
+
+You can see the name of my OpenCV Python bindings is `cv2.cpython-36m-x86_64-linux-gnu.so`
+(you may have the similar name of your own built bindings).
+
+Next, create a sym-link to your virtual environment:
+```
+$ ln -s /usr/local/lib/python3.6/site-packages/cv2/python-3.6 ~/.virtualenvs/opencv_cuda/lib/python3.6/site-packages/cv2.so
+```
+
+Remember to take a secound to check your file paths because `ln` will *slient fail* if the path
+of OpenCV bingings are not correct.
+
+## Verify the Installation
+### C++
+We can verify the installation is successful with two means:
+1. The program compiles with OpenCV in no problem. 
+2. The program executes with no errors.
+
+...
+
+### Python
+We can verify the installation is successful with two means:
+1. We can import OpenCV in Python script.
+2. We are able to use Nvidia GPU via the DNN module.
+
+...
 
 ## to be continued ...
 
