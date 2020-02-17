@@ -14,7 +14,7 @@ With the help of this module, we can use OpenCV to:
 4. Least dependency (only OpenCV !).
 
 Although we *cannot* train a deep learning models with OpenCV (this does not make sense, though),
-we can take the models trained by other deep learning tools and perform inference using OpenCV
+we can take the models trained by other deep learning frameworks and perform inference using OpenCV
 with incredible speed on CPU.
 
 However, the DNN module does not support Nvidia GPU until now. In Google Summer of Code (GSoC) 2019,
@@ -24,7 +24,7 @@ and [Yashas Samaga](https://github.com/YashasSamaga), and this work was made in 
 As a programmer expertised with OpenCV,
 I think I should share this exciting news in the first moment. Besides, I will teach you how to compile and install 
 OpenCV with the utility of Nvidia GPU for deep neural network inference, and I will provide the minimal workable
-example code both C++ and Python.
+example code in both C++ and Python.
 
 ## Compile OpenCV with CUDA and cuDNN-enabled DNN Module
 ### Assumptions
