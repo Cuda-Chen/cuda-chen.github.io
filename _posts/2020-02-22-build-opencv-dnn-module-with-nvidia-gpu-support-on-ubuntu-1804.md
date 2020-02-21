@@ -26,8 +26,9 @@ I think I should share this exciting news in the first moment. Besides, I will t
 OpenCV with the utility of Nvidia GPU for deep neural network inference, and I will provide the minimal workable
 example code in both C++ and Python.
 
-## Compile OpenCV with CUDA and cuDNN-enabled DNN Module
+## Menu wiht Compiling OpenCV with CUDA and cuDNN-enabled DNN Module
 ### Assumptions
+I assume you are using the following settings:
 1. A Nvidia GPU (of course!).
 2. Ubuntu 18.04 (or other equivalent Debian-based distro).
 3. CUDA 10.0 and corresponding version of cuDNN (in here I use v7.6.5).
@@ -103,7 +104,7 @@ at the bottom of the profile:
 ```
 # NVIDIA CUDA Toolkit
 export PATH=/usr/local/cuda-10.0/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64
+export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:$LD_LIBRARY_PATH
 ```
 
 Then source the profile:
@@ -185,7 +186,7 @@ $ sudo pip install virtualenv virtualenvwrapper
 ```
 
 After installing these two packages, you need to add these lines in `~/.bashrc` in order to
-let bash load virtualenv and virtualenvwrapper each time when termianl is up:
+let bash load virtualenv and virtualenvwrapper each time when terminal is up:
 ```
 # virtualenv and virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
@@ -246,8 +247,8 @@ Sat Feb 15 23:44:41 2020
 +-----------------------------------------------------------------------------+
 ```
 
-You can see that I am using an **Nvidia Geforce GTX 1080 GPU**. Please make sure you have *verfied your
-GPU model* by running `nvidia-smi` before you continue the next part.
+You can see that I am using an **Nvidia Geforce GTX 1080 GPU** written in the Name section. 
+Please make sure you have *verfied your GPU model* by running `nvidia-smi` before you continue the next part.
 
 After you get the model of Nvidia GPU, you can find your CUDA Architecture using this page:
 > https://developer.nvidia.com/cuda-gpus
@@ -347,16 +348,58 @@ We can verify the installation is successful with two means:
 1. The program compiles with OpenCV in no problem. 
 2. The program executes with no errors.
 
-...
+#### Steps to Verify, C++ Part
+1. Download the [repo](https://github.com/Cuda-Chen/opencv-dnn-cuda-test) and the weights mentioned in README.
+2. Go to `cpp_code` directory and type this command: 
+`g++ -o opencv_dnn_cuda_test_cpp main.cpp -I/usr/local/include/opencv4 -lopencv_core -lopencv_dnn -lopencv_highgui -lopencv_imgcodecs`
+3. Run the executable by using this command: `opencv_dnn_cuda_test_cpp`
+4. If terminal outputs similar message, you're done!
+```
+$ ./opencv_dnn_cuda_test_cpp 
+Time per inference: 14 ms
+FPS: 71.4286
+```
+
 
 ### Python
 We can verify the installation is successful with two means:
 1. We can import OpenCV in Python script.
 2. We are able to use Nvidia GPU via the DNN module.
 
+#### Steps to Verify, Python Part
+1. Download the [repo](https://github.com/Cuda-Chen/opencv-dnn-cuda-test) and the weights mentioned in README.
+2. Activate the virtual environment (that is, `opencv_cuda`).
+3. Go to `python_code` directory and type the command: `python main.py`
+4. If terminal outputs similar message, you're done!
+```
+$ python main.py 
+Time per inference: 14.480803 ms
+FPS:  69.05694381124881
+```
+
+## Recap
+In this post, I teach you how to install OpenCV with CUDA-enabled DNN modules from scratch on Ubuntu 18.04. Also, I provided
+a minimal sample code both in C++ and Python so that you can adapt them in the later projects for your convenience.
+
+To use CUDA as the backend of OpenCV DNN module, you can simply add these two lines after you load the pre-trained model:
+```
+// C++
+net.setPreferableBackend(cv::dnn::DNN_BACKEND_CUDA);
+net.setPreferableTarget(cv::dnn::DNN_TARGET_CUDA);
+
 ...
 
-## to be continued ...
+# Python
+net.setPreferableBackend(cv.dnn.DNN_BACKEND_CUDA)
+net.setPreferableTarget(cv.dnn.DNN_TARGET_CUDA)
+```
+
+## Special Thanks
+I would like to give a big gratitude to [this post](https://www.pyimagesearch.com/2020/02/03/how-to-use-opencvs-dnn-module-with-nvidia-gpus-cuda-and-cudnn/) on pyimagesearch.com. Without this post, I would not complete this post in simplicity.
+
+I would also like to give specia thanks to [YashasSamaga](https://github.com/YashasSamaga), the main contributor of OpenCV DNN module with CUDA.
+He also teaches a lot in the issues on OpenCV GitHub repo which helps plenty of people to solve the problems of compilation with OpenCV
+CUDA-enabled DNN modules.
 
 {% if site.liker_id %}
 <iframe
