@@ -26,7 +26,7 @@ I think I should share this exciting news in the first moment. Besides, I will t
 OpenCV with the utility of Nvidia GPU for deep neural network inference, and I will provide the minimal workable
 example code in both C++ and Python.
 
-## Menu wiht Compiling OpenCV with CUDA and cuDNN-enabled DNN Module
+## Menu with Compiling OpenCV with CUDA and cuDNN-enabled DNN Module
 ### Assumptions
 I assume you are using the following settings:
 1. A Nvidia GPU (of course!).
@@ -300,7 +300,7 @@ $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 ```
 
 For one more point, check the `install path` in `Python 3` section of CMake output. We will use
-`install path` in step #8. **So please leave a not of `install path`**.
+`install path` in step #8. **So please leave a note of `install path`**.
 ```
 --   Python 3:
 --     Interpreter:                 /home/cudachen/.virtualenvs/opencv_cuda/bin/python3 (ver 3.6.9)
@@ -339,8 +339,8 @@ Next, create a sym-link to your virtual environment:
 $ ln -s /usr/local/lib/python3.6/site-packages/cv2/python-3.6 ~/.virtualenvs/opencv_cuda/lib/python3.6/site-packages/cv2.so
 ```
 
-Remember to take a secound to check your file paths because `ln` will *slient fail* if the path
-of OpenCV bingings are not correct.
+Remember to take a second to check your file paths because `ln` will *slient fail* if the path
+of OpenCV bindings are not correct.
 
 ## Verify the Installation
 ### C++
