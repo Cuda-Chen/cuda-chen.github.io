@@ -207,10 +207,3 @@ language and platform.
 [2] https://github.com/iris-edu/libmseed/blob/master/ChangeLog#L62
 
 [3] https://stackoverflow.com/questions/17889799/libraries-in-usr-local-lib-not-found
-
-{% if site.liker_id %}
-<iframe
-  style="width: 100%; max-width: 485px; height: 240px; margin: auto; overflow: hidden; display: block;"
-  src="https://button.like.co/in/embed/{{site.liker_id}}/button?referrer={{ page.url | absolute_url | cgi_escape }}">
-</iframe>
-{% endif %}

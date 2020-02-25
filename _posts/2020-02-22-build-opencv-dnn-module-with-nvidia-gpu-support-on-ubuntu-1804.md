@@ -400,10 +400,3 @@ I would like to give a big gratitude to [this post](https://www.pyimagesearch.co
 I would also like to give specia thanks to [YashasSamaga](https://github.com/YashasSamaga), the main contributor of OpenCV DNN module with CUDA.
 He also teaches a lot in the issues on OpenCV GitHub repo which helps plenty of people to solve the problems of compilation with OpenCV
 CUDA-enabled DNN modules.
-
-{% if site.liker_id %}
-<iframe
-  style="width: 100%; max-width: 485px; height: 240px; margin: auto; overflow: hidden; display: block;"
-  src="https://button.like.co/in/embed/{{site.liker_id}}/button?referrer={{ page.url | absolute_url | cgi_escape }}">
-</iframe>
-{% endif %}
