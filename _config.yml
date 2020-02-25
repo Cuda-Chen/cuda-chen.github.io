@@ -42,6 +42,9 @@ disqus:
     # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
     shortname: cuda-chen
 
+# Google Analytics
+google_analytics: UA-159035500-1
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
