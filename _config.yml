@@ -42,6 +42,8 @@ disqus:
     # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
     shortname: cuda-chen
 
+url: https://cuda-chen.github.io
+
 # Google Analytics
 google_analytics: UA-159035500-1
 
