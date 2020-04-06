@@ -175,6 +175,12 @@ Then put a image called `lenna.jpg` from [here](https://github.com/Cuda-Chen/ope
 After that, compile the project and run it, you should get a window with Lenna
 image if there is no problem.
 
+2020.04.06 added:
+
+For building and running the project, you can press `Ctrl+Shift+B` to build
+and type the executable name to run in terminal. For more information, you
+can check [this official guide](https://code.visualstudio.com/docs/cpp/config-mingw#_build-helloworldcpp).
+
 ## Conclusion
 In this posrt, I teach how to set up VS Code with OpenCV C++ package from
 scratch. Though the debug part cannot work, I successfully compile
