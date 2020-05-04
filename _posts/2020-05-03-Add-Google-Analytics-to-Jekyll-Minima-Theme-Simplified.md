@@ -7,7 +7,7 @@ tags: [Jekyll, Minima(Jekyll)]
 
 So you want to get some statistics about your blog, but you don't want to
 install any plugins because you are too lazy and afraid of security issues.
-What's more, you are using static site generator, which means many of itmes
+What's more, you are using static site generator, which means many of items
 are just files.
 
 As a matter of fact, Google Analytics lets you get the statistics of your site by
