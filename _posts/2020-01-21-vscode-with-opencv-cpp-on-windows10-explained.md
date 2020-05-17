@@ -198,5 +198,9 @@ Currently, whenever I start to run debug mode, I always receive this message box
 
 It would be glad if someone can leave a comment of e-mail me to solve this error :)
 
+> May. 17, 2020 update: thanks [Tinashe Tanyaradzwa Mabika](https://medium.com/@cookyt28/great-article-this-can-be-helpful-solve-your-error-dd77311f1b0b)
+> pointed that there is a typo in launch.json file, and I have fixed the problem!.
+
+
 ## Reference
 [1] https://code.visualstudio.com/docs/languages/cpp
