@@ -75,6 +75,10 @@ Then copy and paste the `task.json`, `launch.json`, and `c_cpp_properties.json`
 I created from this [repo](https://github.com/Cuda-Chen/opencv-config-with-vscode).
 > Note: currently I cannot launch debug mode in VS Code. Need someone
 > to help me.
+> 
+> May. 17, 2020 update: thanks [Tinashe Tanyaradzwa Mabika](https://medium.com/@cookyt28/great-article-this-can-be-helpful-solve-your-error-dd77311f1b0b)
+> pointed that there is a typo in launch.json file, and I have fixed the problem!.
+
 
 I also make some brief explanations of each json file and some changes I've applied.
 
@@ -122,10 +126,13 @@ The `launch.json` file will launch the GDB debugger when you start to debug the
 program, and I change some lines shown below:
 ```
 ...
+"program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+...
 "miDebuggerPath": "C:\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gdb.exe",
 ...
 ```
 
+- The `program` is the executable of this program.
 - The `miDebuggerPath` find the executable of debugger, and I alter to the GDB debugger I
 would like to use.
 
