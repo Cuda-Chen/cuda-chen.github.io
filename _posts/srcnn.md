@@ -16,5 +16,21 @@ I want to implement SRCNN from scratch, and this post is talking
 about the note when working on this project.
 
 ## What is Super Resolution?
+Super resolution is an image processing technique that to construct an image with
+a higher resolution. So far, we use a lot of features to represent the properties
+of image for such application, and there is no exception of neural network. With
+the help of neural network, we create a tempting result ever.
 
 ## So What is SRCNN? 
+Convolutional Neural Network (CNN) is widely adopted on visual mission. As for 
+super resolution, SRCNN is the first one using CNN to complete such task. Proposed
+by Chao Dong *et al* in 2014 [1], SRCNN outperforms plenty of methods including
+sparsed-coding.
+
+What's more, the composition of SRCNN is quitely easy: 3 convolution and 2 activation
+layer. I was pretty amazed that such structure can beat traditional methods, though
+come up with a price that you have to resize the image to output size before pass
+the image to CNN.
+
+## Reference
+[1] http://mmlab.ie.cuhk.edu.hk/projects/SRCNN.html
