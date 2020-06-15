@@ -32,5 +32,18 @@ layer. I was pretty amazed that such structure can beat traditional methods, tho
 come up with a price that you have to resize the image to output size before pass
 the image to CNN.
 
+## Overall Structure
+The following image shows the structure of SRCNN and is taken from [1].
+![SRCNN structure](/assets/images/2020/05/15/SRCNN_structure.png)
+
+## Implementation Details
+### Convolution Layer
+
+### Activation Layer
+Compared to Convolution Layer, this layer is rather simple; you just pass the value
+of each neuron to activation function and get the result.
+
+I choose ReLU as this kind of activation function is used in SRCNN.
+
 ## Reference
 [1] http://mmlab.ie.cuhk.edu.hk/projects/SRCNN.html
