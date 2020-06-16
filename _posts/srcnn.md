@@ -38,6 +38,9 @@ The following image shows the structure of SRCNN and is taken from [1].
 
 ## Implementation Details
 ### Convolution Layer
+#### Naive Method
+It is simple to implement naive convolution. What you need is to ~.
+
 
 ### Activation Layer
 Compared to Convolution Layer, this layer is rather simple; you just pass the value
