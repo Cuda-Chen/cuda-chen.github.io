@@ -34,12 +34,36 @@ the image to CNN.
 
 ## Overall Structure
 The following image shows the structure of SRCNN and is taken from [1].
-![SRCNN structure](/assets/images/2020/05/15/SRCNN_structure.png)
+![SRCNN structure](/assets/images/2020/06/15/SRCNN_structure.png)
 
 ## Implementation Details
 ### Convolution Layer
 #### Naive Method
-It is simple to implement naive convolution. What you need is to ~.
+It is simple to implement naive convolution: the value of each output neuron is the
+summation of input neuron times kernel parameters.
+The following pseudo-code will be helpful for you to realize this calculation:
+```
+for(k = 0; k < # of output channels; k += stride)
+    for(n = 0; n < # of input channels; n += stride)
+        for(i = 0; i < # of input height; i += stride)
+            for(j = 0; j < # of input width; j += stride)
+                sum = 0;
+                for(l = 0; l < # of kernel height; l++)
+                    for(m = 0; m < # of kernel width; m++)
+                        sum += input[n][i][j] * kernel[k][n][l][m];
+                output[k][i][j] += sum;
+```
+
+#### `im2col` Method
+We see that we need 6 for-loop to do naive convolution in the previous section.
+What's more, if the stride is sufficient large, we have to collect the values that
+far together, hence lost the locality usage of cache.
+
+To reduce this issue, we can use `im2col` techinique to transform convolution calculation
+into matrix muptiplication problem.
+
+The following image show the concept of `im2col` and is taken from [2]:
+![im2col concept](/assets/images/2020/06/15/Convolution_With_Im2col.png)
 
 
 ### Activation Layer
@@ -50,3 +74,4 @@ I choose ReLU as this kind of activation function is used in SRCNN.
 
 ## Reference
 [1] http://mmlab.ie.cuhk.edu.hk/projects/SRCNN.html
+[2] https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/making_faster.html
