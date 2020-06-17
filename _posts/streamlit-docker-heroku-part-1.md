@@ -14,6 +14,9 @@ of your project. What's worse, some people think that you are not prepared
 because you cannot use Docker and PaaS deployment (many of the machine
 learning jobs in Taiwan need frontend or backend as well).
 
+Therefore, I write this series to not only create a web-based app, but also
+show basic Docker usage and deploy my app onto Heroku with Docker.
+
 ## Goal
 This series will guide you to:
 1. Use a framework to let your machine learning project run in web.
@@ -21,10 +24,12 @@ This series will guide you to:
 with DevOps workflow.
 3. Use a PaaS deployment to show off you can deploy your project.
 
-For this part, I will show how to run your streamlit app with OpenCV utility.
+For this part, I will show how to create an app with streamlit.
+
+## Why Choosing Streamlit?
+The reason I choose streamlit rather than flask and django is for its fast
+prototyping and ease to setup and deploy. Most of all, you don't need to learn 
+some knowledge such as routing and MVC structure so that you are able to build an app.
 
 ## Project Setup
 In this series, I use my [fish-yolo-grabcut](https://github.com/Cuda-Chen/fish-yolo-grabcut) as a basis of streamlit app.
-
-## Create a Streamlit App
-
