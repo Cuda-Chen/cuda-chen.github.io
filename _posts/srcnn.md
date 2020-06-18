@@ -36,12 +36,15 @@ the image to CNN.
 The following image shows the structure of SRCNN and is taken from [1].
 ![SRCNN structure](/assets/images/2020/06/15/SRCNN_structure.png)
 
+Suggested by the picture, what we have to do is to implement convolution and activation
+layer.
+
 ## Implementation Details
 ### Convolution Layer
 #### Naive Method
 It is simple to implement naive convolution: the value of each output neuron is the
 summation of input neuron times kernel parameters.
-The following pseudo-code will be helpful for you to realize this calculation:
+The following pseudo-code helps you to realize this calculation:
 ```
 for(k = 0; k < # of output channels; k += stride)
     for(n = 0; n < # of input channels; n += stride)
@@ -57,10 +60,14 @@ for(k = 0; k < # of output channels; k += stride)
 #### `im2col` Method
 We see that we need 6 for-loop to do naive convolution in the previous section.
 What's more, if the stride is sufficient large, we have to collect the values that
-far together, hence lost the locality usage of cache.
+are far together, hence lost the locality usage of cache.
 
-To reduce this issue, we can use `im2col` techinique to transform convolution calculation
-into matrix muptiplication problem.
+Suggested by [the author of Caffe](https://github.com/Yangqing/caffe/wiki/Convolution-in-Caffe:-a-memo), 
+we can use `im2col` techinique to transform convolution calculation
+into matrix multiplication problem. In this case, we utilize the locality
+of computer architecture when performing multiplication. Besides, we
+can further use a highly-optimized BLAS (Basic Linear Algebra Subprograms) library 
+to boost our convolution calculation.
 
 The following image show the concept of `im2col` and is taken from [2]:
 ![im2col concept](/assets/images/2020/06/15/Convolution_With_Im2col.png)
