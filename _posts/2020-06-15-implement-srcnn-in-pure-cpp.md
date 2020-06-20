@@ -27,7 +27,7 @@ super resolution, SRCNN is the first one using CNN to complete such task. Propos
 by Chao Dong *et al* in 2014 [1], SRCNN outperforms plenty of methods including
 sparsed-coding.
 
-What's more, the composition of SRCNN is quitely easy: 3 convolution and 2 activation
+What's more, the composition of SRCNN is quite easy: 3 convolution and 2 activation
 layer. I was pretty amazed that such structure can beat traditional methods, though
 it comes up with two flaws:
 1. You have to resize the image to output size before pass
@@ -121,7 +121,8 @@ The results of my SRCNN implementation are shown in this table:
 Of course, we need some comparison to realize my implementation is right or not!
 
 
-So here are the results of a format member of my lab my freshman year of master:
+So here are the results of a format member of my lab and the implementation 
+in my freshman year of master:
 
 | former member | my freshman year |
 |---------------|------------------|
@@ -147,14 +148,14 @@ And here are the benchmarks of each SRCNN implementation method comparison:
 - im2col: (323.543 + 339.007 + 316.313) / 3 = 326.2877 s
 
 As you can see, though im2col method can gain a boost with sacrificing 
-the memory, it is mucn slower than naive method. I guess is that preparing 
+the memory, it is much slower than naive method. I guess is that preparing 
 column matrix takes a lot of time.
 
 ### Making Faster
 Convolution is a kind of embrassing parallel problem; that is, it applies an operation on a lot of data.
 So we can use some parallel computing techniques to speed up the execution.
 
-On CPU parallel scenario, we can choose OpenMP as a parallel computing target for its simplecity.
+On CPU parallel scenario, we can choose OpenMP as a parallel computing target for its simplicity.
 
 Here are the benchmarks after applying OpenMP of each SRCNN implementation comparison:
 - naive: (37.6111 + 39.9825 + 38.3595) / 3 = 38.6510 s
