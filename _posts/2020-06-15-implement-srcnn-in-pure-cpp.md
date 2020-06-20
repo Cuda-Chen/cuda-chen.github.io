@@ -42,9 +42,7 @@ Suggested by the picture, what we have to do is to implement convolution and act
 layer.
 
 ## Implementation Details
-This part I am going to show some details about my implementation. Check out
-[here](https://github.com/Cuda-Chen/SRCNN-cpp) 
-to see my implementation in detail.
+This part I am going to show some details about my implementation. 
 ### Convolution Layer
 #### Naive Method
 It is simple to implement naive convolution: the value of each output neuron is the
