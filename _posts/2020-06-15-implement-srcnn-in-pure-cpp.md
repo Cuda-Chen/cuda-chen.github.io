@@ -101,27 +101,37 @@ for i = 1 : channel
     end
 ```
 For more information about weight format layout, you can visit [this post](https://oneapi-src.github.io/oneDNN/understanding_memory_formats.html) 
-on Intel-MKLDNN.
+of Intel-MKLDNN.
 
 In my implementation, I apply NCHW format because most of the neural network framework
 adopt this type of format.
 
-## Result
-> Just the old saying goes, show me the result!
+## Code
+> Just the old saying goes, show me the code!
 
+Yup, the code is [here](https://github.com/Cuda-Chen/SRCNN-cpp), and you can take a look
+in `src/srcnn.cpp`. Yet I write it as a monster class (there are 1000+ lines in `src/srcnn.cpp`). 
+Therefore, I think I should create seperate files to store each component in the future.
+
+## Result
 The results of my SRCNN implementation are shown in this table:
+
 | naive | im2col |
 |-------|--------|
 ![](/assets/images/2020/06/15/srcnn_result_naive.bmp) | ![](/assets/images/2020/06/15/srcnn_result_im2col.bmp)
 
 Of course, we need some comparison to realize my implementation is right or not!
 
+
 So here are the results of a format member of my lab my freshman year of master:
+
 | former member | my freshman year |
 |---------------|------------------|
 ![](/assets/images/2020/06/15/srcnn_result_former.bmp) | ![](/assets/images/2020/06/15/srcnn_result_freshman.bmp)
 
-Hmm, seems the quality of my three implementations is not as good as the former
+You can see both implementation yields correct result compared to that implemented in
+my freshman year of master (both output size and image quality).
+Nevertheless, it seems the quality of my three implementations is not as good as the former
 member one.
 
 ## Benckmark
@@ -156,12 +166,18 @@ Well, both of techniques runs much faster, but im2col still runs much slower tha
 naive one.
 
 ## Conclusion
-In this post, I make an introduction of super resolution and SRCNN. Then I demonstrate
+In this post, I make a brief introduction of super resolution and SRCNN. Then I demonstrate
 the structure of SRCNN, and talk about the implementation details of these layers.
-At last, I make a result and execution time comparisons ~.
+At last, I make a result and execution time comparisons between two types of implementation
+and give an assumption why the preferable implementation in most framework runs much slower
+than a naive one.
 
 ## Special Thanks
+I would like to give this special thanks to [masc4ii](https://github.com/masc4ii)
+for add OpenMP and QMake building option features. Without your help, this project will be 
+far from completion.
 
 ## Reference
 [1] http://mmlab.ie.cuhk.edu.hk/projects/SRCNN.html
+
 [2] https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/making_faster.html
