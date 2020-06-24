@@ -98,6 +98,6 @@ can use `cv.imdecode()` instead to convert the file to an OpenCV image.
 Just type `streamlit run app.py`, then streamlit will set up the server and open the browser
 automatically.
 
-## Wrap Up
+## Wraping Up
 In this part, I make an introduction of stream, and show an example app with my existing project.
 I also tell you what will my app look like and give a solution when using streamlit with OpenCV. 
