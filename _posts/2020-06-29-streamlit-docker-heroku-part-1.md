@@ -5,7 +5,9 @@ category: [DevOps]
 tags: [DevOps, Machine Learning, Streamlit]
 ---
 
-> Part2 Part3
+> TL;DR
+> You can get the example project [here](https://github.com/Cuda-Chen/fish-yolo-grabcut). 
+> 
 
 ## Motivation
 As time passes, you have done a lot of machine learning projects, but 
@@ -17,13 +19,14 @@ learning jobs in Taiwan need frontend or backend skills).
 Therefore, I write this series to not only create a web-based app, but also
 show basic Docker usage and deploy my app onto Heroku with Docker.
 
-## Goal of This Part
+## Goal of This Series
 This series will guide you to:
 1. Use a framework to let your machine learning project run in web.
 2. Use a Docker to ease the difficulty of environment setting and integrate
 with DevOps workflow.
 3. Use a PaaS deployment to show off that you can deploy your project.
 
+## Goal of This Part
 For this part, I will show how to create an app with streamlit. Besides, I 
 will show how to combine your OpenCV project with streamlit with no problem.
 
@@ -83,13 +86,13 @@ the user would like to upload an image.
 3. `st.write()` shows the text you want in browser.
 4. `st.image()` shonw the image in browser.
 
-### How Streamlit Work with OpenCV
+### How Streamlit Works with OpenCV
 `st.file_uploader()` will [return an BytesIO object](https://docs.streamlit.io/en/stable/api.html?highlight=file_uploader#streamlit.file_uploader).
 However, `cv.imread()` only accepts string to read an image.
 
 
 As shown in [this issue](https://github.com/streamlit/streamlit/issues/888#issuecomment-568578281), you
-can use `cv.imdecode()` instead to convert the file to an OpenCV image.
+can use `cv.imdecode()` instead to convert the file to an OpenCV image, or numpy array.
 
 > Of course, don't forget to use BGR color format when showing your image using `st.image()`!
 >

@@ -5,7 +5,9 @@ category: [DevOps]
 tags: [DevOps, Machine Learning, Streamlit, Docker]
 ---
 
-> Part1 Part3
+> TL;DR
+> You can get the example project [here](https://github.com/Cuda-Chen/fish-yolo-grabcut). 
+> 
 
 ## Motivation
 So you finally finish your machine learning project with streamlit for 
@@ -23,7 +25,7 @@ Image, and show some simple usage about Docker.
 ## Dive in with An Example
 Long story short, let me show the Dockerfile of my streamlit + OpenCV machine
 learning project:
-```
+```Dockerfile=
 FROM ubuntu:18.04
 MAINTAINER Cuda Chen <clh960524@gmail.com>
 
@@ -85,7 +87,7 @@ For more information, visit [official Dockerfile reference](https://docs.docker.
 
 ### Some reminders about This Dockerfile
 1. The purpose of line 13~16 is to let streamlit runs normally in Docker. Otherwise,
-streamlit will fail launching.
+streamlit will fail to launch.
 2. The purpose of line 24 is to let OpenCV runs normally in Docker. I encountered an
 issue that if you do not install `libSM.so.6` then import OpenCV when buiding Docker Image, your 
 container will sliently crash with this message: `segmentation faule (core dumped)` when
@@ -106,5 +108,5 @@ $ docker kill <weird id of fish-yolo-grabcut.app>
 ```
 
 ## Warping Up
-In this part, I show the Docker configuration of this project, and tell you the problems
-when I was building and executing this container.
+In this part, I show the Docker configuration of this project, and tell you two problems
+when I was building and executing my built container.
