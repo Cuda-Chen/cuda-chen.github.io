@@ -10,7 +10,7 @@ tags: [DevOps, Machine Learning, Streamlit, Docker, Heroku, Deployment]
 > 
 
 ## Motivation
-After you create a dockerized environment in [part2](/_posts/...), 
+After you create a dockerized environment, 
 you think you should deploy your app on cloud so that you can show off your
 machine learning project, web development and DevOps skills. In addition,
 others can access your project with just one click on URL you provide
