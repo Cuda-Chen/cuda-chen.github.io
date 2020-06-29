@@ -25,7 +25,7 @@ Image, and show some simple usage about Docker.
 ## Dive in with An Example
 Long story short, let me show the Dockerfile of my streamlit + OpenCV machine
 learning project:
-```Dockerfile=
+{% highlight docker linenos %}
 FROM ubuntu:18.04
 MAINTAINER Cuda Chen <clh960524@gmail.com>
 
@@ -71,7 +71,7 @@ RUN gdown --output ./yolo-fish/fish.weights --id 1L6JgzbFhC7Bb_5w_V-stAkPSgMplvs
 
 # launch streamlit app
 CMD streamlit run app.py 
-```
+{% endhighlight %}
 
 ### Some Dockerfile Commands Usage Simplified
 1. `FROM`: Get a base image. Just like you need an OS as a basis of your application.

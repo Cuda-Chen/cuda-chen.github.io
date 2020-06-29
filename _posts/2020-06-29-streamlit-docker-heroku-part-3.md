@@ -46,7 +46,7 @@ In my case, I need three files because I like modulization:
 
 ### Dockerfile
 Just like part 2 with some changes for Heroku deployment:
-```Dockerfile
+{% highlight docker linenos %}
 FROM ubuntu:18.04
 MAINTAINER Cuda Chen <clh960524@gmail.com>
 
@@ -95,7 +95,7 @@ RUN gdown --output ./yolo-fish/fish.weights --id 1L6JgzbFhC7Bb_5w_V-stAkPSgMplvs
 
 # launch streamlit app
 ENTRYPOINT "./heroku_startup.sh"
-``` 
+{% endhighlight %}
 
 You can see the changes on line 42 and 48. The reasons are that:
 1. Change the permission of `heroku_startup.sh` or you will receive `permission denied`

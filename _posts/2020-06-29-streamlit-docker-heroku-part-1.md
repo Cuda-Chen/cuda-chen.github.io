@@ -39,7 +39,7 @@ some knowledge such as routing and MVC structure so that you are able to build a
 In this series, I use my [fish-yolo-grabcut](https://github.com/Cuda-Chen/fish-yolo-grabcut) as a basis of streamlit app.
 
 The content of this streamlit app, named `app.py`, is shown below:
-```python=
+```python
 #!/usr/bin/python
 
 import cv2 as cv
