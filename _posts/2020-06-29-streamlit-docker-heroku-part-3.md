@@ -136,6 +136,9 @@ This step is rather easy, what you need is to [deploy with Git](https://devcente
 Then Heroku will use `Heroku.yml` rather `Procfile` to deploy your app
 with Docker.
 
+## Demo
+![gif alert](/assets/images/2020/06/15/fish-yolo-grabcut-heroku.gif)
+
 ## Recap
 This part shows how to deploy your machine learning app onto Heroku and
 mention some special setting on Heroku.
