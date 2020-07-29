@@ -29,6 +29,14 @@ as color, texture, and intensity, etc.
 <center>A clear representation of image segmentation. Image source: jeremyjordan.me</center>
 
 ## What's Superpixel?
+We use the properties of a pixel to classify which object it should belongs
+to. However, let me give you a question: is it proper to determine a
+range of an object in such small scale? Seems not. In 2003, Xiaofeng Ren and Jitendra Malik
+discussed about this problem and proposed superpixel. [1] The intuition
+of superpixel is pretty simple: rather than determine each pixel, we can 
+group pixels with akin properties into a larger one -- called superpixel -- 
+for further analyze. In this way, we not only get more meaningful regions
+but also improve computational efficiency. [2]
 
 ## SLIC
 ### Algorithm
@@ -40,3 +48,7 @@ as color, texture, and intensity, etc.
 ## Recap
 
 ## References
+[1] https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/papers/ren_malik_iccv03.pdf
+[2] https://www.pyimagesearch.com/2014/07/28/a-slic-superpixel-tutorial-using-python/
+
+## Special Thanks
