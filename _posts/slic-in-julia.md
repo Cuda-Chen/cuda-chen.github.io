@@ -19,6 +19,14 @@ and quick shift. Therefore, I want to implmenet SLIC in Julia
 to let me famlilar with SLIC algorithm but also Julia.
 
 ## Image segmentation
+Image segmentation is a process to classify which cluster each 
+pixel should belong to. The goal of this is to let image more representive
+and easier for us to analyze. So far, people have invented a lot of
+techniques according to each characteristic of each object such
+as color, texture, and intensity, etc.
+
+![image alt](/assets/images/2020/07/29/image_segmentation_example.png)
+<center>A clear representation of image segmentation. Image source: jeremyjordan.me</center>
 
 ## What's Superpixel?
 
