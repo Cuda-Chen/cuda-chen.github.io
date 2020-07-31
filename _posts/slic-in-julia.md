@@ -38,7 +38,16 @@ group pixels with akin properties into a larger one -- called superpixel --
 for further analyze. In this way, we not only get more meaningful regions
 but also improve computational efficiency. [2]
 
-## SLIC
+## SLIC (Simple Linear Iterative Clustering)
+We can use some strategies to cluster pixels with similar properties into
+a superpixel such as graph theorem, gradient decent, or even machine learning
+methods. As the most well-known one of using machine learning method, SLIC
+comes to the place. The intuition of SLIC is pretty naive: we can set some
+seeds to cluster the surrounding pixels to form superpixels.
+
+You will ask a problem: "It seems pretty straightforward. So what's special
+of SLIC?" ~
+
 ### Algorithm
 
 ## Why use Julia?
@@ -50,5 +59,6 @@ but also improve computational efficiency. [2]
 ## References
 [1] https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/papers/ren_malik_iccv03.pdf
 [2] https://www.pyimagesearch.com/2014/07/28/a-slic-superpixel-tutorial-using-python/
+[3] https://www.iro.umontreal.ca/~mignotte/IFT6150/Articles/SLIC_Superpixels.pdf
 
 ## Special Thanks
