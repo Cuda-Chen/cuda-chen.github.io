@@ -46,9 +46,38 @@ comes to the place. The intuition of SLIC is pretty naive: we can set some
 seeds to cluster the surrounding pixels to form superpixels.
 
 You will ask a problem: "It seems pretty straightforward. So what's special
-of SLIC?" ~
+of SLIC?" Rather than search all the pixels like normal K-means, SLIC uses
+K-means which restricts the searching area into a certain space. To my opinion,
+SLIC adopts this way because each pixel surrounding to a center should have
+similar properties.
+
+![slic_difference](/assets/images/2020/07/29/slic_difference.png)
+<center>A comparison between normal K-means and SLIC modified K-means. Taken from [4]</center>
 
 ### Algorithm
+```
+/∗ Initialization ∗/
+Initialize cluster centers Ck = [lk , ak , bk , xk , yk ]T by sampling pixels at regular grid steps S.
+Move cluster centers to the lowest gradient position in a 3 × 3 neighborhood.
+Set label l(i) = −1 for each pixel i. Set distance d(i) = ∞ for each pixel i.
+ 
+repeat
+/∗ Assignment ∗/
+for each cluster center Ck do
+    for each pixel i in a 2S × 2S region around Ck do 
+        Compute the distance D between Ck and i.
+        if D < d(i) then
+            set d(i) = D
+            set l(i) = k 
+        end if
+    end for 
+end for
+ 
+/∗ Update ∗/
+Compute new cluster centers. Compute residual error E.
+until E ≤ threshold
+```
+Where ~
 
 ## Why use Julia?
 
@@ -60,5 +89,6 @@ of SLIC?" ~
 [1] https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/papers/ren_malik_iccv03.pdf
 [2] https://www.pyimagesearch.com/2014/07/28/a-slic-superpixel-tutorial-using-python/
 [3] https://www.iro.umontreal.ca/~mignotte/IFT6150/Articles/SLIC_Superpixels.pdf
+[4] http://islab.ulsan.ac.kr/files/announcement/450/PAMI(2012)%20SLIC%20Superpixels%20Compared%20to%20State-of-the-Art%20Superpixel%20Methods.pdf
 
 ## Special Thanks
