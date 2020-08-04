@@ -1,6 +1,6 @@
 ---
 layout: post
-title: slic-in-julia
+title: A SLIC implementation in Pure Julia
 category: [image processing]
 tags: [image processing, SLIC, image segmentation, Julia]
 ---
@@ -61,6 +61,7 @@ SLIC just requires two input parameters:
 
 And the simplified distance calculation is shown as follows:
 ![slic-distance_calculation](/assets/images/2020/07/29/slic_distance_calculation.png)
+
 Where S = sqrt(N/K) 
 (N represents the number of pixels.)
 
@@ -95,10 +96,15 @@ scikit-image, there are no any implementations in pure Julia, which seems a pity
 we don't use the benefits of this programming language.
 
 ## Just Show Me The Code!
-You can view the code [here](https://github.com/Cuda-Chen/SLIC.jl/blob/master/src/SLIC.jl).
+Because it is lengthy, you can view the code [here](https://github.com/Cuda-Chen/SLIC.jl/blob/master/src/SLIC.jl).
 Feel free to ask any questions if you cannot figure out :)
 
 ## Recap
+In this post, I introduce the concept of image segmentation as well as the history of
+superpixel. Next, I make an introduction of SLIC superpixel and the algorithm. Last,
+I express why I want to implement SLIC in pure Julia and leave the link of my implementation.
+
+For the future aspect, I will work on enforce connectivity after we generate the superpixel.
 
 ## References
 [1] https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/papers/ren_malik_iccv03.pdf
@@ -110,3 +116,6 @@ Feel free to ask any questions if you cannot figure out :)
 [4] http://islab.ulsan.ac.kr/files/announcement/450/PAMI(2012)%20SLIC%20Superpixels%20Compared%20to%20State-of-the-Art%20Superpixel%20Methods.pdf
 
 ## Special Thanks
+This post wouldn't appear if [laixintao](https://github.com/laixintao) had not create 
+[this](https://www.kawabangga.com/posts/1923) awesome and clear post (written in Simplified Chinese).
+I would like to give my gratitude to laixintao as a brick of this Julia implementation.
