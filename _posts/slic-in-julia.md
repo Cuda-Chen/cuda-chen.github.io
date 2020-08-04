@@ -55,6 +55,16 @@ center should have similar properties.
 <center>A comparison between normal K-means and SLIC modified K-means. Taken from [4]</center>
 
 ### Algorithm
+SLIC just requires two input parameters: 
+1. ***K***: number of superpixels.
+2. ***m***: compactness factor to let superpixel be more compact or not.
+
+And the simplified distance calculation is shown as follows:
+![](/assets/images/2020/07/29/slic_distance_calculation.png)
+Where S = sqrt(N/K) 
+(N represents the number of pixels.)
+
+The following lines describe the algorithm of SLIC.
 ```
 /∗ Initialization ∗/
 Initialize cluster centers Ck = [lk , ak , bk , xk , yk ]T by sampling pixels at regular grid steps S.
@@ -77,7 +87,6 @@ end for
 Compute new cluster centers. Compute residual error E.
 until E ≤ threshold
 ```
-Where ~
 
 ## Why use Julia?
 
