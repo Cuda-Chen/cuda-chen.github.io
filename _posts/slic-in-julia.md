@@ -47,9 +47,9 @@ seeds to cluster the surrounding pixels to form superpixels.
 
 You will ask a problem: "It seems pretty straightforward. So what's special
 of SLIC?" Rather than search all the pixels like normal K-means, SLIC uses
-K-means which restricts the searching area into a certain space. To my opinion,
-SLIC adopts this way because each pixel surrounding to a center should have
-similar properties.
+a modified K-means which restricts the searching area into a certain space. 
+To my opinion, SLIC adopts this way because each pixel surrounding to a 
+center should have similar properties.
 
 ![slic_difference](/assets/images/2020/07/29/slic_difference.png)
 <center>A comparison between normal K-means and SLIC modified K-means. Taken from [4]</center>
@@ -87,8 +87,11 @@ Where ~
 
 ## References
 [1] https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/papers/ren_malik_iccv03.pdf
+
 [2] https://www.pyimagesearch.com/2014/07/28/a-slic-superpixel-tutorial-using-python/
+
 [3] https://www.iro.umontreal.ca/~mignotte/IFT6150/Articles/SLIC_Superpixels.pdf
+
 [4] http://islab.ulsan.ac.kr/files/announcement/450/PAMI(2012)%20SLIC%20Superpixels%20Compared%20to%20State-of-the-Art%20Superpixel%20Methods.pdf
 
 ## Special Thanks
