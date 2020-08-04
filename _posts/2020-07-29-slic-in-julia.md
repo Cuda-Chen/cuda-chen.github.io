@@ -15,12 +15,12 @@ SLIC is a well-known algorithm which runs in linear time complexity
 including OpenCV and scikit-image. However, [JulaImages](
 https://juliaimages.org/latest/) has not implemented SLIC yet,
 though this Julia image processing package contains Felzenswalb
-and quick shift. Therefore, I want to implmenet SLIC in Julia
-to let me famlilar with SLIC algorithm but also Julia.
+and quick shift. Therefore, I want to implement SLIC in Julia
+to let me familiar with SLIC algorithm but also Julia.
 
 ## Image segmentation
 Image segmentation is a process to classify which cluster each 
-pixel should belong to. The goal of this is to let image more representive
+pixel should belong to. The goal of this is to let image more representative
 and easier for us to analyze. So far, people have invented a lot of
 techniques according to each characteristic of each object such
 as color, texture, and intensity, etc.
