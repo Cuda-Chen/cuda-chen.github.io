@@ -60,7 +60,7 @@ SLIC just requires two input parameters:
 2. ***m***: compactness factor to let superpixel be more compact or not.
 
 And the simplified distance calculation is shown as follows:
-![](/assets/images/2020/07/29/slic_distance_calculation.png)
+![slic-distance_calculation](/assets/images/2020/07/29/slic_distance_calculation.png)
 Where S = sqrt(N/K) 
 (N represents the number of pixels.)
 
@@ -89,8 +89,14 @@ until E ≤ threshold
 ```
 
 ## Why use Julia?
+As a new-born language, Julia grasps my sight because it is fast, dynamic, and general.
+Though SLIC has been implemented in various image processing libraries such as OpenCV and
+scikit-image, there are no any implementations in pure Julia, which seems a pity that
+we don't use the benefits of this programming language.
 
 ## Just Show Me The Code!
+You can view the code [here](https://github.com/Cuda-Chen/SLIC.jl/blob/master/src/SLIC.jl).
+Feel free to ask any questions if you cannot figure out :)
 
 ## Recap
 
