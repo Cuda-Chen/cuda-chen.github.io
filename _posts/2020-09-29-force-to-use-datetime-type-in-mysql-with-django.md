@@ -5,6 +5,8 @@ category: [backend]
 tags: [Django, backend, MySQL]
 ---
 
+![image alt](/assets/images/2020/09/29/problem_solved_meme.jpg)
+
 ## TL;DR
 - If you have to work on MySQL with version lower than 5.6, you
 can change `DATETIME(6)`, which is default when using `DateTimeField()`
