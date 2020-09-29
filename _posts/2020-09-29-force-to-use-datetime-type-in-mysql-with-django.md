@@ -16,9 +16,9 @@ DatabaseWrapper.data_types['DateTimeField'] = 'datetime
 - Drawback: not able to record datetime to milliseconds.
 
 ## The Way I Solve the Problem
-So here's the plot, I was dedicating myself on a Django project
+So here's the plot, I was dedicating myself on a Django 3.x project
 recently. The database of this project is MySQL 5.1 due to
-historical reason. Everytime when I tried to run migration, I
+historical reason. Every time when I tried to run migration, I
 always receive the following error on Django built-in tables:
 ```python
 pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(6) NOT NULL) ' at line 1")
