@@ -106,6 +106,9 @@ I express why I want to implement SLIC in pure Julia and leave the link of my im
 
 For the future aspect, I will work on enforce connectivity after we generate the superpixel.
 
+> Oct. 4, 2020 added: Heads up! I have added enforce connectivity in my Julia SLIC implementation!
+>
+
 ## References
 [1] https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/papers/ren_malik_iccv03.pdf
 
