@@ -5,6 +5,9 @@ category: [programming, image processing]
 tags: [programming, image processing, vscode, opencv, windows 10]
 ---
 
+## TL;DR
+You can get the full example from here: https://github.com/Cuda-Chen/opencv-config-with-vscode
+
 ## Introduction
 OpenCV is a powerful tool in the area of image processing
 because of its speed and intuitive API. However, configuring
