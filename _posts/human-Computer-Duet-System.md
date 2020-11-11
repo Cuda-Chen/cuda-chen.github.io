@@ -1,0 +1,123 @@
+- Li Su
+    - Music and Cultual Tech. Lab, IIS, AS
+- brief in IIS HP, 音樂會自動生成系統
+- Su brief intro
+    - DL + multimedia
+- Virtual Musican
+    - two-year project
+    - not mature
+- duet
+    - human + computer
+- Acknoledgement
+- An intro video
+    - automate all the processes of the virtual one
+    - cooperate with human
+- Motivation: the era of virtual characters
+    - Such contents should be mostly automatically generrated
+- Proroblem scenario
+    - Goal: a human-computer duet system for music performance
+    - real-time music tracking
+    - Automatic animation
+- The concert of the AMCA Project
+    - 聲型音樂會
+    - real pianoist + virtual violinist
+- Elements of a music performance
+    - Is AI-assisted music concerts possible?
+- On the stage + Behind the scene
+    - Su: PETHATIC (behind the scene)
+- Challenges and key research tasks
+    - Challenges
+        - real-time interaction
+        - cross-modal generation
+        - ~internet~
+        - ~limited rehearsal time~
+    - key research problem
+        - Task 1: build a protable machine which/who can perform music
+        - Task 2: Automatically generate the behaviors of the virtual musician
+        - Task 3: Automatically generate the virtual effects from the performed music
+- Our solution
+    - ***Task 1 ~ 3 all on arXiV***
+    - all 2020!
+- (Task 1) read-time interaction
+    - SOTA: human follows machine's tempo (karaoke)
+        - Easy but less expressive
+    - New approach: machine follows human's tempo
+        - Auto accompaniment/real-time music tracking
+- (Task 2) performance/motion animation
+    - SOTA: real-tme motion capture, manual animation
+    - New approach: content-based motion generation
+        - motion generate from music data (e.g., scores & recordings)
+        - Large-scale motion data collection
+- (Task 3) multimedia style integration
+    - SOTA: image style transfer/audio style transfer
+        - Within-domain style transfer, without integration of contents
+    - New approach: cross-modal style transfer
+        - Music-to-visual style transfer: make the visual contents
+fit the style of the music (with arbitrary but scalable semantic links)
+- (Task 0) the director's job
+    - Let's plan an AI concert -- determine what the show will be first!
+    - We choose a classic "piano + violin" music
+- System overview
+    - The read & virtual musicians communicate "only with music"
+    - The correcpodence between poano & violin is known ahead
+- (Task 2) data collection
+    - The largest dataset for musicians' body movement research
+- (Task 2) motion generrated from music
+    - Divide-and-rule approach: generate reasonable & expressive body movement
+    - 《以類神經網路生成小提琴演奏者骨架》
+- (Task 2) motion generation demo
+    - I think I am only good on engineering :)
+- (Task 2) end-to-end motion generation
+    - demo
+    - arch
+- (Task 2) model binding
+    - skeleton binding: IK + 3D Humanoid
+    - Violin binding: Violin body -> middle fo left shoulder and neck; bow -> right hand
+- (Task 3) data collection
+    - The WikiArt-IMSLP dataset
+    - Take era as the shared label
+- (Task 3) music-to-visual style transfer model
+    - xi = music, yi = painting, (xi, yi) are "created in the same era"
+    - music <-> visual contents (semantic correcpodence)
+- (Task 3) learned style representations
+    - four styles look the same :)
+    - Greate Impression painting
+- (Task 3) style transfer
+- (Task 3) style transfer results: video
+- (Task 3) Aesthetic quality assessment
+    - metric
+- (Task 1) real-time music tracking
+    - Music tracker: online dynamic time warping (ODTW)
+    - Music detector: detect "when the music start"
+    - Position estimator: detect possible positions in the music piece
+    - Decision maker: merge the results from multiple music trackers
+- (Task 1) system integration
+    - Human skeleton binding & violin binding
+    - The integrated system: "protable solution" <--
+    - Motion generation: offline
+    - Style transfer & tracking: online
+    - Music tracking computer has the best equipment
+- (Task 1) evaluation scheme
+    - How accurate the real-time music tracking can achieve?
+    - How long is the latency of the system?
+- (Task 1) evaluation result
+    - Latency measured from the live vilin recording with respect to the live piano
+    - Latency mostly within one 16th note
+- Conclusion & future work
+    - Conclusion
+        - Content generation is interesting, yet for performance is much more interesting
+& challenging
+        - "what kind of content can be generated" -> "what more can be generated from
+given content"
+        - cross-model generation is so difficult, but human beings do it well
+    - future work
+        - perform AI-generated music
+        - Extend the repertiore the virtual musician can play
+        - Virtual musician band
+- Q&A
+    - Why choose this and work for two years
+        - Vtuber is going to own the world, so choosing this to challenge myself
+    - correlation between music and model
+        - time-frequency representations (2D) still rocks
+    - Vtuber只是套皮演員，你怎麼把目前的項目和Vtuber比較？
+        - （反問）是否可以把套皮演員生成自動化？
