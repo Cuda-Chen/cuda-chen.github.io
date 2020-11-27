@@ -64,10 +64,14 @@ the package uses.
 In order to let other programs find the name of compiler and OpenCV package
 without entering the absolute path, you can set the `Path` variable of
 your account with the binaries of compiler as well as OpenCV package.
-> For editing the `Path` variable, you can go **Control Panel** > **System** >
-> **Advanced system settings**. Then switch to "Advanced" tab in System
-> Properties window and click "Environment Variables" button.
-> At last, edit the `Path` variable of your account (add compiler and
+
+Below is an example to show the setting of environment variables. Taken from [superuser](https://superuser.com/a/985947):
+![image alt](/assets/images/2020/01/21/windows_environment_variable.jpeg)
+
+> For editing the `Path` variable, here are the processes:
+> 1. Go **Control Panel** > **System** > **Advanced system settings**.
+> 2. Then switch to "Advanced" tab in System > Properties window and click "Environment Variables" button.
+> 3. At last, edit the `Path` variable of your account (add compiler and
 > OpenCV binaries path).
 
 > I assume you install all of the OpenCV stuffs in `C:\opencv\OpenCV-MinGW-Build-OpenCV-4.1.1-x64`
