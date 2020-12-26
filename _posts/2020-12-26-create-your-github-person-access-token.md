@@ -64,6 +64,9 @@ https://<your_username>:<your_token>@github.com/<your_username>
 ```
 You can copy-and-paste `<your_token>` to password field when GitHub prompts you to enter password.
 
+![image alt](/assets/images/2020/12/26/pat-copy-and-paste.jpg)
+<center>There's always a workaround :)</center>
+
 ## Recap
 In this post, I teach you how to create your GitHub Personal Access Token. Moreover,
 I show a trick how to save your token and copy-and-paste the token as password.
