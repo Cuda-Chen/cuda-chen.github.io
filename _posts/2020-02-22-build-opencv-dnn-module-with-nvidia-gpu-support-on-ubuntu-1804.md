@@ -336,8 +336,18 @@ You can see the name of my OpenCV Python bindings is `cv2.cpython-36m-x86_64-lin
 
 Next, create a sym-link to your virtual environment:
 ```
-$ ln -s /usr/local/lib/python3.6/site-packages/cv2/python-3.6 ~/.virtualenvs/opencv_cuda/lib/python3.6/site-packages/cv2.so
+$ ln -s /usr/local/lib/python3.6/site-packages/cv2/python-3.6/cv2.cpython-36m-x86_64-linux-gnu.so ~/.virtualenvs/opencv_cuda/lib/python3.6/site-packages/cv2.so
 ```
+
+> Commented by @ymh66, here should be 
+> ```
+> $ ln -s /usr/local/lib/python3.6/site-packages/cv2/python-3.6/cv2.cpython-36m-x86_64-linux-gnu.so ~/.virtualenvs/opencv_cuda/lib/python3.6/site-packages/cv2.so
+> ```
+> instead of 
+> ```
+> $ ln -s /usr/local/lib/python3.6/site-packages/cv2/python-3.6 ~/.virtualenvs/opencv_cuda/lib/python3.6/site-packages/cv2.so
+> ```
+> Thanks for @ymh66 correct this typo!
 
 Remember to take a second to check your file paths because `ln` will *slient fail* if the path
 of OpenCV bindings are not correct.
