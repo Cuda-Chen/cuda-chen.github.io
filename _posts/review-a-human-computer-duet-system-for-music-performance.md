@@ -11,7 +11,7 @@ tags: [machine learning,
       ]
 ---
 
-In this post, **A Human-Computer Duet System for Music Performance**, by
+In this post, **A Human-Computer Duet System for Music Performance** [1], by
 Academia Sinica, is reviewed. In this paper:
 - **A virtual violinist** is created who can perform chamber music with
 a human pianist that **does not need any intervention**.
@@ -49,10 +49,23 @@ synthesizer and animator.
 ## 2. Real-time Music Tracking
 ![Fig 3]()
 
-- The music detector.
-- The rough position estimator.
-- The decision maker.
+- A re-implementation of the *'Any time' music tracker* by by Arzt and Widmer [2, 3].
+- The music detector starts tracking when performance begins.
+- The rough position estimator returns a collection of possible positions of the live
+piano signal which complies to the rehearsed piano.
+- The decision maker chooses an ODTW thread as the most trusted one then output the
+tracking result.
 
 ## 3. Automatic Animation
 
 ## 4. Discussion
+
+## Reference
+[1] https://arxiv.org/abs/2009.07816
+
+[2] Andreas Arzt and Gerhard Widmer. Simple tempo models for real-time music
+tracking. In Proceedings of the Sound and Music Computing Conference (SMC),
+2010
+
+[3] Andreas Arzt and Gerhard Widmer. Towards effective ‘any-time’ music tracking.
+In Proceedings of the Fifth Starting AI Researchers’ Symposium, page 24, 2010.
