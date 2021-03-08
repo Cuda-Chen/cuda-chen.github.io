@@ -22,7 +22,7 @@ This work is supported by the Automatic Music Concert Animation (AMCA) project
 of the Institute.
 
 ## Outline
-![Fig 1]()
+![Fig 1](/assets/images/2021/03/08/figure_1.png)
 
 1. Proposed Virtual Musician System
 2. Real-time Music Tracking
@@ -30,7 +30,7 @@ of the Institute.
 4. Discussion
 
 ## 1. Proposed Virtual Musician System
-![Fig 2]()
+![Fig 2](/assets/images/2021/03/08/figure_2.png)
 
 - The system has the capabilities to synchronize the reference, rehearsed, and live contents
 altogether.
@@ -47,7 +47,7 @@ and music-to-motion generation techniques.
 synthesizer and animator.
 
 ## 2. Real-time Music Tracking
-![Fig 3]()
+![Fig 3](/assets/images/2021/03/08/figure_3.png)
 
 - A re-implementation of the *'Any time' music tracker* by by Arzt and Widmer [2, 3].
 - The music detector starts tracking when performance begins.
@@ -63,13 +63,14 @@ position of the violinistsâĂŹ 15 body joints.
 as well as pose contents of violin performance for modeling the music-to-body-movement correspondence.
     - Talking to generating the movement, they extend the framework of 
     audio-to-body (A2B) dynamics [5] into 3-dimension as shown below.
-![Fig 4]()
+![Fig 4](/assets/images/2021/03/08/figure_4.png)
 
 ## 4. Discussion
 - Thought audiences responsed the performance was insightful, there are no any
 methods to make the objective evaluation of the system. As a result, they dipict
 their quality assessment approach.
     - The ways to improvement the system will be also discussed.
+
 ### Real-time Music Tracking Evaluation
 - The intuition is to measure the deviation between online music tracking and
 *offline alignment with the live recording* with the following procedures:
@@ -77,7 +78,7 @@ their quality assessment approach.
     autio.
     2. Compare the time mapping of the recorded live piano with the referenced
     piano MIDI via offline synchronization as shown below.
-![Fig 8]()
+![Fig 8](/assets/images/2021/03/08/figure_8.png)
     3. Compare the time mapping of the live violin ad the estimated violin
     via offline synchronization, too.
 - They use the following four criteria for evaluation:
@@ -92,6 +93,7 @@ deviation is ±0.25 beats.
 - Also, we can observe that a sudden alteration of speed doesn't always result
 in an alteration of latency.
     - As a matter of fact, the structure of music relates to latency.
+
 ### Body Movement Generation Evaluation
 - The model is trained and evaluated on a dataset which contains 140 violin solo 
 videos with total length of 11 hours.
