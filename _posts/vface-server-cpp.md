@@ -27,9 +27,42 @@ system in C++ for performance boosting as well as showing off
 my ability of C++? Furthermore, I want to strengthen my image
 processing knowledge by implementing this VTuber project.
 
-## Architecture
+Also, many of the VTuber system uses deep learning techniques or
+specialized hardware for pretty precise movement catch, but not
+every one can afford the devices such as specialized hardware
+or GPU. What's more, it requires more set up procedures or
+environment which may not be feasible in some scenes. In comparison,
+this VTuber system only needs normal CPU as well as webcam for
+the ease of setting up and cost efficiency.
 
-## Processing Procedures
+## Architecture
+The architecture of this system is described as follows:
+
+### Server
+The server is responsible for detecting user's face and its landmarks.
+After detecting the landmarks, it will calculates the movement of
+eyes and mouth. Next, the movement data will be transmitted to client
+via WebSocket. 
+
+### Client
+The clent is responsible for display the VTuber as well as its movements.
+For real-time displaying purpose, client uses WebSocket for receiving the
+movement data. After client receives the data sent from server, it
+will display the VTyber and its movements in browser.
+
+## Processing Procedures of Gaze Tracking and Mouth Movement
+You would like to realize how server detects face and calculates the
+movement under-the-hood. So in this paragraph, I am going to tell the
+details from webcam to face movement stream data.
+
+1. Capture the video stream from webcam to picture by picture
+2. Resize the input picture
+3. Run face landmark detection via Dlib
+4. Detect the regions of eyes
+5. Get the best threshold of each eye region
+6. Retrive pupil of each eye region
+7. Calculate the face movement (gaze and mouth)
+8. Stream the data through WebSocket to client
 
 ## System Set up
 
