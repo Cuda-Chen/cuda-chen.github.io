@@ -56,13 +56,30 @@ movement under-the-hood. So in this paragraph, I am going to tell the
 details from webcam to face movement stream data.
 
 1. Capture the video stream from webcam to picture by picture
+
 2. Resize the input picture
-3. Run face landmark detection via Dlib
-4. Detect the regions of eyes
-5. Get the best threshold of each eye region
-6. Retrive pupil of each eye region
-7. Calculate the face movement (gaze and mouth)
-8. Stream the data through WebSocket to client
+It is a common knowledge that resizing the image can boost
+the image processing speed as there are fewer of pixels.
+After testing, resizing the input image to half of width and height
+can have 2x speed while not hugely affect the face detection
+and gaze tracking processes.
+
+3. Grayscale the input picture
+Again, you should grayscale your image if you do not need the
+color channels for further processing. What's more, Dlib face
+detector runs faster in grayscale compared to RGB.
+
+4. Run face landmark detection via Dlib
+
+5. Detect the regions of eyes
+In this procedure, we are going to detect the eyes. To speed up
+the processing and for more accurate result. We have to crop
+the images only containing the eyes.
+
+6. Get the best threshold of each eye region
+7. Retrive pupil of each eye region
+8. Calculate the face movement (gaze and mouth)
+9. Stream the data through WebSocket to client
 
 ## System Set up
 
