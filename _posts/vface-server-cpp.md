@@ -1,8 +1,11 @@
 ---
 layout: post
-title: vface-server-cpp
-category:
-tags:
+title: A Virtual Youtuber System without Deep Learning
+category: [image processing]
+tags: [image processing,
+       VTuber,
+       C++,
+       WebSocket]
 ---
 
 In this article, I am going to present a Virtual Youtuber
@@ -64,7 +67,7 @@ details from webcam to face movement stream data.
 It is a common knowledge that resizing the image can boost
 the image processing speed as there are fewer of pixels.
 After testing, resizing the input image to half of width and height
-can have 2x speed while not hugely affect the face detection
+can have 2x speed up while not hugely affect the face detection
 and gaze tracking processes.
 
 3. Grayscale the input picture
@@ -93,13 +96,53 @@ from my friend's VTuber project in [^7].
 8. Stream the data through WebSocket to client
 
 ## System Set up
+In this part, I will summarize the set up of this vface-server-cpp
+projct.
+
 ### Server
+1. Download the vface-server-cpp from here:
+https://github.com/Cuda-Chen/vface-server-cpp
+
+2. Install the dependencies, namely:
+  - OpenCV
+  - websocketd
+
+3. Compile the project by typing:
+```
+$ mkdir build && cd build && cmake .. && make
+```
+
+4. Execute the program by typing:
+```
+$ websocketd --port=5566 ./vface_server_cpp
+```
+
+5. Run the client (namely, [vface-web](https://github.com/c910335/vface-web)).
+
 ### Client
+For client set up, as the repo is maintained by my friend, you can
+visit the repo for setting up:
 https://github.com/c910335/vface-web
 
 ## Result
+Thanks to the common ways such as resizing, threshold, and region of interest
+(ROI) used in image processing, my VTuber system can detect
+and calculate the face keypoints in about 10 ms. After the calculation,
+the data will be transmitted to client then draw the animate character
+you choose.
+
+The following image uses my face to create this adorable character:
+![result](/assets/images/2021/05/16/vface-server-result.gif)
+
+As such, you can notice that the character cannot close her eyes entirely.
+The reason are that I sit too far away the webcam and the eye closing movement
+needs further adjustment for each individual.
 
 ## Summary
+In this post, I show you guys my VTuber system and introduce the background
+of VTuber. I also list the processing procedures from framing your face,
+detect and calculating the face keypoints. At last, I demonstrate the
+result and leave some marks for further improvements.
 
 ## References
 [^1] https://www.urbandictionary.com/define.php?term=VTuber
