@@ -61,39 +61,39 @@ I guess you would like to realize how server detects face and calculates the
 movement under-the-hood. So in this paragraph, I am going to tell the
 details from webcam to face movement stream data.
 
-1. Capture the video stream from webcam to picture by picture
+1. **Capture the video stream from webcam to picture by picture.**
 
-2. Resize the input picture
+2. **Resize the input picture.**<br>
 It is a common knowledge that resizing the image can boost
 the image processing speed as there are fewer of pixels.
 After testing, resizing the input image to half of width and height
 can have 2x speed up while not hugely affect the face detection
 and gaze tracking processes.
 
-3. Grayscale the input picture
+3. **Grayscale the input picture.**<br>
 Again, you should grayscale your image if you do not need the
 color channels for further processing. What's more, Dlib face
 detector runs faster in grayscale compared to RGB.
 
-4. Run face landmark detection via Dlib
+4. **Run face landmark detection via Dlib.**
 
-5. Detect the regions of eyes
+5. **Detect the regions of eyes.**<br>
 In this procedure, we are going to detect the eyes. To speed up
 the processing and for more accurate result. I crop
 the images only containing the eyes.
 
-6. Retrive pupil of each eye region
+6. **Retrive pupil of each eye region.**<br>
 As indicated in [^6], using a threshold betweend 5 to 100 then
 choose the last second one after sorting by pupil contour area
 can suit for most cases. Therfore, I adapt this Python package
 then re-written in C++ to suit my project.
 
-7. Calculate the face movement (gaze and mouth)
+7. **Calculate the face movement (gaze and mouth).**<br>
 After get the face landmark and the pupil location, it's time
 to calculate the face movement. The calculation is adapted
 from my friend's VTuber project in [^7].
 
-8. Stream the data through WebSocket to client
+8. **Stream the data through WebSocket to client.**
 
 ## System Set up
 In this part, I will summarize the set up of this vface-server-cpp
