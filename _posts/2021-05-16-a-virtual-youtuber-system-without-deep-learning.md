@@ -38,7 +38,7 @@ environment which may not be feasible in some scenes. In comparison,
 this VTuber system only needs normal CPU as well as webcam for
 the ease of setting up and cost efficiency.
 
-![An example of open-source VTuber system using deep learning](https://github.com/DeepVTuber/DeepVTB/blob/main/docs/images/one.gif)
+![An example of open-source VTuber system using deep learning](https://raw.githubusercontent.com/DeepVTuber/DeepVTB/main/docs/images/one.gif)
 <center>An example of open-source VTuber system using deep learning. Adopted from [^5].</center>
 
 ## Architecture
@@ -105,7 +105,7 @@ https://github.com/Cuda-Chen/vface-server-cpp
 
 2. Install the dependencies, namely:
   - OpenCV
-  - websocketd
+  - [websocketd](https://github.com/joewalnes/websocketd)
 
 3. Compile the project by typing:
 ```
