@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Virtual Youtuber System without Deep Learning
+title: A Virtual YouTuber System without Deep Learning
 category: [image processing]
 tags: [image processing,
        VTuber,
@@ -8,7 +8,7 @@ tags: [image processing,
        WebSocket]
 ---
 
-In this article, I am going to present a Virtual Youtuber
+In this article, I am going to present a Virtual YouTuber
 (VTuber) system just using ordinary CPU and webcam written in C++. 
 I will also talk about the phenomenon of VTuber and some basics 
 of gaze tracking. At last, I will leave some personal thoughts 
@@ -117,12 +117,11 @@ $ mkdir build && cd build && cmake .. && make
 $ websocketd --port=5566 ./vface_server_cpp
 ```
 
-5. Run the client (namely, [vface-web](https://github.com/c910335/vface-web)).
+5. Run the client (namely, vface-web [^8]).
 
 ### Client
 For client set up, as the repo is maintained by my friend, you can
-visit the repo for setting up:
-https://github.com/c910335/vface-web
+visit [^8] for setting up.
 
 ## Result
 Thanks to the common ways such as resizing, threshold, and region of interest
@@ -158,3 +157,5 @@ result and leave some marks for further improvements.
 [^6] https://github.com/antoinelame/GazeTracking
 
 [^7] https://github.com/c910335/vface-server/blob/master/calculator.py
+
+[^8] https://github.com/c910335/vface-web
