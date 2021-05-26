@@ -50,6 +50,10 @@ using their project in the future.
 ## Apply GitHub Actions on Django with MySQL
 
 ## Conclusion
+In this post, I make an introduction how to apply CI/CD pipeline. I also introduce
+what is GitHub Actions and its characteristics. I then make a Django demo project
+using MySQL in order to show the processes running GitHub Actions, and leave
+some marks for avoiding common gotchaes. 
 
 ## References
 [^1] https://www.jenkins.io/ 
