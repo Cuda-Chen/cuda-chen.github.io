@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Django+MySQL CI/CD with GitHub Actions
+title: Django+MySQL CI with GitHub Actions
 category: [DevOps]
 tags: [DevOps,
        Django,
@@ -48,6 +48,20 @@ plenty of custom workflows for the ease of themselves and the developers
 using their project in the future.
 
 ## Apply GitHub Actions on Django with MySQL
+Create Django project
+
+Use MySQL
+
+Create app: `users`
+
+Add tests in `users`
+
+Add GitHub Actions CI
+- gochaes
+  - env
+  - DB port
+
+Push to GitHub and enjoy!
 
 ## Conclusion
 In this post, I make an introduction how to apply CI/CD pipeline. I also introduce
