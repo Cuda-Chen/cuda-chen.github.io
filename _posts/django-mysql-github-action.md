@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Django+MySQL CI with GitHub Actions
+title: Django+MySQL CI/CD with GitHub Actions
 category: [DevOps]
 tags: [DevOps,
        Django,
@@ -48,20 +48,143 @@ plenty of custom workflows for the ease of themselves and the developers
 using their project in the future.
 
 ## Apply GitHub Actions on Django with MySQL
-Create Django project
+In this paragraph, I list the procedures how to apply GitHub Actions to
+your Django project.
 
-Use MySQL
+### Create Django project
+Frist, create your Django project, or `example`, by typing:
+```
+$ django-admin startproject example
+```
 
-Create app: `users`
+Then add MySQL settings into `DATABASES` in `example/settings.py`:
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': os.environ.get('DBENGINE', ''),
+        'NAME': os.environ.get('DBNAME', ''),
+        'USER': os.environ.get('DBUSER', ''),
+        'PASSWORD': os.environ.get('DBPASSWORD', ''),
+        'HOST': os.environ.get('DBHOST', ''),
+        'PORT': os.environ.get('DBPORT', ''),
+    }
+}
+```
 
-Add tests in `users`
+For demo purpose, I use environment variables to store the settings of databases.
 
-Add GitHub Actions CI
-- gochaes
-  - env
-  - DB port
+### Create app: `users`
+Create a Django app called `users` by typing:
+```
+$ django-admin startapp users
+```
 
-Push to GitHub and enjoy!
+### Add tests in `users`
+Because we want to run CI, we should add some unit test codes.
+
+Substitude existing code with following codes in `users/tests.py`:
+```python
+from django.test import TestCase
+from django.contrib.auth.models import User
+
+# Create your tests here.
+
+class UserTestCase(TestCase):
+    def test_user(self):
+        username = 'cudachen'
+        password = 'carbotzergling'
+        u = User(username=username)
+        u.set_password(password)
+        u.save()
+        self.assertEqual(u.username, username)
+        self.assertTrue(u.check_password(password))
+``` 
+
+### Add GitHub Actions CI
+And here comes the main dish! But before adding GitHub Actions' configuration, here are
+some common mistake I encounter for reminder:
+- **branch** : always make sure which branches you want to trigger GitHub Actions. In
+this case, I would like to trigger GitHub Actions when pull request or push on `main`
+branch.
+- **env**: as I use environment variables for database settings, make sure to set
+environment variables in the steps you are going to use database.
+- **DB port**: as indicated in [^6], GitHub Actions assign random port. In order to
+access the service (e.g. database) port with no failure, you have to use 
+`jobs.<job_id>.services.<service_id>.ports`.
+
+Then, here are the steps adding GitHub Actions configuration:
+1. Create directory called `.github/workflows`.
+2. In `.github/workflows` directory, add `django-ci.yml` (our GitHub Actions configuration)
+as below:
+```yaml
+name: Django CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.7]
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: zergling
+          MYSQL_DATABASE: mysql
+        ports: ['3306:3306']
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Run Migrations
+      run: python manage.py migrate
+      env: 
+        DBENGINE: django.db.backends.mysql
+        DBNAME: mysql
+        DBUSER: root
+        DBPASSWORD: zergling
+        DBHOST: 127.0.0.1
+        DBPORT: ${{ job.services.mysql.ports[3306] }}
+    - name: Run Tests
+      run: |
+        python manage.py test
+      env: 
+        DBENGINE: django.db.backends.mysql
+        DBNAME: mysql
+        DBUSER: root
+        DBPASSWORD: zergling
+        DBHOST: 127.0.0.1
+        DBPORT: ${{ job.services.mysql.ports[3306] }}
+```
+
+### Push to GitHub and Enjoy!
+After the above steps, push our project to GitHub, and GitHub Actions
+will start to work!
+
+### Trivia: Add GitHub Actions Badge for Showing CI Status
+GitHub Actions provides status badge for showing CI status in ease. 
+Usually, you can add the badge in `README.md` like this:
+```markdown
+[![<your-CI-name>](https://github.com/Cuda-Chen/<your-project-name>/actions/workflows/django-ci.yml/badge.svg)](https://github.com/Cuda-Chen/<your-project-name>/actions/workflows/django-ci.yml)
+```
+
+> You can see full example project in [here](https://github.com/Cuda-Chen/django-mysql-github-actions-demo).
 
 ## Conclusion
 In this post, I make an introduction how to apply CI/CD pipeline. I also introduce
@@ -79,6 +202,8 @@ some marks for avoiding common gotchaes.
 [^4] https://github.com/marketplace/actions/github-pages-action
 
 [^5] https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners
+
+[^6] https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#example-using-localhost
 
 https://github.com/adamchainz/django-mysql
 https://blog.healthchecks.io/2020/11/using-github-actions-to-run-django-tests/
