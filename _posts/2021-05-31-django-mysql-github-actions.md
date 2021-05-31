@@ -13,15 +13,15 @@ tags: [DevOps,
 ![title image](/assets/images/2021/05/31/django-mysql-github-actions-title.png)
 
 ## Introduction
-In nowdays, when we develop a web application, we usually apply CI (Continuous
+In nowadays, when we develop a web application, we usually apply CI (Continuous
 Integration) and CD (Continous Deployment) to automate the processes of testing
 and deployment.
 
-To run such automations, we use Jenkins [^1] and Travis [^2] in the old days.
+To run such automation, we use Jenkins [^1] and Travis [^2] in the old days.
 However, in this decade, there are lots of tool popping up for our needs, and
 one of them is GitHub Actions. As a web developer and GitHub lovers, I would
 like to use GitHub Actions for not only can be easily integrated with GitHub
-projects but also show off my abaility to customize GitHub Actions [^3]
+projects but also show off my ability to customize GitHub Actions [^3]
 for my needs. Therefore, I would like to share my note apply GitHub Actions (especially CI)
 on an example Django project using MySQL as its database.
 
@@ -40,7 +40,7 @@ custom domain and different repo name settings. And the work of
 GitHub Pages action [^4] helped me a lot with painless worflow switch.
 3. **Self-hosted machines are permitted.**
 You can not only run GitHub Actions on GitHub, but also your self-hosted
-machines with much more flexiable configuations and better bargain! And
+machines with much more flexible configurations and better bargain! And
 the official document [^5] has great explainations to teach you how
 to achieve this.
 
@@ -189,7 +189,7 @@ will start to work!
 GitHub Actions provides status badge for showing CI status in ease. 
 Usually, you can add the badge in `README.md` like this:
 ```markdown
-[![<your-CI-name>](https://github.com/Cuda-Chen/<your-project-name>/actions/workflows/django-ci.yml/badge.svg)](https://github.com/Cuda-Chen/<your-project-name>/actions/workflows/django-ci.yml)
+[![<your-github-actions-name>](https://github.com/<your-user-name>/<your-project-name>/actions/workflows/django-ci.yml/badge.svg)](https://github.com/<your-user-name>/<your-project-name>/actions/workflows/django-ci.yml)
 ```
 
 ## Conclusion
