@@ -10,6 +10,8 @@ tags: [DevOps,
        GitHub Actions]
 ---
 
+![title image](/assets/images/2021/05/31/django-mysql-github-actions-title.png)
+
 ## Introduction
 In nowdays, when we develop a web application, we usually apply CI (Continuous
 Integration) and CD (Continous Deployment) to automate the processes of testing
@@ -42,8 +44,8 @@ machines with much more flexiable configuations and better bargain! And
 the official document [^5] has great explainations to teach you how
 to achieve this.
 
-As such, there are a lot of communities such as Julia Language switch their
-CI/CD workflows onto GitHub Actions. What's more these communities invent
+As such, there are a lot of communities such as Julia Language [^6] switch their
+CI/CD workflows onto GitHub Actions. What's more, these communities invent
 plenty of custom workflows for the ease of themselves and the developers
 using their project in the future.
 
@@ -51,13 +53,15 @@ using their project in the future.
 In this paragraph, I list the procedures how to apply GitHub Actions to
 your Django project.
 
-### Create Django project
-Frist, create your Django project, or `example`, by typing:
+> You can see full example project in [here](https://github.com/Cuda-Chen/django-mysql-github-actions-demo).
+
+### 1. Create Django project
+Frist, create your Django project, namely `example`, by typing:
 ```
 $ django-admin startproject example
 ```
 
-Then add MySQL settings into `DATABASES` in `example/settings.py`:
+Then add MySQL settings into `DATABASES` variable in `example/settings.py`:
 ```python
 DATABASES = {
     'default': {
@@ -73,13 +77,13 @@ DATABASES = {
 
 For demo purpose, I use environment variables to store the settings of databases.
 
-### Create app: `users`
+### 2. Create Django App: `users`
 Create a Django app called `users` by typing:
 ```
 $ django-admin startapp users
 ```
 
-### Add tests in `users`
+### 3. Add Unit Tests in `users`
 Because we want to run CI, we should add some unit test codes.
 
 Substitude existing code with following codes in `users/tests.py`:
@@ -100,22 +104,26 @@ class UserTestCase(TestCase):
         self.assertTrue(u.check_password(password))
 ``` 
 
-### Add GitHub Actions CI
+### 4. Add GitHub Actions CI
 And here comes the main dish! But before adding GitHub Actions' configuration, here are
-some common mistake I encounter for reminder:
-- **branch** : always make sure which branches you want to trigger GitHub Actions. In
-this case, I would like to trigger GitHub Actions when pull request or push on `main`
+some common mistake I encounter as kindly reminders for you:
+- **branch** : always make sure which branches you want to trigger GitHub Actions, or
+you will be confused why GitHub Actions doesn't working. 
+In this case, I would like to trigger GitHub Actions when pull request or push on `main`
 branch.
 - **env**: as I use environment variables for database settings, make sure to set
-environment variables in the steps you are going to use database.
-- **DB port**: as indicated in [^6], GitHub Actions assign random port. In order to
-access the service (e.g. database) port with no failure, you have to use 
-`jobs.<job_id>.services.<service_id>.ports`.
+environment variables in each step you are going to use database, e.g. database migration
+and running unit tests.
+- **DB port**: as indicated in [^7], GitHub Actions assign random port for each GitHub
+Actions services defined by you. 
+In order to access these services (e.g. database) port with no failure, you have to use 
+`jobs.<job_id>.services.<service_id>.ports` syntax.
 
 Then, here are the steps adding GitHub Actions configuration:
 1. Create directory called `.github/workflows`.
 2. In `.github/workflows` directory, add `django-ci.yml` (our GitHub Actions configuration)
 as below:
+
 ```yaml
 name: Django CI
 
@@ -173,7 +181,7 @@ jobs:
         DBPORT: ${{ job.services.mysql.ports[3306] }}
 ```
 
-### Push to GitHub and Enjoy!
+### 5. Push to GitHub and Enjoy!
 After the above steps, push our project to GitHub, and GitHub Actions
 will start to work!
 
@@ -184,13 +192,11 @@ Usually, you can add the badge in `README.md` like this:
 [![<your-CI-name>](https://github.com/Cuda-Chen/<your-project-name>/actions/workflows/django-ci.yml/badge.svg)](https://github.com/Cuda-Chen/<your-project-name>/actions/workflows/django-ci.yml)
 ```
 
-> You can see full example project in [here](https://github.com/Cuda-Chen/django-mysql-github-actions-demo).
-
 ## Conclusion
 In this post, I make an introduction how to apply CI/CD pipeline. I also introduce
 what is GitHub Actions and its characteristics. I then make a Django demo project
 using MySQL in order to show the processes running GitHub Actions, and leave
-some marks for avoiding common gotchaes. 
+some marks for avoiding common gotchas. 
 
 ## References
 [^1] https://www.jenkins.io/ 
@@ -203,8 +209,6 @@ some marks for avoiding common gotchaes.
 
 [^5] https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners
 
-[^6] https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#example-using-localhost
+[^6] https://julialang.org/
 
-https://github.com/adamchainz/django-mysql
-https://blog.healthchecks.io/2020/11/using-github-actions-to-run-django-tests/
-https://medium.com/intelligentmachines/github-actions-end-to-end-ci-cd-pipeline-for-django-5d48d6f00abf
+[^7] https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#example-using-localhost
