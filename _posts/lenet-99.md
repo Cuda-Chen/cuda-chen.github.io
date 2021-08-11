@@ -34,6 +34,13 @@ uses **Euclidean radial basis (RBF) function**. [3] However,
 
 ## Let's fine tuning!
 > You can get the code from [my repo](https://github.com/Cuda-Chen/flux-lenet).
+>
+
+As such, hypermeter tuning plays a crucial role in machine learning
+model development. Though the LeNet implementation of Flux.jl can achieve
+98% top-1 accuracy, I still want to try whether I can break the limits.
+What's more, by experimenting fine tuning, I can attain the knowledge
+which parameters plays the major role in certain task.
 ### batch size
 ### learning rate
 ### regularizer
