@@ -17,6 +17,9 @@ making me familiarize the structure and the basic
 components of a CNN mode.
 
 ## Base Model
+> You can get the code from [my repo](https://github.com/Cuda-Chen/flux-lenet).
+>
+
 The base model is the well-known 5-layer LeNet [1], and the
 implementation is adopted from Flux.jl model zoo [2]. As such, 
 there are some differences between the original LeNet and 
@@ -32,20 +35,42 @@ in Flux.jl mode zoo uses **max** pooling.
 uses **Euclidean radial basis (RBF) function**. [3] However, 
 **softmax** is used in Flux.jl's implementation.
 
-## Let's fine tuning!
-> You can get the code from [my repo](https://github.com/Cuda-Chen/flux-lenet).
->
+For your ease, I list the structure of my implementation:
+![]() <---
 
+## Let's fine tuning!
 As such, hypermeter tuning plays a crucial role in machine learning
 model development. Though the LeNet implementation of Flux.jl can achieve
 98% top-1 accuracy, I still want to try whether I can break the limits.
 What's more, by experimenting fine tuning, I can attain the knowledge
 which parameters plays the major role in certain task.
+
 ### batch size
+Batch size means how many training samples are used in one iteration.
+Furthermore, it represents you update, or formally, calculate the loss then
+back-propagate, the parameters of the model after ingest certain number
+of training samples. Therefore, assuming the following scenes:
+1. If you update the parameters after ingest **the whole data**. You may
+get a fast parameter updating time, but the model will perform poorly
+on actual case because the model falls into the trap of local minima.
+Besides, it needs a huge number of memory to load the data.
+2. If you update the parameters after ingest **each number of data** (only
+one data in each iteration). You may get a model with fantastic outcome, 
+but it takes an extraordinary time to train as it updates the parameters 
+in each iteration.
+
+As such, choosing the right number of batch size can:
+- reduce the training time and memory
+- coverange in better performance
+
+In this post, 
+ 
 ### learning rate
 ### regularizer
 
 ## Conclusion
+
+## Table to show the training environment 
 
 ## References
 [1] http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf
