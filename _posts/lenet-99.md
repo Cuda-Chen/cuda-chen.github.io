@@ -36,7 +36,7 @@ uses **Euclidean radial basis (RBF) function**. [3] However,
 **softmax** is used in Flux.jl's implementation.
 
 For your ease, I list the structure of my implementation:
-![]() <--- pirture here
+![model structure]()
 
 ## Let's fine tuning!
 As such, hypermeter tuning plays a crucial role in machine learning
@@ -64,10 +64,21 @@ As such, choosing the right number of batch size can:
 - coverange in better performance
 
 In this post, I tried different number of batch size, and the best batch
-size of my training platform is **32**.  
+size of my training platform is **32**.
+![model performance comparison of different batch size]()
+![model training time comparison of differences batch size]()
  
-### learning rate
-### regularizer
+### regularizer parameter
+
+In this post, the best L2 regularizer parameter is **1e-6**.
+![model performance comparison of regularizer]()
+![model training time comparison of regularizer]()
+
+### optimizer
+
+In this post, the best optimizer is **AdaBelief**.
+![model performance comparison of optimizer]()
+![model training time comparison of optimizer]()
 
 ## Conclusion
 
