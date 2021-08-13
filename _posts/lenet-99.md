@@ -20,10 +20,10 @@ components of a CNN mode.
 > You can get the code from [my repo](https://github.com/Cuda-Chen/flux-lenet).
 >
 
-The base model is the well-known 5-layer LeNet [1], and the
-implementation is adopted from Flux.jl model zoo [2]. As such, 
+The base model is the well-known 5-layer LeNet [^1], and the
+implementation is adopted from Flux.jl model zoo [^2]. As such, 
 there are some differences between the original LeNet and 
-the implementation in Flux.jl model zoo [3]:
+the implementation in Flux.jl model zoo [^3]:
 1. The activation function of convolution layer in LeNet uses
 **sigmoid**, whilst in Flux.jl model zoo uses **ReLU**.
 2. The pooling layer in LeNet uses **average** pooling, whereas
@@ -85,8 +85,8 @@ In this post, the best optimizer is **AdaBelief**.
 ## Table to show the training environment 
 
 ## References
-[1] http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf
+[^1] http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf
 
-[2] https://github.com/FluxML/model-zoo/blob/33f5c472c321a50fc2105358a00eb7b3ec0ffa5e/vision/conv_mnist/conv_mnist.jl#L21
+[^2] https://github.com/FluxML/model-zoo/blob/33f5c472c321a50fc2105358a00eb7b3ec0ffa5e/vision/conv_mnist/conv_mnist.jl#L21
 
-[3] https://pabloinsente.github.io/the-convolutional-network
+[^3] https://pabloinsente.github.io/the-convolutional-network
