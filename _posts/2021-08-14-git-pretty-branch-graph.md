@@ -24,7 +24,7 @@ And this stackoverflow answer [^1] provides an interesting
 rhythm -- A DOG -- and a meme to memorize it:
 
 ![git a dog meme](/assets/images/2021/08/14/adog_meme.jpeg)
-<center>This delighted dog with rainbow background will help you to memorize A DOG command :)</center><br/>
+<figcaption>This delighted dog with rainbow background will help you to memorize A DOG command :)</figcaption><br/>
 
 Thanks you stackoverflow, you save me the day!
 
