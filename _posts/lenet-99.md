@@ -45,6 +45,36 @@ model development. Though the LeNet implementation of Flux.jl can achieve
 What's more, by experimenting fine tuning, I can attain the knowledge
 which parameters plays the major role in certain task.
 
+### baseline
+> Baseline model can be found here:
+> https://github.com/FluxML/model-zoo/blob/master/vision/conv_mnist/conv_mnist.jl
+
+```
+Epoch: 0   Train: (loss = 2.3162f0, acc = 12.1333)   Test: (loss = 2.316f0, acc = 12.11)
+Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:41
+Epoch: 1   Train: (loss = 0.1586f0, acc = 95.3417)   Test: (loss = 0.145f0, acc = 95.53)
+Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:12
+Epoch: 2   Train: (loss = 0.1079f0, acc = 96.7733)   Test: (loss = 0.0958f0, acc = 97.03)
+Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:12
+Epoch: 3   Train: (loss = 0.0829f0, acc = 97.515)   Test: (loss = 0.0717f0, acc = 97.75)
+Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:13
+Epoch: 4   Train: (loss = 0.0639f0, acc = 98.0883)   Test: (loss = 0.0573f0, acc = 98.21)
+Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:12
+Epoch: 5   Train: (loss = 0.0614f0, acc = 98.12)   Test: (loss = 0.0539f0, acc = 98.25)
+[ Info: Model saved in "runs/model.bson"
+Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:12
+Epoch: 6   Train: (loss = 0.0593f0, acc = 98.2017)   Test: (loss = 0.058f0, acc = 98.13)
+Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:12
+Epoch: 7   Train: (loss = 0.0464f0, acc = 98.6083)   Test: (loss = 0.0464f0, acc = 98.52)
+Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:11
+Epoch: 8   Train: (loss = 0.04f0, acc = 98.7867)   Test: (loss = 0.039f0, acc = 98.77)
+Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:12
+Epoch: 9   Train: (loss = 0.0393f0, acc = 98.7833)   Test: (loss = 0.0416f0, acc = 98.63)
+Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:11
+Epoch: 10   Train: (loss = 0.0348f0, acc = 98.9667)   Test: (loss = 0.0388f0, acc = 98.67)
+
+```
+
 ### batch size
 Batch size means how many training samples are used in one iteration.
 Furthermore, it represents you update, or formally, calculate the loss then
@@ -67,6 +97,14 @@ In this post, I tried different number of batch size, and the best batch
 size of my training platform is **32**.
 ![model performance comparison of different batch size]()
 ![model training time comparison of differences batch size]()
+
+32
+
+64
+
+256
+
+512
  
 ### regularizer parameter
 
@@ -83,6 +121,11 @@ In this post, the best optimizer is **AdaBelief**.
 ## Conclusion
 
 ## Table to show the training environment 
+- CPU: Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
+- RAM: 16 GiB
+- OS: Fedora 33 (Linux Kernel 5.13.12)
+- Julia version: 1.6.2
+- Flux.jl version: v0.12.4
 
 ## References
 [^1] http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf
