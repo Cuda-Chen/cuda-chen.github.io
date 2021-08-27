@@ -17,3 +17,6 @@ got vaccinated with [Medigenvac](https://www.medigenvac.com/public/en) COVID-19 
 
 ## Day 3
 - Moderate fatigue.
+
+## Day 4
+- Awaken as hell.
