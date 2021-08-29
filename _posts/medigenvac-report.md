@@ -23,3 +23,6 @@ got vaccinated with [Medigenvac](https://www.medigenvac.com/public/en) COVID-19 
 
 ## Day 5
 - Awaken as hell.
+
+## Day 6
+- Awaken as hell.
