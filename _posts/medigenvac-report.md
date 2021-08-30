@@ -26,3 +26,6 @@ got vaccinated with [Medigenvac](https://www.medigenvac.com/public/en) COVID-19 
 
 ## Day 6
 - Awaken as hell.
+
+## Day 7
+- Awaken as hell in the morning, but after lunch with Subway, I felt fatigueand took a nap in the evening.
