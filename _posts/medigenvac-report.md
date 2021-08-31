@@ -29,3 +29,7 @@ got vaccinated with [Medigenvac](https://www.medigenvac.com/public/en) COVID-19 
 
 ## Day 7
 - Awaken as hell in the morning, but after lunch with Subway, I felt fatigueand took a nap in the evening.
+
+## Day 8
+- Awaken as hell in the morning.
+- Got headache after finishing lunch, maybe I am so tired these days.
