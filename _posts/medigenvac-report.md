@@ -36,3 +36,6 @@ got vaccinated with [Medigenvac](https://www.medigenvac.com/public/en) COVID-19 
 
 ## Day 9 (2021/09/01)
 - Awaken as hell.
+
+## Day 10 (2021/09/02)
+- Awaken as hell.
