@@ -1,8 +1,8 @@
 ---
 layout: post
-title:
-category:
-tags:
+title: "My Medigenvac COVID-19 First Vaccination Report"
+category: [life]
+tags: [life, COVID-19, vaccine]
 ---
 
 In this posrt, I will record the situation after I
