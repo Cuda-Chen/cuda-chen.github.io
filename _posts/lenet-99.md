@@ -36,7 +36,10 @@ uses **Euclidean radial basis (RBF) function**. [3] However,
 **softmax** is used in Flux.jl's implementation.
 
 For your ease, I list the structure of my implementation:
-![model structure]()
+![model structure](/assets/images/2021/09/23/nn.svg)
+<center>The structure of base model. You can right-click to show the image
+in new tab. Sorry for your inconvenience because NN-SVG(http://alexlenail.me/NN-SVG/LeNet.html)
+does not have any options to resize the image.</center>
 
 ## Let's fine tuning!
 As such, hypermeter tuning plays a crucial role in machine learning
@@ -45,7 +48,7 @@ model development. Though the LeNet implementation of Flux.jl can achieve
 What's more, by experimenting fine tuning, I can attain the knowledge
 which parameters plays the major role in certain task.
 
-### baseline
+### baseline and its performance
 > Baseline model can be found here:
 > https://github.com/FluxML/model-zoo/blob/master/vision/conv_mnist/conv_mnist.jl
 
@@ -95,10 +98,17 @@ As such, choosing the right number of batch size can:
 
 In this post, I tried different number of batch size, and the best batch
 size of my training platform is **32**.
-![model performance comparison of different batch size]()
-![model training time comparison of differences batch size]()
 
-32
+| batch size | Testing Accuracy (after training with 10 epoches) |
+| --- | --- |
+| 32 | 98.94% |
+| 64 | 98.9% |
+| 256 | 98.54% |
+| 512 | 98.21% |
+
+And the following paragraphs are the training log of different batch size.
+
+#### 32
 ```
 Epoch: 0   Train: (loss = 2.3162f0, acc = 12.1333)   Test: (loss = 2.316f0, acc = 12.11)
 Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:40
@@ -124,7 +134,7 @@ Progress: 100%|█████████████████████�
 Epoch: 10   Train: (loss = 0.0166f0, acc = 99.4283)   Test: (loss = 0.0328f0, acc = 98.94)
 ```
 
-64
+#### 64
 ```
 Epoch: 0   Train: (loss = 2.3162f0, acc = 12.1333)   Test: (loss = 2.316f0, acc = 12.11)
 Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:40
@@ -150,7 +160,7 @@ Progress: 100%|█████████████████████�
 Epoch: 10   Train: (loss = 0.0273f0, acc = 99.1333)   Test: (loss = 0.0351f0, acc = 98.9)
 ```
 
-256
+#### 256
 ```
 Epoch: 0   Train: (loss = 2.3162f0, acc = 12.1333)   Test: (loss = 2.316f0, acc = 12.11)
 Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:38
@@ -176,7 +186,7 @@ Progress: 100%|█████████████████████�
 Epoch: 10   Train: (loss = 0.047f0, acc = 98.5767)   Test: (loss = 0.0445f0, acc = 98.54)
 ```
 
-512
+#### 512
 ```
 Epoch: 0   Train: (loss = 2.3162f0, acc = 12.1333)   Test: (loss = 2.316f0, acc = 12.11)
 Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:38
@@ -204,11 +214,17 @@ Epoch: 10   Train: (loss = 0.0661f0, acc = 98.0383)   Test: (loss = 0.0594f0, ac
  
 ### regularizer parameter
 
-In this post, the best L2 regularizer parameter is **1e-6**.
-![model performance comparison of regularizer]()
-![model training time comparison of regularizer]()
+In this experiment, the best L2 regularizer parameter is **1e-6**.
 
-1e-2
+| batch size | Testing Accuracy (after training with 10 epoches) |
+| --- | --- |
+| 1e-2 | 97.68% |
+| 1e-4 | 98.87% |
+| 1e-6 | 99.05% |
+
+As usual, I put the training logs with different regularizer parameters.
+
+#### 1e-2
 ```
 Epoch: 0   Train: (loss = 2.3162f0, acc = 12.1333)   Test: (loss = 2.316f0, acc = 12.11)
 Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:41
@@ -234,7 +250,7 @@ Progress: 100%|█████████████████████�
 Epoch: 10   Train: (loss = 0.0955f0, acc = 97.3467)   Test: (loss = 0.0844f0, acc = 97.68)
 ```
 
-1e-4
+#### 1e-4
 ```
 Epoch: 0   Train: (loss = 2.3162f0, acc = 12.1333)   Test: (loss = 2.316f0, acc = 12.11)
 Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:40
@@ -260,7 +276,7 @@ Progress: 100%|█████████████████████�
 Epoch: 10   Train: (loss = 0.0206f0, acc = 99.3133)   Test: (loss = 0.0345f0, acc = 98.87)
 ```
 
-1e-6
+#### 1e-6
 ```
 Epoch: 0   Train: (loss = 2.3162f0, acc = 12.1333)   Test: (loss = 2.316f0, acc = 12.11)
 Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:49
@@ -288,11 +304,17 @@ Epoch: 10   Train: (loss = 0.0154f0, acc = 99.51)   Test: (loss = 0.0317f0, acc 
 
 ### optimizer
 
-In this post, the best optimizer is **AdaBelief**.
-![model performance comparison of optimizer]()
-![model training time comparison of optimizer]()
+In this post, the best optimizer is **ADAMW**.
 
-ADAMW
+| batch size | Testing Accuracy (after training with 10 epoches) |
+| --- | --- |
+| ADAMW | 99.05% |
+| NADAM | 98.92% |
+| AdaBelief | 99.01% | 
+
+And here are the training logs with different optimizer.
+
+#### ADAMW
 ```
 Epoch: 0   Train: (loss = 2.3162f0, acc = 12.1333)   Test: (loss = 2.316f0, acc = 12.11)
 Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:44
@@ -318,7 +340,7 @@ Progress: 100%|█████████████████████�
 Epoch: 10   Train: (loss = 0.0154f0, acc = 99.51)   Test: (loss = 0.0317f0, acc = 99.05)
 ```
 
-NADAM
+#### NADAM
 ```
 Epoch: 0   Train: (loss = 2.3162f0, acc = 12.1333)   Test: (loss = 2.316f0, acc = 12.11)
 Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:43
@@ -344,7 +366,7 @@ Progress: 100%|█████████████████████�
 Epoch: 10   Train: (loss = 0.0194f0, acc = 99.3567)   Test: (loss = 0.035f0, acc = 98.92)
 ```
 
-AdaBelief
+#### AdaBelief
 ```
 Epoch: 0   Train: (loss = 2.3162f0, acc = 12.1333)   Test: (loss = 2.316f0, acc = 12.11)
 Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:47
