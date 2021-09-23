@@ -1,8 +1,8 @@
 ---
 layout: post
-title:
-category:
-tags:
+title: How My LeNet Achieves 99% Accuracy 
+category: [Deep learning]
+tags: [Deep learning, CNN]
 ---
 
 ## Introduction
