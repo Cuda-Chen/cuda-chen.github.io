@@ -10,3 +10,6 @@ tags:
 
 ## Day 2
 - Awaken as hell.
+
+## Day 3
+- Awaken as hell.
