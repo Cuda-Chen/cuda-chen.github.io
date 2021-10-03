@@ -13,3 +13,7 @@ tags:
 
 ## Day 3
 - Awaken as hell.
+- Sore sholder on vaccined one.
+
+## Day 4
+- Awaken as hell.
