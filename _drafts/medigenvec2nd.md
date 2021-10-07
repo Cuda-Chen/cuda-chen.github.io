@@ -26,3 +26,6 @@ tags:
 
 ## Day 7
 - Awaken as hell.
+
+## Day 8
+- Awaken as hell.
