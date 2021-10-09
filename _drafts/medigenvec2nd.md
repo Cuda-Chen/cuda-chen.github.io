@@ -32,3 +32,6 @@ tags:
 
 ## Day 9
 - Awaken as hell.
+
+## Day 10
+- Awaken as hell.
