@@ -38,3 +38,12 @@ tags:
 
 ## Day 11
 - Awaken as hell.
+
+## Day 12
+- Awaken as hell.
+
+## Day 13
+- Awaken as hell.
+
+## Day 14
+- Awaken as hell.
