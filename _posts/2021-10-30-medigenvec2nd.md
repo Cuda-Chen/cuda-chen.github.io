@@ -1,9 +1,13 @@
 ---
 layout: post
-title: 2nd vaccination
-category:
-tags:
+title: "My Medigenvac COVID-19 Second Vaccination Report"
+category: [life]
+tags: [life, COVID-19, vaccine]
 ---
+
+In this posrt, I will record the situation after I
+got vaccinated with [Medigenvac](https://www.medigenvac.com/public/en) COVID-19 vaccine
+second shot.
 
 ## Day 1 (The day get vaccinated)
 - Awaken as hell.
