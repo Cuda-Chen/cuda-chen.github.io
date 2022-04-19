@@ -35,8 +35,10 @@ permalink: /:categories/:year/:month/:day/:title:output_ext
 liker_id: clh0524
 
 # Build settings
-theme: minima
+#theme: minima
+remote_theme: jekyll/minima
 plugins:
+  - jekyll-remote-theme
   - jekyll-feed
   - jekyll-sitemap
 
@@ -48,8 +50,8 @@ disqus:
 
 url: https://cuda-chen.github.io
 
-# Google Analytics
-google_analytics: UA-159035500-1
+# Google Analytics 4
+google_analytics: G-S0YYB3MSRY
 
 # Exclude from processing.
 # The following items will not be processed, by default.
