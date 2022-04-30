@@ -22,6 +22,7 @@ will let you find your measurement ID.
 
 3. Put your measurement ID in `_config.yml`.
 Usually you put your measurement ID like this:
+
 ```
 google_analytics: <your-measurement-id>
 ```
@@ -31,6 +32,7 @@ For [some reasons](https://github.com/jekyll/minima/issues/561),
 you have to use remote theme if your Jekyll blog uses minima
 theme and is hosted on GitHub Pages.
 Usually you set your blog to use remote theme like this:
+
 ```
 # _config.yml
 
