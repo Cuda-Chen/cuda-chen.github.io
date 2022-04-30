@@ -30,7 +30,6 @@ google_analytics: <your-measurement-id>
 For [some reasons](https://github.com/jekyll/minima/issues/561),
 you have to use remote theme if your Jekyll blog uses minima
 theme and is hosted on GitHub Pages.
-
 Usually you set your blog to use remote theme like this:
 ```
 # _config.yml
