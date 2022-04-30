@@ -22,7 +22,6 @@ will let you find your measurement ID.
 
 3. Put your measurement ID in `_config.yml`.
 Usually you put your measurement ID like this:
-
 ```
 google_analytics: <your-measurement-id>
 ```
