@@ -12,7 +12,7 @@ Analytics, I write down the switching procedures so that other
 user can have a post to know how to switch your Jekyll blog
 from Google Analytics to Google Analytics 4.
 
-## Switching Procddures
+## Switching Procedures
 1. Create a Google Analytics 4 Property.
 For more information you can visit [the help center of Google](https://support.google.com/analytics/answer/9304153?hl=en).
 
