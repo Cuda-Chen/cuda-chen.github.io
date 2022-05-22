@@ -44,3 +44,17 @@ for exercising.
 - Feel a little fatigue sometimes.
 - Coughing seldomly.
 - **Get PCR positive report today.**
+
+## Day 8
+- Awaken as hell.
+- Coughing seldomly.
+
+## Day 9
+- Awaken as hell.
+- Coughing seldomly.
+
+## Day 10
+- Awaken as hell.
+
+## Day 11
+- Awaken as hell.
