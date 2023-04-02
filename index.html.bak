@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: base
 ---
   <body>
     <h1>Hello Cuda-Chen!</h1>

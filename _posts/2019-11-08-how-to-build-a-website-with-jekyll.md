@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: base
 title: "How to build your Website with GitHub Pages and Jekyll"
 category: [programming]
 tags: [CentOS, Ruby, Jekyll, Blog]

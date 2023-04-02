@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: base
 title: "How to Build a Docker Container from Scratch"
 categories: [programming]
 tags: [Mask R-CNN, machine learning, IT, Docker]
