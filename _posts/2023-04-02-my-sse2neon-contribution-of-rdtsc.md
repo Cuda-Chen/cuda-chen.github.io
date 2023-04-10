@@ -6,15 +6,15 @@ tags: [programming, C, C++, sse2neon]
 ---
 
 In this post, I am going to illustrate the path of `_rdtsc` [^1] conversion contribution
-on sse2neon. At first, I will introduct the usage of `_rdtsc`, then talk about
+on sse2neon. At first, I will introduce the usage of `_rdtsc`, then talk about
 the implementation and test case .
 The full implementation can be seen in here: https://github.com/DLTcollab/sse2neon/pull/532
 
 ## What's `_rdtsc`
 
 The `_rdtsc` is an SSE intrinsic which gets the current timestamp from processor.
-The way which makes it special is that it gets the teimstamp directly from
-hardware, which is sutiable for measuring precise execution time.
+The way which makes it special is that it gets the timestamp directly from
+hardware, which is suitable for measuring precise execution time.
 
 ## Implementations
 
@@ -44,7 +44,7 @@ What's more, PMCCNTR starts to count only if PMCNTENSET (performance monitors co
 is set.
 
 If none of the three above conditions is met, you will not be able to access PMCCNTR
-or get its value. In fact, you can get the current timestamp using Linux kenrel API (`gettimeofday`)
+or get its value. In fact, you can get the current timestamp using Linux kernel API (`gettimeofday`)
 as usually the API is running in kernel mode.
 
 ```c
