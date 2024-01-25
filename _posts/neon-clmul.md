@@ -34,3 +34,12 @@ Reviewer request not to use this as it costs 1KiB space.
 Just need 64B space!
 
 ## Barrett Reduction
+
+- https://mary.rs/lab/crc32/
+- multiplicative inverse
+    - https://github.com/calccrypto/uint256_t
+
+## CRC notation
+
+- reverse (bit-reflected)
+- Reciprocal
