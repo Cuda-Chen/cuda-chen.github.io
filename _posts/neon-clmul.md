@@ -5,7 +5,17 @@ category:
 tags:
 ---
 
+## Introduction
+
+In this post, I am going to illustrate the progress of `_mm_crc32_u8`
+conversion improvement of the contribution to sse2neon.
+
+In the beginning, I will make a brief introduction to CRC32C,
+which is the CRC algorithm that `_mm_crc32_u8` applies.
+Then, I will show how I optimize the conversion with various method.
+
 ## CRC32C
+
 
 ## carry-less multiplication
 
@@ -43,3 +53,9 @@ Just need 64B space!
 
 - reverse (bit-reflected)
 - Reciprocal
+
+## Conclusion
+
+## Trivia
+
+- It is confirmed that the precedence of test function will affect the running time of them in qemu.
