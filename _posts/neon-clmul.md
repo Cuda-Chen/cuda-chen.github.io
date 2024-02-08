@@ -37,7 +37,7 @@ As a reminder, the CRC32C uses the following polynominals:
 - normal: 0x1EDC6F41
 - bit-reflected: 0x82F63B78
 
-What's more, the implementation uses the bit-reflected way.
+What's more, we use the bit-reflected way for implementation.
 For the reasons of using bit-reflected method,
 you can refer to Fastest CRC32 for x86, Intel and AMD, + comprehensive derivation and discussion of various approaches [^2].
 
@@ -63,16 +63,20 @@ FORCE_INLINE uint32_t _mm_crc32_u8(uint32_t crc, uint8_t v)
 ### Apply ternany operator
 
 Modern compiler can optimize the ternany operator into
-conditional move to prevent branching. As a consequence,
+conditional move to prevent branching. As a consequence, we can
+re-write the `if...else` statement into ternany operator:
 
 ```c
 for (int bit = 0; bit < 8; bit++)
     crc = (crc & 1) ? ((crc >> 1) ^ UINT32_C(0x82f63b78)) : (crc >> 1);
 ```
 
-not good as mentioned in https://github.com/DLTcollab/sse2neon/pull/627#discussion_r1453360563
+However, as mentioned by the reviewer [^4], we should come up
+with another way to utilize the power of NEON.
 
 ## Table method
+
+*describe the byte to T*
 
 ```c
 ```
@@ -112,3 +116,5 @@ Just need 64B space!
 [^2] https://github.com/komrad36/CRC
 
 [^3] https://github.com/DLTcollab/sse2neon/blob/cfaa59fc04fecb117c0a0f3fe9c82dece6f359ad/sse2neon.h#L8502
+
+[^4] https://github.com/DLTcollab/sse2neon/pull/627#discussion_r1453360563
