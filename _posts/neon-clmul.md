@@ -32,12 +32,40 @@ A CRC algorithm is called an n-bit CRC when its divisor (formally
 check value) is n-bit long. Thus, the CRC32C, a variant of CRC32, has 
 a 32-bit binary number as the dividend.
 
-## carry-less multiplication
+As a reminder, the CRC32C uses the following polynominals:
+
+- normal: 0x1EDC6F41
+- bit-reflected: 0x82F63B78
+
+What's more, the implementation uses the bit-reflected way.
+For the reasons of using bit-reflected method,
+you can refer to Fastest CRC32 for x86, Intel and AMD, + comprehensive derivation and discussion of various approaches [^2].
 
 ## Road of optimization
 
+Let's start with the original implementation in sse2neon [^3]:
+
 ```c
-crc ^= v;
+FORCE_INLINE uint32_t _mm_crc32_u8(uint32_t crc, uint8_t v)
+{
+    // If the target does not support CRC extension
+    crc ^= v;
+    for (int bit = 0; bit < 8; bit++) {
+        if (crc & 1)
+            crc = (crc >> 1) ^ UINT32_C(0x82f63b78);
+        else
+            crc = (crc >> 1);
+    }
+    return crc;
+}
+```
+
+### Apply ternany operator
+
+Modern compiler can optimize the ternany operator into
+conditional move to prevent branching. As a consequence,
+
+```c
 for (int bit = 0; bit < 8; bit++)
     crc = (crc & 1) ? ((crc >> 1) ^ UINT32_C(0x82f63b78)) : (crc >> 1);
 ```
@@ -57,6 +85,8 @@ Reviewer request not to use this as it costs 1KiB space.
 ```
 
 Just need 64B space!
+
+## carry-less multiplication
 
 ## Barrett Reduction
 
@@ -78,3 +108,7 @@ Just need 64B space!
 ## Reference
 
 [^1] https://en.wikipedia.org/wiki/Cyclic_redundancy_check
+
+[^2] https://github.com/komrad36/CRC
+
+[^3] https://github.com/DLTcollab/sse2neon/blob/cfaa59fc04fecb117c0a0f3fe9c82dece6f359ad/sse2neon.h#L8502
