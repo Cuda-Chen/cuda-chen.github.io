@@ -201,19 +201,35 @@ FORCE_INLINE uint32_t _mm_crc32_u8(uint32_t crc, uint8_t v)
 }
 ```
 
-However, the reviewer requested not to use this as it costs 1KiB space [^5],
+However, reviewer requested not to use this as it costs 1KiB space [^5],
 which for my point-of-view, 1KiB space is costly on embedded system such
 as Raspberry Pi. Therefore, we have to emerge another tabular method solution
-with the balance of performance and space.
+with the balance between performance and space.
 
 ### Tabular method (half-byte)
 
+As mentioned in [^6], we can break the whole 8-bit table look-up into two consecutive 4-bit table look-up:
+
 ```c
+FORCE_INLINE uint32_t _mm_crc32_u8(uint32_t crc, uint8_t v)
+{
+	crc ^= v;
+	static const uint32_t crc32_half_byte_tbl[] = {
+	    0x00000000, 0x105ec76f, 0x20bd8ede, 0x30e349b1, 0x417b1dbc, 0x5125dad3,
+	    0x61c69362, 0x7198540d, 0x82f63b78, 0x92a8fc17, 0xa24bb5a6, 0xb21572c9,
+	    0xc38d26c4, 0xd3d3e1ab, 0xe330a81a, 0xf36e6f75,
+	};
+	
+	crc = (crc >> 4) ^ crc32_half_byte_tbl[crc & 0x0F];
+	crc = (crc >> 4) ^ crc32_half_byte_tbl[crc & 0x0F];
+	return crc;
+}
 ```
 
-Just need 64B space!
+The look-up table just needs to hold every 16th entry of the one-byte tabular method,
+thus 16 entries with only 64B space!
 As we are implementing `_mm_crc32_u8`, an additional table look-up will
-be suffice.
+be an afforable compromise.
 
 ## carry-less multiplication
 
@@ -245,3 +261,5 @@ be suffice.
 [^4] https://github.com/DLTcollab/sse2neon/pull/627#discussion_r1453360563
 
 [^5] https://github.com/DLTcollab/sse2neon/pull/627#issuecomment-1895992394
+
+[^6] https://create.stephan-brumme.com/crc32/#half-byte
