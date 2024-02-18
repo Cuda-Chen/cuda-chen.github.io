@@ -42,7 +42,7 @@ What's more, we use the bit-reflected way for implementation.
 For the reasons of using bit-reflected method,
 you can refer to *Fastest CRC32 for x86, Intel and AMD, + comprehensive derivation and discussion of various approaches* [^2].
 
-## Road of optimization
+## Road of Optimization
 
 Let's start with the original implementation in sse2neon [^3]:
 
@@ -60,7 +60,7 @@ FORCE_INLINE uint32_t _mm_crc32_u8(uint32_t crc, uint8_t v)
 }
 ```
 
-### Apply ternany operator
+### apply ternany operator
 
 Modern compiler can optimize the ternany operator into
 conditional move to prevent branching. As a consequence, we can
@@ -74,7 +74,7 @@ for (int bit = 0; bit < 8; bit++)
 However, as mentioned by the reviewer [^4], we should come up
 with another way to utilize the power of NEON.
 
-## Tabular method
+### tabular method
 
 Observing the following implementation of calculating CRC32C:
 
@@ -206,7 +206,7 @@ which for my point-of-view, 1KiB space is costly on embedded system such
 as Raspberry Pi. Therefore, we have to emerge another tabular method solution
 with the balance between performance and space.
 
-### Tabular method (half-byte)
+### tabular method (half-byte)
 
 As mentioned in [^6], we can break the whole 8-bit table look-up into two consecutive 4-bit table look-up:
 
@@ -231,18 +231,31 @@ thus 16 entries with only 64B space!
 As we are implementing `_mm_crc32_u8`, an additional table look-up will
 be an afforable compromise.
 
-## carry-less multiplication
+### using Arm crypto extension
 
-## Barrett Reduction
+Though tabular method performs well, we always have to make a trade-off between performance
+and space: for better performance such as avoiding loop dependency, we ought to
+use more space to store the look-up table values; whilst reducing space for better
+memory usage we cannot avoid loop dependency as shown in *tabular method (half-byte)* section.
+
+The Arm crypto extension provides certain operations which we can utilize so that
+we don't need to store a loop-up table. To begin with using Arm crypto extension,
+I would like to introduce Barrett Reduction as it is the bedrock of further
+optimizing the CRC calculation.
+
+### Barrett Reduction
+
+Recall that the fundamental of CRC is to do polynominal division on message with
+a certain polynominal [^2]. As division is an expensive operation on computer,
+we can replace the division into multiplying the multiplicative inverse of the polynominal.
 
 - https://mary.rs/lab/crc32/
 - multiplicative inverse
     - https://github.com/calccrypto/uint256_t
 
-## CRC notation
+## carry-less multiplication
 
-- reverse (bit-reflected)
-- Reciprocal
+
 
 ## Conclusion
 
