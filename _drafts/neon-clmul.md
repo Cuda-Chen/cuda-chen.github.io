@@ -1,8 +1,9 @@
 ---
 layout: post
-title: neon clmul
-category:
-tags:
+title: "Optimize _mm_crc32_u8 conversion in sse2neon"
+category: [programming, open source contribution]
+tags: [programming, C, C++, sse2neon]
+math: true
 ---
 
 ## Introduction
@@ -35,7 +36,7 @@ a 32-bit binary number as the dividend.
 As a reminder, the CRC32C uses the following polynominals (I will represent
 as P for the rest of post):
 
-- normal: 0x1EDC6F41
+- normal: 0x1EDC6F41 (usually denoted as 0x11EDC6F41)
 - bit-reflected: 0x82F63B78
 
 What's more, we use the bit-reflected way for implementation.
@@ -243,25 +244,139 @@ we don't need to store a loop-up table. To begin with using Arm crypto extension
 I would like to introduce Barrett Reduction as it is the bedrock of further
 optimizing the CRC calculation.
 
-### Barrett Reduction
+#### Barrett reduction [^7] 
 
-Recall that the fundamental of CRC is to do polynominal division on message with
-a certain polynominal [^2]. As division is an expensive operation on computer,
-we can replace the division into multiplying the multiplicative inverse of the polynominal.
+Recall that the fundamental of CRC is to do polynominal division on a message with
+a certain polynominal in order to get the remainder [^2]. As division is an expensive operation on computer,
+we can replace the division into multiplying the multiplicative inverse of the polynominal,
+and this is the core concept of Barrett reduction.
 
-- https://mary.rs/lab/crc32/
-- multiplicative inverse
-    - https://github.com/calccrypto/uint256_t
+So to get CRC of message $$ a $$ with polynominal $$ p $$:
 
-## carry-less multiplication
+{% raw %}
+$$ 
+a mod p = a - \lfloor sa \ rfloor p
+$$
+{% endraw %}
 
+where $$ s = 1/p $$
 
+In practies, we can approximate $$ 1/p $$ with a value $$ m/2^k $$ as division with $$ 2^k $$ 
+is merely right shift with $$ k $$ times.
+
+I set $$ k=64 $$ in my implementation as this is usually enough, and we can
+pre-calculate the $$ s $$. Thanks for the post in [^8], we can use
+the uint256_t [^9] project to get $$ s $$ with the following code snippet:
+
+```cpp
+#include <cstdio>
+#include "uint256_t.h"
+
+int find_mu(int i)
+{
+    uint256_t dividend = uint256_t{1} << i;
+    const uint256_t divisor = 0x11EDC6F41; // polynominal used by CRC32-C
+    const int bits_in_divisor = 33; 
+
+    uint256_t result = 0;
+    int bit = 255;
+    while (bit >= 0) {
+        if ((dividend & (uint256_t{1} << bit)) != 0) {
+            int shift = bit - bits_in_divisor + 1;
+            if (shift >= 0) {
+                dividend ^= divisor << shift;
+                result ^= uint256_t{1} << shift;
+            } else {
+                dividend ^= divisor >> -shift;
+            }
+        }
+        bit--;
+    }   
+
+    printf("%s\n", result.str(16).c_str());
+    return 0;
+}
+
+int main()
+{
+    find_mu(64); // 2^64 / p
+    return 0;
+}
+```
+
+#### carry-less multiplication
+
+Recall that the main concept of CRC is to do polynominal division.
+As such, polynominal division has no need to do carries; yet,
+to allow each digit to become an arbitrary value is impractial.
+We can instead do the following: still don't carry, but let the value
+in a sensible range. We should limit the range as $$ [0, 1] $$
+because we are using computer to perform the polynominal division.
+That is, preverse with MODULO 2.
+
+There is an interesting property of polynominal operation MODULO 2:
+all of the polynominal operation is equivalent to binary arthmetic
+with no carrys, or "carry-less" binary arthmetic. Consequently,
+we can substitute the multiplication in Barrett reduction into
+carry-less multiplication.
+
+Though using Barrett reduction with carry-less multiplication
+does not need to store the look-up table, it needs the target
+support carry-less multiplication with O(1) time as the ordinary
+carry-less multiplication requires O(n^2) time, which usually
+perform worse than look-up table method. Thankfully,
+Arm crypto extension provides a O(1) time carry-less multiplication.
+
+Summing up, we can come up with the following implementation:
+
+```c
+FORCE_INLINE uint32_t _mm_crc32_u8(uint32_t crc, uint8_t v)
+{
+    ...
+    // Adapted from: https://mary.rs/lab/crc32/
+    // If target supports Arm crypto extension:
+
+    // Barrent reduction
+    uint64x2_t orig =
+        vcombine_u64(vcreate_u64((uint64_t) (crc) << 24), vcreate_u64(0x0));
+    uint64x2_t tmp = orig;
+
+    // Polynomial P(x) of CRC32C
+    uint64_t p = 0x105EC76F1;
+    // Barrett Reduction (in bit-reflected form) constant mu_{64} = \lfloor
+    // 2^{64} / P(x) \rfloor = 0x11f91caf6
+    uint64_t mu = 0x1dea713f1;
+
+    // Note: the _sse2neon_vmull_p64 is a wrapper of carry-less multiplication
+    // Multiply by mu_{64}
+    tmp = _sse2neon_vmull_p64(vget_low_u64(tmp), vcreate_u64(mu));
+    // Divide by 2^{64} (mask away the unnecessary bits)
+    tmp =
+        vandq_u64(tmp, vcombine_u64(vcreate_u64(0xFFFFFFFF), vcreate_u64(0x0)));
+    // Multiply by P(x) (shifted left by 1 for alignment reasons)
+    tmp = _sse2neon_vmull_p64(vget_low_u64(tmp), vcreate_u64(p));
+    // Subtract original from result
+    tmp = veorq_u64(tmp, orig);
+
+    // Extract the 'lower' (in bit-reflected sense) 32 bits
+    crc = vgetq_lane_u32(vreinterpretq_u32_u64(tmp), 1);
+
+    return crc;
+}
+```
 
 ## Conclusion
 
+In this post, I have shown two methods of optimizing CRC32-C calculation,
+and these implementations are merge to sse2neon.
+I also make brief dipictions of CRC and carry-less multiplication, which
+are a commonly seen topics in cryptography.
+
 ## Trivia
 
-- It is confirmed that the precedence of test function will affect the running time of them in qemu.
+While I was measuring the running time of each implementation, I found that 
+the precedence of test function will affect the running time of each
+implementation in qemu.
 
 ## Reference
 
@@ -276,3 +391,10 @@ we can replace the division into multiplying the multiplicative inverse of the p
 [^5] https://github.com/DLTcollab/sse2neon/pull/627#issuecomment-1895992394
 
 [^6] https://create.stephan-brumme.com/crc32/#half-byte
+
+[^7] https://en.wikipedia.org/wiki/Barrett_reduction
+
+[^8] https://mary.rs/lab/crc32/
+
+[^9] https://github.com/calccrypto/uint256_t
+
