@@ -3,7 +3,7 @@ layout: post
 title: "Optimize _mm_crc32_u8 conversion in sse2neon"
 category: [programming, open source contribution]
 tags: [programming, C, C++, sse2neon]
-math: true
+mathjax: true
 ---
 
 ## Introduction
@@ -18,8 +18,7 @@ Then, I will show how I optimize the conversion with various method.
 ## What's CRC32C?
 
 Before explaining CRC32C, I would like to answer a question: what
-is CRC? It is an algorithm used for error detection in network and storage device [^1],
-and its entire name is Cyclic Redundancy Check.
+is CRC (Cyclic Redundancy Check)? It is an algorithm used for error detection in network and storage device [^1].
 The sender uses a number as divisor, then applies division on the message
 to get the remainder. Next, sender appends the remainder in the end
 of the message. To verify whether the message has any errors,
@@ -232,15 +231,15 @@ thus 16 entries with only 64B space!
 As we are implementing `_mm_crc32_u8`, an additional table look-up will
 be an afforable compromise.
 
-### using Arm crypto extension
+### using Arm Cryptography Extension
 
 Though tabular method performs well, we always have to make a trade-off between performance
 and space: for better performance such as avoiding loop dependency, we ought to
 use more space to store the look-up table values; whilst reducing space for better
 memory usage we cannot avoid loop dependency as shown in *tabular method (half-byte)* section.
 
-The Arm crypto extension provides certain operations which we can utilize so that
-we don't need to store a loop-up table. To begin with using Arm crypto extension,
+The Arm Cryptography Extension provides certain operations which we can utilize so that
+we don't need to store a loop-up table. To begin with using Arm Cryptography Extension,
 I would like to introduce Barrett Reduction as it is the bedrock of further
 optimizing the CRC calculation.
 
@@ -255,7 +254,7 @@ So to get CRC of message $$ a $$ with polynominal $$ p $$:
 
 {% raw %}
 $$ 
-a mod p = a - \lfloor sa \ rfloor p
+a \mod p = a - \lfloor sa \rfloor p
 $$
 {% endraw %}
 
@@ -275,7 +274,7 @@ the uint256_t [^9] project to get $$ s $$ with the following code snippet:
 int find_mu(int i)
 {
     uint256_t dividend = uint256_t{1} << i;
-    const uint256_t divisor = 0x11EDC6F41; // polynominal used by CRC32-C
+    const uint256_t divisor = 0x11EDC6F41; // polynominal used by CRC32C
     const int bits_in_divisor = 33; 
 
     uint256_t result = 0;
@@ -322,10 +321,11 @@ carry-less multiplication.
 
 Though using Barrett reduction with carry-less multiplication
 does not need to store the look-up table, it needs the target
-support carry-less multiplication with O(1) time as the ordinary
-carry-less multiplication requires O(n^2) time, which usually
-perform worse than look-up table method. Thankfully,
-Arm crypto extension provides a O(1) time carry-less multiplication.
+to support hardware accelerated carry-less multiplication as the ordinary
+carry-less multiplication requires $$ O(b^2) $$ time ($$ b $$ means
+the bits of number), which usually
+performs worse than look-up table method. Thankfully,
+Arm Cryptography Extension provides a hardware accelerated carry-less multiplication.
 
 Summing up, we can come up with the following implementation:
 
@@ -334,7 +334,7 @@ FORCE_INLINE uint32_t _mm_crc32_u8(uint32_t crc, uint8_t v)
 {
     ...
     // Adapted from: https://mary.rs/lab/crc32/
-    // If target supports Arm crypto extension:
+    // If target supports Arm Cryptography Extension:
 
     // Barrent reduction
     uint64x2_t orig =
@@ -367,10 +367,10 @@ FORCE_INLINE uint32_t _mm_crc32_u8(uint32_t crc, uint8_t v)
 
 ## Conclusion
 
-In this post, I have shown two methods of optimizing CRC32-C calculation,
+In this post, I have shown two methods of optimizing CRC32C calculation,
 and these implementations are merge to sse2neon.
 I also make brief dipictions of CRC and carry-less multiplication, which
-are a commonly seen topics in cryptography.
+are commonly seen topics in cryptography.
 
 ## Trivia
 
@@ -380,21 +380,21 @@ implementation in qemu.
 
 ## Reference
 
-[^1] https://en.wikipedia.org/wiki/Cyclic_redundancy_check
+[^1]: https://en.wikipedia.org/wiki/Cyclic_redundancy_check
 
-[^2] https://github.com/komrad36/CRC
+[^2]: https://github.com/komrad36/CRC
 
-[^3] https://github.com/DLTcollab/sse2neon/blob/cfaa59fc04fecb117c0a0f3fe9c82dece6f359ad/sse2neon.h#L8502
+[^3]: https://github.com/DLTcollab/sse2neon/blob/cfaa59fc04fecb117c0a0f3fe9c82dece6f359ad/sse2neon.h#L8502
 
-[^4] https://github.com/DLTcollab/sse2neon/pull/627#discussion_r1453360563
+[^4]: https://github.com/DLTcollab/sse2neon/pull/627#discussion_r1453360563
 
-[^5] https://github.com/DLTcollab/sse2neon/pull/627#issuecomment-1895992394
+[^5]: https://github.com/DLTcollab/sse2neon/pull/627#issuecomment-1895992394
 
-[^6] https://create.stephan-brumme.com/crc32/#half-byte
+[^6]: https://create.stephan-brumme.com/crc32/#half-byte
 
-[^7] https://en.wikipedia.org/wiki/Barrett_reduction
+[^7]: https://en.wikipedia.org/wiki/Barrett_reduction
 
-[^8] https://mary.rs/lab/crc32/
+[^8]: https://mary.rs/lab/crc32/
 
-[^9] https://github.com/calccrypto/uint256_t
+[^9]: https://github.com/calccrypto/uint256_t
 
