@@ -202,13 +202,20 @@ FORCE_INLINE uint32_t _mm_crc32_u8(uint32_t crc, uint8_t v)
 ```
 
 However, reviewer requested not to use this as it costs 1KiB space [^5],
-which for my point-of-view, 1KiB space is costly on embedded system such
-as Raspberry Pi. Therefore, we have to emerge another tabular method solution
-with the balance between performance and space.
+~~which for my point-of-view, 1KiB space is costly on embedded system such
+as Raspberry Pi.
+Therefore, we have to emerge another tabular method solution
+with the balance between performance and space.~~
+
+> Edit: thanks for the reply from [^6], the table used
+in this implementation needs 16 times of cacheline for storing 
+pre-computed values as the cacheline size of most CPU architectures is 64B.
+Hence, we ought to find a solution that can fit all the pre-computed
+values into the whole size of cacheline.
 
 ### tabular method (half-byte)
 
-As mentioned in [^6], we can break the whole 8-bit table look-up into two consecutive 4-bit table look-up:
+As mentioned in [^7], we can break the whole 8-bit table look-up into two consecutive 4-bit table look-up:
 
 ```c
 FORCE_INLINE uint32_t _mm_crc32_u8(uint32_t crc, uint8_t v)
@@ -228,8 +235,10 @@ FORCE_INLINE uint32_t _mm_crc32_u8(uint32_t crc, uint8_t v)
 
 The look-up table just needs to hold every 16th entry of the one-byte tabular method,
 thus 16 entries with only 64B space!
-As we are implementing `_mm_crc32_u8`, an additional table look-up will
-be an afforable compromise.
+Though this introduces an additional comparision thus cannot utilize 
+the benefit of out-of-order execution in modern CPU, I think it will be
+a acceptable compromise as the entire pre-computed values can
+be fit into one cacheline.
 
 ### using Arm Cryptography Extension
 
@@ -243,7 +252,7 @@ we don't need to store a loop-up table. To begin with using Arm Cryptography Ext
 I would like to introduce Barrett Reduction as it is the bedrock of further
 optimizing the CRC calculation.
 
-#### Barrett reduction [^7] 
+#### Barrett reduction [^8] 
 
 Recall that the fundamental of CRC is to do polynominal division on a message with
 a certain polynominal in order to get the remainder [^2]. As division is an expensive operation on computer,
@@ -264,8 +273,8 @@ In practies, we can approximate $$ 1/p $$ with a value $$ m/2^k $$ as division w
 is merely right shift with $$ k $$ times.
 
 I set $$ k=64 $$ in my implementation as this is usually enough, and we can
-pre-calculate the $$ s $$. Thanks for the post in [^8], we can use
-the uint256_t [^9] project to get $$ s $$ with the following code snippet:
+pre-calculate the $$ s $$. Thanks for the post in [^9], we can use
+the uint256_t [^10] project to get $$ s $$ with the following code snippet:
 
 ```cpp
 #include <cstdio>
@@ -390,11 +399,13 @@ implementation in qemu.
 
 [^5]: https://github.com/DLTcollab/sse2neon/pull/627#issuecomment-1895992394
 
-[^6]: https://create.stephan-brumme.com/crc32/#half-byte
+[^6]: https://www.facebook.com/groups/system.software2024/posts/1556960111748548/?comment_id=1556971665080726 (the comments are written is Mandarin)
 
-[^7]: https://en.wikipedia.org/wiki/Barrett_reduction
+[^7]: https://create.stephan-brumme.com/crc32/#half-byte
 
-[^8]: https://mary.rs/lab/crc32/
+[^8]: https://en.wikipedia.org/wiki/Barrett_reduction
 
-[^9]: https://github.com/calccrypto/uint256_t
+[^9]: https://mary.rs/lab/crc32/
+
+[^10]: https://github.com/calccrypto/uint256_t
 
