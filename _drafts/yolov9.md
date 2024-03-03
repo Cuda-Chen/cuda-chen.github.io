@@ -84,6 +84,33 @@ get the entire information for learning predictions for a variety of targets.
 
 ## GELAN
 
+- GELAN is a combination of CSPNet and ELAN, as shown in the following figure.
+[figure here]
+
+## Ablation Studies
+
+### GELAN
+
+- From Table 2, we can realize CSP blocks give the best performance on AP.
+[Table 2]
+
+- From Table 3, we can realize GELAN is not sensitive to the depth, and
+we just need the depth of 2 of ELAN.
+[Table 3]
+
+### PGI
+
+- From Table 4, the author proves to us that PGI actually improve accuracy
+under different combinations of of backbone and neck.
+[Table 4]
+
+- From Table 5, we can see that PGI not only is able to handle information bottleneck
+and information broken problems, but also improve the accuracy of models
+of different size.
+[Table 5]
+
+### Visualization
+
 ## References
 
 [^yolov9]: https://arxiv.org/abs/2402.13616 
