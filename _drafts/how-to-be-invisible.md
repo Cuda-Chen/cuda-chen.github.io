@@ -50,3 +50,22 @@ government (of course it is illegal if you do this by your own).
 
 - ***Do not skip the next chapter.***
 - You journey must begin with the first step: *seperating your name from your home address*.
+
+## Chapter 2 Sepearate Your Name From Your Home Address
+
+### take this immediate step to protect your mail
+
+1. If your presently have a PO box, choose that address.
+2. Have it sent on to your place of business if you have one, or perhaps to a friend who is in business.
+3. Rent a box at a commercial mail-receving agency (CMRA).
+4. Obtain a ghost address (of which more will be said later) in some faraway state or country and have the mail sent there.
+
+### notes by me
+
+- Though more and more services (such as third-party electrical payment service)
+require an actual address, using a PO/CMRA box will still be a great idea as it
+can seperate yourself and your living address.
+- To receive goods or some formal mails such as lawsuit form, using a ghost
+seems the first choice (though you may spend much more money as we need to
+create an environment to let others to believe you actually lives in the
+address).
