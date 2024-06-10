@@ -69,3 +69,17 @@ can seperate yourself and your living address.
 seems the first choice (though you may spend much more money as we need to
 create an environment to let others to believe you actually lives in the
 address).
+
+## Chapter 3 When Is a "Lie" Not a Lie?
+
+> A Lie is a false statement made by one to another, who is entitled to hear
+> and know the truth, and which false statement tends toward injury to the other.
+
+> For author;s guidelines:
+> 1. Where no harm will be done, and no sworn oath is involved, I often give
+> incurrect information. So does my wife.
+> 2. I never give incorrect information if I am to sign a sworn statement,
+> whether or not before a notary.
+> 3. I may *withhold* information from the police or from government
+> representative but I won't lie to them.
+> 4. Under no condition whatsoever will I file a false tax return.
