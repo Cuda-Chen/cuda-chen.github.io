@@ -163,3 +163,64 @@ Use this box number for:
 - Any other strictly personal mail
 
 For everthing else--and especially if you receive mail in other names, use a private, alternate street address. This "ghost" address is the subject of the next chapter.
+
+## Chapter 5 How to Obtain Your Own "Ghost" Address
+
+A *ghost address* means to a fugure address you will use that is not in any database as a CMRA, and has no connection to where you really live.
+What's more you may wish to have multiple ghost addresses.
+
+### a partial list where alternate address will be used
+
+1. The Internal Revenue Service.
+2. Your driver's license.
+3. All license for your pets (a PI's favorite search).
+4. Hunting and fishing licenses.
+5. Your voter's registration (if any).
+6. Any membership records, such as with your church.
+7. Your doctor, dentist, and chiropractor.
+8. You attorney and accountant.
+9. All LLCs used to title vehicles and real estate.
+10. Cable TV (Another PI favorite! Make certain it's under another name).
+
+### how to set up your own ghost address
+
+#### older office building
+An older office building which has several floors that neede renovation and had no tenants usually will fit your need. All the offices on those empty floors had mail slots in the doors. Even better, the building has multiple entrances on different streets and residentail aparment son the upper floors.
+
+#### charity mission
+
+> Charity missions, link the Salvation Army, often have people
+> stay there for extended periods. They accept mail for residents
+> so thay can get jobs, welfare, etc.
+
+#### small motel
+
+An independently run mom-and-pop motels may become your ghost
+address if you dress well and pay them.
+
+#### small-town pastor
+
+> Give donation and get the address. Who's going to think about seeing what's in a small, unmarked box being shipped to a church?
+
+### alternative sources for a ghost address
+
+Check the Yelllow Pages for "Office Services," "Bookkeeping," etc.
+Dont' call them, go in person. Discuss whatever service they offer, and then, as you're leaving, imitate the talk that whether it will be acceptable
+to receive mail for any of your clients.
+
+### should you allow anyone at your ghost address to know where you live?
+
+Only you can answer that question. Hopefully, when you made the arrangements, you gave an address other than your own, and no telephone number. However, some PIs will make a deception to locate your address such as mocking himself as Fedex delivery.
+There are two ways to protect yourself from this deception. One is to make sure that no one at your new address knows anything about you. The other is to use persons who, although they know you will positively protect you. If the latter, then amke sure to educate them about the various scams that may be used in an attempt to deceive them.
+
+### now for the hard part
+
+The hardest part of keeping your actual home address a secret is to educate your family to never, ever give out your home address to anyone other than relatives and close friends.
+
+### your house number
+
+If you delete the number on your house but still need to have others find it, you can tell your guests for a certain landmark or making some sign.
+
+### a unique solution to hiding your home address
+
+Buying a motor home under another name.
