@@ -224,3 +224,79 @@ If you delete the number on your house but still need to have others find it, yo
 ### a unique solution to hiding your home address
 
 Buying a motor home under another name.
+
+## Chapter 6. RepairMen, Home Deliveries, FedED, UPS
+
+### obtaining consent to tneter by deception
+
+Why invite strangers into your home? Just say no, and
+give the location of the nearest pay phone. Or you may
+use the following two excuses:
+
+1. "My husband tells me never to allow strangers into
+the hose when he's not here".
+2. "All we have is a cell phone and I lent it to my
+father today.
+
+### courier services such as FedEx and UPS
+
+The only sure way to avoid having someone send you an
+envelope or a package by courier is to never, ever,
+let any other than your closest friends know where you
+really live.
+
+#### home delivery
+
+Never allow your true name to be coupled with a delivery
+to your home. If you feel that it is imperative to have
+a delivery mode to where you really live, *it must not
+be in your name*.
+
+If, in fact, you have *ever* received a letter or package
+at your present address under your real name, the only
+way to protect your privacy is to move. Once this move
+has bee made,then any futhre delivery must be in another
+name. When you sign for the delivery, sign your *other*
+name.
+However, keep in mind for tex problem.
+
+What's more, you may let the senders sign on the line of "
+Release Signature. Sign to authorize delivery without 
+obtaining signature", and when you see the FedEx truck
+arrive, do not answer the door.
+
+> My comment: this usuall won't be the case as
+> there is no delivery option for Release Signature.
+
+For picking up your goods at delivery office,
+usually is not a good idea as the company requires
+you to show your true name.
+
+#### mail drop pickup
+
+You can normally receive a shipment in CMRA (even though
+you have not rented a box at the CMRA) in a business name
+and no ID is necessary.
+
+The following shows how to works:
+
+1. You are going to send a small box.
+2. You request your "friend to make a phone call to ask FedEx
+or UPS whether it is acceptable to receive the box that
+a "salesperson" will pick the box up and the reciver will be
+your other names.
+3. You then call your "friend"
+
+### robber may intersonate the police
+
+### pizza deliveries
+
+Just no pizza deliveries.
+
+### if your home address is already known, move
+
+### note after reading chapter 6
+
+1. As there are plenty of receiver proxy services
+in the wild, is it possilbe to adopt these services
+to receive your goods?
