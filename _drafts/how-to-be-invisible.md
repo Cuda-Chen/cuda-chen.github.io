@@ -300,3 +300,36 @@ Just no pizza deliveries.
 1. As there are plenty of receiver proxy services
 in the wild, is it possilbe to adopt these services
 to receive your goods?
+
+## Chapter 7 Untraeable Trash, Anonymous Utilities
+
+### what yoru trash reveals about you
+
+- bank statements
+- telephone bills
+- utility and other bills
+- credit card and ATM receipts
+- paycheck
+- empty bottles for prescription medicine (with your doctor's name)
+- personal and business letters; all address labels
+- scraps of paper revealing a phone number or e-mail address.
+- beer cans, wine, and liquor bottles
+- anything to indicate drug use
+- itemize grocery and pharmacy slips
+- classfied ads from newspapers (to see if anything is circled)
+- magazines, travel newspapers, or anything that would indicate interest in weapons or strange practices.
+
+### utilities
+
+For this book utilities means the companies that furnish electricity, grabage pickup, water and sewer connections, and natural or propane gas.
+
+Never give yoru true name--much less your Social Seuciryt number or date of birth!--to a utility company, nor to any other private company that will furnish a service at yoru actual residence.
+
+Rather, you should give your name as a fictitious one, or use your wife's madien name. Even then, this should just be her middle initial plus last name.
+If the home is in the name of a limited liability company (see chapter 15), give each company the name of the LLC and insist that the name in the compny database is in the name of the LLC only.
+
+A quick-and-dirty method of setting the utility accounts on short notice is to use a nominee (proxy), some who will act on yoru behalf (see chapter 13).For demanding a cash deposit for checking your credit, you can use a money order or a bank check for a deposit. Give them you "ghost" address (see chapter 5), explaining that (a) you do not have a mailbox at the street address, and (b) all bills are paid from your "business" (ghost) address.
+
+### notes after reading chapter 7
+
+- use cross shred to shred information
