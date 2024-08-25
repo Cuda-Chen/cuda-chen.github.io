@@ -333,3 +333,110 @@ A quick-and-dirty method of setting the utility accounts on short notice is to u
 ### notes after reading chapter 7
 
 - use cross shred to shred information
+
+## Chapter 8 Your Social Security Number and Date of Birth
+
+### your date of birth (DOB)
+
+No matter how common your name, you can be quickly identified
+in a database by coupling either your name *or* your birth date with your address.
+
+If filling in a form yourself, you can just write "legal age". Anotehr alternatives is to
+give a fictitious month and day, and a year a bit before or after the real one.
+If you felel boligated to give a a date of birth, choose one that is easy to remember,
+such as a national holiday.
+
+### your social security number (SSN)
+
+If you are asked for your SSN by any federal, state, or local government agency,
+look for the Privacy Act Statuement. If it isn't there, ask to seeit before you give your number.
+
+### your driver's license (DL)
+
+Let's consider some of these private agencies or organizations:
+
+#### your employer's demand for your DL, DOB, and SSN
+
+- The ideal employer is you yourself.
+- When you work for wages, tell the employer you will give 
+your SSN if and when actually hired for the job.
+- Do all within your power to give your employer only your
+ghost address.
+- Working as an independant contractor may be a great idea
+yet you should consult a CPA.
+
+#### hospitals and doctors
+
+Remember, when a PI has an associate search for your records
+in the Medical Information Bureau, many identical names
+may come up. His first choice for picking you out will be
+your date of birth, and his second choice will be whatever
+address he may have for you (if any).
+
+For nervous disorder, psychiatric problem, or sexually transmitted
+disease, you should pay cash and use a false name. Better
+yet, pop over into Canada and Mexico.
+
+#### banks
+
+Always use passport for identification.
+
+#### renting an apartment
+
+- Give all but not SSN.
+- Dress well, be polite, use your passport for ID,
+and offer to pay several months in advance.
+  - Above all, prepare beforehand to explain the reason--perhaps
+fear of a stalker--why you are simply unabel to allow any to have your SSN.
+  - If you must furnish a copy of your tax return, black out
+your SSN, and then (to make sure it cannot still be read
+in front of a strong light) make a copy of that copy.
+- If, at the present time, you see no way around acceding
+to all of the landlord's demands, do not despair. Get a
+short lease or rent month-by-month while you make your plans
+to move on to a more private location.
+- *Warning:* If you succeed in renting an apartment without
+revealign your SSN, then never pay the rent with a personal check.
+Insteal, pay either in cash or with a money order purchased
+at a post office, a supermarket, or a convenience store.
+
+#### renting a hose from its owner
+
+Refer to *renting an apartment* section.
+
+#### traver trailers and mobile homes
+
+You may buy an older mobile home in a park and then fixing ti up while you live there.
+
+#### real estate purchases and sales
+
+- One is to never actually buy real estate.
+- You can instead purchase and sell in the name of
+a New Mexico limited liability company if you first
+obtain a tax identification number (TIN).
+
+#### false social security numbers
+
+- Usually not a good idea.
+- You give your true number but only when absolutely required,
+or else no number at all.
+
+#### obtaining credit
+
+- If you want to be invisible, just don't obtain any personal credit.
+
+#### run your life on a cash basis
+
+If you truly wish to become invisible, never apply for personal credit.
+(There is occasionally a business exception but credit in this case
+should be extended only to your corporation or LLC).
+
+### notes after reading chapter 8
+
+- As some countries heavily utilize the SSN and eventually SSN leaks out in any scenes,
+consider an alternative to against showing the SSN.
+- Always showing your passport.
+  - However, passport of some countries show SSN and date of birth,
+consider an alternative of showing the passport.
+- In some countries, obtaining credits is crucial for you to live,
+consider an alternative to address this.
