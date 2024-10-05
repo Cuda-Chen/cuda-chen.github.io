@@ -440,3 +440,26 @@ consider an alternative to against showing the SSN.
 consider an alternative of showing the passport.
 - In some countries, obtaining credits is crucial for you to live,
 consider an alternative to address this.
+
+## Chapter 9 Your Alternate Names and Signatures
+
+### if you say it's your signature, then it's your signature
+
+- You can use any number of different signatures, including illegible ones.
+
+### an alternate name
+
+### titles
+
+- DO NOT give advice.
+- It is permissible to act the part.
+
+### medical records
+
+- Do tno give the doctor a complete medical history.
+- Change your birht date and withhold your SSN lest for nessarity.
+- Get off voter rolls and never return.
+
+### web sites advertising fake ID
+
+***Just don't use these services at all.***
