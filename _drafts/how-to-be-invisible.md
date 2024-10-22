@@ -463,3 +463,92 @@ consider an alternative to address this.
 ### web sites advertising fake ID
 
 ***Just don't use these services at all.***
+
+## Chapter 10 Landline Telephones and Answering Machines
+
+### telephone security
+
+"Telephone security" is an oxymoron because a telephone conversation is never secure.
+
+### unlisted numbers
+
+An unlisted number is no longer the protection it used to be.
+Many unlisted telephone numbers are now available on the Internet, and
+reverse searches are available as well.
+
+### how to list your name
+
+Given that the name you give the telling company may show up on a database, do
+your best to disguist it and try with the following methods:
+
+- Wife's middle name and maiden name.
+- Your middle name or initial, and last name.
+- The name of a friend or relative (with a very common name) who is willing to have the phone
+put in their middle/last or middle/maiden names.
+
+Another system is to explain that your are a writer and that your telephone
+number must be listed in your well-known *pen*. name.
+
+If moving to a new area, I'd first spend an hour
+or two with the local telephone directory, checking for the most
+common names in the area.
+
+### how not to answer the telephone
+
+- A smple "Hello" or "Good moring" will suffice.
+- Pratice beforehand.
+
+### changing your listing
+
+If your are not yet willing or able to move to new location, you
+may still contact the telephone company to say your are moving
+away.
+
+Then, after few days or weeks later, order a new telephone, which will
+of course have a different number. If you areusing someone else
+to do this for your, have him or her make the call. This person will
+*not* admit to having had service before, nor will a SSN be given.
+
+Next, play the payment with cash deposit, and pay your bills on time.
+
+### cordless phones
+
+Usually don't use this as your comminucation is always compromised.
+
+### the telephone at the other end
+
+When you make a sensitive call, make sure the person at the
+other end is on a secure line, or just meet him/her in person.
+
+### "hacker-proof" answering machines
+
+There is no such thing, period.
+
+### calls to 911
+
+When you call 911, your true address shows up on the operator's
+monitor, along with whatevern name your telephone service is
+under.
+
+You can use the following three techniques:
+
+1. Use a cell phone to call to 911.
+2. Call a friend who will in turn call 911 from his/her home.
+3. Give your ghost address, adding that you are just housesitting
+for a friend when the emergency came up.
+
+### watch our for this sneaky trick
+
+When a call comes in from a sensitive party, and
+there is some confusion about who called whom, *ask*. if neither
+called the other, you have just had a heads up that someone is
+after one or both of you.
+
+### questions
+
+- In the case of a life-or-death situation where neither privacy
+nor legality matter, what is the fastest way to get help?
+  - Call tierh the fire department or 911 and report a fire in prog-
+ress.
+  - "At a time like this you can't really worry about legal niceties. There's
+not much point in being completely law-abiding if you're dead."
