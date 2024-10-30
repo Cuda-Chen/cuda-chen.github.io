@@ -552,3 +552,64 @@ nor legality matter, what is the fastest way to get help?
 ress.
   - "At a time like this you can't really worry about legal niceties. There's
 not much point in being completely law-abiding if you're dead."
+
+## Chapter 11 Smartphones, Dumbphones, Pagers
+
+### how to tcontents of your cell Phone may be revealed
+
+#### if arrested, your iPhone, blackberry, or android smartphone will be searched
+
+#### crossing a border?
+
+Make sure your phone does not contain any illegal in the local country.
+
+#### trying to hide your home address from a level two or level three PI?
+
+Ping your phone and it will locate itself.
+
+### your voice-mail boxes can be hacked.
+
+Even *with* passwords, some Level Three PIs may be able to
+get your nessages, but using a password will usually protect you
+against the lower levels.
+
+### think you can hide from your intimate partner?
+
+Always no way.
+
+### identities can be relevaed via facial recognition and facebook
+
+Based solely on their face and information gathered online, we can
+get your real names of members of an online dating site who'd used false names.
+
+### smartphones are more vulnerable than previously thought
+
+> Comment: taking HTC as example. Just remember smartphones
+> are more vulnerable, period.
+
+### life without a smartphone
+
+- To by a cell phone, give provider a bank cashier's check for a $1,000 security
+deposit (without SSN), your middle and last name.
+- Leave a remote address and paid from there for your bill.
+- Only turn on cell phone if your are expecting a call.
+- Enable password on your voice mail.
+- Buy your phone from service provider A and activate your phone with
+service provider B.
+
+### prepaid cell phones
+
+### use a pager with your cell phone
+
+The best way to use your pager is in conjunction with a cell
+phone that is not turned on. If you receive a message that ap-
+peras urgent, either turn your cell phone on just long enough to
+reply, or go to a pay phone.
+What's more, use a set of code to represent what callee should
+do.
+
+### notes by me
+
+- Some countries discontinue pager.
+- Some countries require your SSN even you try to grab a prepaid cell phones.
+- Some countries has a few of service provider.
