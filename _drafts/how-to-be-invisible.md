@@ -613,3 +613,8 @@ do.
 - Some countries discontinue pager.
 - Some countries require your SSN even you try to grab a prepaid cell phones.
 - Some countries has a few of service provider.
+
+### Some thoughts
+
+- It is said that a Vanuatu PR only costs less than 100,000 USD. Maybe this is
+a choice.
