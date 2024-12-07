@@ -614,7 +614,121 @@ do.
 - Some countries require your SSN even you try to grab a prepaid cell phones.
 - Some countries has a few of service provider.
 
-### Some thoughts
+## Chapter 12 E-mail and the Internet
+
+### the story of Paul Peters
+
+#### if your are ever forced to run, for any reason
+
+- Never write a secret message using Microsoft Word.
+- Never use e-mail for a secret message.
+- Never use a library or a video store to check your e-mail.
+- Never use a vehicle registered in your own name.
+
+### even a strong password may not protect you
+
+#### lessons learned
+
+1. If a hacker wishes to get into your e-mail account, your
+password will not matter to him, he will plan to get around it.
+2. First he will search the Internet for any scrap of informa-
+tion about you.
+3. Then he will access your account up to the point of pass-
+word entry, where he'll click on "ForgOt your password?"
+4. Using information he's previously gathered about you, he'll
+go to work by guessing the answers.
+
+#### how to protect yourself
+
+Make a tough one question of your own if you are allowed to
+do so. Otherwise, use false information (and keep track
+of it somewhere safe).
+
+### e-mail is never secure
+
+Always use e-mail with SSL and HTTPS enabled.
+
+What's more, you can enable message encryption for better safety.
+
+If you're sending confidentail information, check these methods
+before sending:
+
+1. Make sure you have a strong unique password guarding
+your account.
+2. Use extreme care to avoid spyware and keyloggers.
+3. Make sure the recipients apply the above two methods.
+
+### "This message will self-destruct" (TMWSD)
+
+### your Internet service provider
+
+### Internet dangers
+
+*you can live without the Internet*. Event with it, never
+forget that the Internet is a mysterious and highly dangerous
+place.
+
+### Internet scams
+
+- Never open an incoming attachment unless it is not only
+from someone you know, but also you are either expecting it or
+there is a valid explaination in the message that accompa-
+nies it.
+- Never, ever, click on a link that is contained in an unsolic-
+ited e-mail from an unknown source.
+
+### how to check out a date or a mate
+
+#### use search engines
+
+#### if he sent you an photo, check it out
+
+#### avoid free dating sites
+
+#### be especially wary of religious dating sites
+
+May of the LDS Web site include excellent advice for Mor-
+mom singles who wish to meet other Mormons online. They are
+told to never give out personal information. They are warned
+never to believe everything they are told, even if it comes
+from other LDS Web sites. Here is a typical warning:
+
+> Ask for references, especially of family, other LDS dating friends,
+> coworkers, or even their bishop. If you telephone one of their
+> references, use a pay phone to avoid problems with caller ID.
+> Never meet alone; always bring a friend. Even for LDS dating,
+> make sure that you meet in a public place during the day, like a
+> mall, park, or restaurant.
+
+### three basic rules
+
+1. Do not click on any ads you see ona Web site.
+2. Never enter accurate information into your computer or
+on a Web site, and especially not for an e-mail account.
+3. When you sign up for whatever, use different name, a dif-
+ferent username, and a different password each time.
+
+### my favorite quote
+
+> Don't write anything you can phone.
+> Don't phone anything you can talk.
+> Don't talk anything you can whispter.
+> Don't whispter anything you can smile.
+> Don't smile anything you can nod.
+> Don't nod anything you can wink.
+
+### questions & answers
+
+#### Is there any simple way to remember complicated passwords?
+
+You can use the first and last letter of the service's domain name
+you are going to log into, then combine with a base strong password
+(say "RJK&r2d" for example) in any position. You just need to
+remember only "one" password.
+
+-- by Freeman, owner of Barcode4.com
+
+## Some thoughts
 
 - It is said that a Vanuatu PR only costs less than 100,000 USD. Maybe this is
 a choice.
