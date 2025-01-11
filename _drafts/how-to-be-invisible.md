@@ -728,6 +728,42 @@ remember only "one" password.
 
 -- by Freeman, owner of Barcode4.com
 
+## Chapter 14 How to Locate A Trustworthy Nominee
+
+### advertise on craigslist
+
+### how to interview
+
+- The people that read the book and website of *How to Be Invisible*.
+- The people will assist you to do at least the followings:
+  - Rent a PO box.
+  - Order cable TV.
+  - Sign up for all utilities.
+  - Obtain a cell phone.
+
+### how much to pay the nominee
+
+### how to maintain your own privacy
+
+- Do not give a nominee your true last name, your age, your date
+or birth, or your previous address. This is a *business* arrangement.
+
+### my own options as to using a stranger for a nominee
+
+- Use longtime friends as nominee.
+- Advertise on Craigslist.
+- Lend the candidate *How to Be Invisible*.
+- Get the password from candidate then run Internet checks for
+  - criminal history
+  - check
+  - Intelius
+- After setting up well, give a one-time flat-rate fee, plus
+an annual fee for providing service for nominee.
+
+### protect yourself with a written argeement
+
+### the absolute worst fear for even a level three PI
+
 ## Some thoughts
 
 - It is said that a Vanuatu PR only costs less than 100,000 USD. Maybe this is
