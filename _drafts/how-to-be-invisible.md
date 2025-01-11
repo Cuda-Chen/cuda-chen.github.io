@@ -728,7 +728,7 @@ remember only "one" password.
 
 -- by Freeman, owner of Barcode4.com
 
-## Chapter 14 How to Locate A Trustworthy Nominee
+## Chapter 13 How to Locate A Trustworthy Nominee
 
 ### advertise on craigslist
 
