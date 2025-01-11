@@ -111,6 +111,13 @@ of different size.
 
 ### Visualization
 
+- We can see that GELAN still produces clear information after 200 layers in Figure 6.
+[Figure 6]
+
+- What's more, Figure 7 shows that PGI is capable of giving more reliable gradients when
+training.
+[Figure 7]
+
 ## References
 
 [^yolov9]: https://arxiv.org/abs/2402.13616 
