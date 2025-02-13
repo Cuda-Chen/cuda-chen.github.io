@@ -764,6 +764,65 @@ an annual fee for providing service for nominee.
 
 ### the absolute worst fear for even a level three PI
 
+## Chapter 14 Bank Accounts and Money Transfers
+
+### unintended consequences
+
+### your personal bank account
+
+Since this book is about privacy measures rather than tax
+evasions, you need have no secrets from the government.
+
+### use a nominee
+
+### rubber signature stamps
+
+### print your own checks
+
+### or, no bank account at all
+
+### another good reason to pay cash
+
+### untraceable money transfers
+
+Use the postal service to mail the cash. 
+
+#### how to invisibly transfer #25,000
+
+Obtain fifty business-size (#10) envelopes and the same number
+of first-class postage stamps. Pick up a magazine with lots of 
+small picturres and price lists in the back (in particular, 
+photography magazines are ideal). Into each envelope insert
+five $100 bills. Wrap then in one page from the magazine.
+This will weight fourteen grams, whcih is just half an ounce.
+If possible, mail the envelopes from various locations over
+a period of days or weeks and--if available--to multiple address.
+Remember, use normal first-class maiil. Even with the cost of
+stamps and envelopes, this will not cost you than $25. (I
+recommend you not to register the envelopes. That might attract
+too much attention.)
+
+#### mailing money overseas
+
+Remember you may be considers as "structuring", which is illegal.
+
+> Note by myself: nowdays, it is not possible to send money
+> via postal service.
+
+### *hawala* banking
+
+The *hawala* system has been under attack since 9/11 and by
+the time you read this it may be illegal in many countries.
+However, it does make for interesting conversations among
+friends. Beyond that, proceed at your own risk.
+
+### how not to have a secret account revealed
+
+- Use a different bank.
+- Given a ghost address when you open the account.
+- List a secret voice-mail number that only you can access.
+ 
+
 ## Some thoughts
 
 - It is said that a Vanuatu PR only costs less than 100,000 USD. Maybe this is
