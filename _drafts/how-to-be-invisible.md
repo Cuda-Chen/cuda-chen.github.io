@@ -822,6 +822,39 @@ friends. Beyond that, proceed at your own risk.
 - Given a ghost address when you open the account.
 - List a secret voice-mail number that only you can access.
  
+## Chapter 15 New Mexico Limited Liability Companies
+
+### what's the characteristics of an LLC (by author)
+
+1. No one will know who owns it unless the owner tells them.
+2. It will be filed on New Mexico--a state that protects privacy
+and does not require an annual report.
+3. It will be managed by a *single member*.
+4. When used (such as buying a vehicle or real estate), it will
+list a ghost address as the principal place of business.
+5. It will cost about $100 to form, and less than $100 a year
+for the resident agent (a minimum of three years is normally
+paid ahead).
+6. The LLC name will never appear on a state or federal tax
+return.
+
+### what is an LLC?
+
+Like a corporation, it is a legal entity that stands
+alone, but it lacks the many onerous bookkeeping details and
+annual meetings required of a corporation.
+
+### income tax consequences
+
+Since the IRS treats one-member LLCs as sole proprietorships
+for tax purposes, there are no income tax consequences.
+
+### proof of ownership
+
+The best way to prove ownership, then, is to have the original LLC
+ducoments compled with an operating agreement.
+Yet, this is a specialized field so author suggests check
+with an attorney.
 
 ## Some thoughts
 
