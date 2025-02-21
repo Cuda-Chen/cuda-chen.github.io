@@ -860,3 +860,5 @@ with an attorney.
 
 - It is said that a Vanuatu PR only costs less than 100,000 USD. Maybe this is
 a choice.
+- For phone call without cell phone, Viber (Out) or Google Voice or vowifi
+maybe a great choice.
