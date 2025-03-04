@@ -856,6 +856,37 @@ ducoments compled with an operating agreement.
 Yet, this is a specialized field so author suggests check
 with an attorney.
 
+## Chapter 16 Hidden Ownership of Vehicles and Real Estate
+
+### purchasing a vehicle in the name of an LLC
+
+- Pay in cash and register in a "shelf" LLC.
+
+#### what was acccomplished?
+
+- total privacy
+
+### insuring your vehicle
+
+- The reaiest and recommended way is to use your own name.
+  - This will keep your rate low, especially when you have multiple
+vehicles titled in seperated LLCs.
+  - Yet, no compromise your privacy because only the LLC name
+will show up on the registration.
+
+### choosing a name
+
+- You may title your LLCs in a single limited liability company
+to keep cost down. However, the main problem that everything
+in the same LLC is the proetection you lose if a PI is on the trail
+of your assets.
+
+### hidden ownership of your home
+
+- Pay in cash (not paying in $100 bills, just don't taking our
+a mortgage).
+- If you plan to finance your home, the LLC won't help.
+
 ## Some thoughts
 
 - It is said that a Vanuatu PR only costs less than 100,000 USD. Maybe this is
