@@ -612,6 +612,7 @@ do.
 
 - Some countries discontinue pager.
 - Some countries require your SSN even you try to grab a prepaid cell phones.
+  - However, a oversea roaming prepaid card with alternate ID may win.
 - Some countries has a few of service provider.
 
 ## Chapter 12 E-mail and the Internet
@@ -893,3 +894,4 @@ a mortgage).
 a choice.
 - For phone call without cell phone, Viber (Out) or Google Voice or vowifi
 maybe a great choice.
+- How about a Panama LLC?
