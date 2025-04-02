@@ -888,6 +888,65 @@ of your assets.
 a mortgage).
 - If you plan to finance your home, the LLC won't help.
 
+## Chapter 17 Laptop Computers
+
+- Auther suggests laptops only because they are so much
+more convenient to conceal.
+- Perhaps you have a file or a folder that you wish to keep private.
+- The laptop will never, ever conntected to any medium outside
+the four walls of your home.
+- Do no travel with this laptop.
+
+### encrypted files
+
+- Encrypt your files as well as your flash drives.
+- Lent an e-book so that someone has a chance to decrypt the files.
+
+### hide your location
+
+- The laptop computer will reside the location that no once
+except your close friends or relatives should know the location.
+
+### fortify the room where you work
+
+- The second layer of defence.
+- For normal home, installing a log narrow table across the back
+of the closet, and then have a carpenter install secure doors that
+can lock everything inside.
+
+### do not trust your neighbors
+
+- If found compromised, the first thing thing to do is to back up
+the files you need and then destroy the hard drive.
+  - Of course, break the hard drive to ashes physically.
+- As for leaving a key behind:
+  - A key is hidden outside in such a way that not even the
+Homeland Security boys will ever find it.
+  - If an emergency should ever com up, your neighbor grandma has
+instructions to call your cell humber and leave a message. Then, you
+will call her back and describe in detail the hidden location of the
+key.
+  - Your neighbor grandma has no idea what is a modem from a monitor.
+  - The computers will reside in an undetectable secret room.
+
+### what about the fourth amendment?
+
+### passwords
+
+- Never store your passwords in your wallet, purse, or a stick
+note.
+- Be very careful about those password-hint options at Web sites.
+- In addition, form the habit of never, ever using a real word
+by itself. Instead use a phrase, e.g., key in the first letter
+of each word, followed by an actual word at the end.
+- Next, sbustitude a symbol for one of the vowels.
+
+### TEMPEST and van Eck
+
+- TEMPEST is a set of standards used by the government to
+gauge and reduce electromagnetic emanations from electronic equipment.
+- The radiations themselves are often referred to as "van Eck" radiations. 
+
 ## Some thoughts
 
 - It is said that a Vanuatu PR only costs less than 100,000 USD. Maybe this is
