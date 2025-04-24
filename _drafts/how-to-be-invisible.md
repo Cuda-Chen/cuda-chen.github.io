@@ -949,8 +949,14 @@ gauge and reduce electromagnetic emanations from electronic equipment.
 
 ## Some thoughts
 
+### Alternative Identity
 - It is said that a Vanuatu PR only costs less than 100,000 USD. Maybe this is
 a choice.
+- How about a Panama LLC?
+
+### Cell Phones
 - For phone call without cell phone, Viber (Out) or Google Voice or vowifi
 maybe a great choice.
-- How about a Panama LLC?
+- [T-Deck Pro](https://lilygo.cc/products/t-deck-pro), used as a pager,
+might be a great choice. However, consider the Chip is originated from China
+(ESP32).
