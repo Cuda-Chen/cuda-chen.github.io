@@ -947,6 +947,35 @@ of each word, followed by an actual word at the end.
 gauge and reduce electromagnetic emanations from electronic equipment.
 - The radiations themselves are often referred to as "van Eck" radiations. 
 
+## Chapter 18 The Danger of Facebook are Real
+
+### lack of privacy
+
+### acquaintances vs. friends
+
+### six levels of addiction
+
+### a problem with no easy solution
+
+### unintended consequences
+
+A picture story leads to unintended consequences.
+
+### sexting can lead to sextortion
+
+### on Facebook, no one knows who you really are
+
+### employers track down lod losts and pictures on Facebook.
+
+Negative posts about your current job, employer, or coworkers could
+lead to you being fired.
+
+### "more youths seeing their Facebook, e-mail hacked"
+
+### my final words on this subject
+
+***Young people shouldn't have Facebook. I firmly believe in that.***
+
 ## Some thoughts
 
 ### Alternative Identity
