@@ -976,6 +976,22 @@ lead to you being fired.
 
 ***Young people shouldn't have Facebook. I firmly believe in that.***
 
+## Chapter 19 The Art of Pretexting, AKA Socal Engineering
+
+### is pretexting against the law?
+
+Yes but not all pretexting is against the law. In some cases,
+you need to create a scene where people are comfortable with releasing 
+information they normally would not.
+
+### hacking v.s. socal networking
+
+### obtaining information via Facebook
+
+### watch out the flash drive trick
+
+Never mount any flash drives you are not surely where they come from.
+
 ## Some thoughts
 
 ### Alternative Identity
