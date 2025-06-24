@@ -992,6 +992,54 @@ information they normally would not.
 
 Never mount any flash drives you are not surely where they come from.
 
+## Chapter 20 Secret Spaces, Hidden Places
+
+### never hide cash in the master bedroom
+
+- The average burglar will be inside your home for less than ten minutes.
+Your goal, therefore, is to keep your cash hidden for more than that length of time.
+  - As such, the burglar usually straights up to your master bedroom.
+- By author, the "can safes" are ideal.
+
+### where to hide other items of various sizes
+
+#### small
+
+Save old junk-mail envelopes and put a few $50 or $100 bills in
+each one. Hide the envelopes in such places as:
+
+- Sheet music in a piano bench.
+- In the box of old tax receipts in a storage unit.
+- In the hollowed-out section of an out-of-date software
+manual
+- In one of the hanging files in a file cabinet
+- Rolled up and inserted into a "foot power" spray can with
+a removable bottom.
+
+
+When travelling, you can use a slim dree belt with two sections, each of
+which will hold three bills folded lengthwise four times. Then, put some
+notes in it (do not exceed the limitation of any country!).
+
+For outdoor mildew and rustproof storage, nothing beats silver and gold.
+
+#### medium
+
+Keep these things in private storage, and in case of death, your trusted
+friends will clean out the unit and dispose of the contents.
+
+#### large
+
+A three-drawer fireproof file cabinet is best stored in a secret room
+that will hopefully be large enough to hold at most two persons.
+The only hisitation is that the secret room would be common knowledge among
+the architect, the contractor, and the workers. Alsa, the building plans
+would be on file with the city or county.
+
+### speaking of buried treasure ...
+
+No one ever knows it before digging :)
+
 ## Some thoughts
 
 ### Alternative Identity
