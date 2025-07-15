@@ -1053,3 +1053,9 @@ maybe a great choice.
 - [T-Deck Pro](https://lilygo.cc/products/t-deck-pro), used as a pager,
 might be a great choice. However, consider the Chip is originated from China
 (ESP32).
+
+### Hiding Your Properties
+
+- https://www.ptt.cc/bbs/Gossiping/M.1752554134.A.F1C.html
+  - Mandarin content
+  - Pawning your properties (including real estate) to a pawnshop migth be an idea.
