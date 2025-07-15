@@ -1040,6 +1040,61 @@ would be on file with the city or county.
 
 No one ever knows it before digging :)
 
+## How to Secretly Run a Home-based Business
+
+When it comes to working at home without registering for a business license,
+consider yourself warned.
+
+Keep these tips in mind:
+
+- Never, ever tall your neighbors about your business.
+- Do not have your customers or clients come to your home.
+- Never receive delivers at home--but then, you already kew that. The best invisible
+buciness is run online. Paymetns can be either online or money orders received in
+the mail. No one will know your age, race, background, or if you're a first cousin
+to the Roswell aliens.
+
+### how to hide both your true name and your sex when you run an Internet business
+
+- When phone calling (say you call yourself "John"):
+  - "John is not here today, but I can solve your problem".
+  - Pretexting as follow if client insists calling Joon: "Unfortunately, sir, John
+is completely deaf, which is why he uses only -email or snail mail. But he sures
+knows a lot about his subject, doesn't he!"
+
+### should you work "off the books"?
+
+If you mean avoid paying income tax, then the answer is no.
+
+### anonymous profits in real estate
+
+- You purchase the mobile home for *cash*, so no one asks you for credit information.
+- You title it in the name of a LLC.
+- The renters will either pay cash each month, or make their checks out to whatever
+name you give them.
+
+### invisible profile
+
+In general, the idea behind running any low-profile business is to keep your name out
+of the picture. Aside any alternate names, you can use *two* LLCs, with the first one
+doing business and the second one as the sole member of the first.
+
+A totally different method is to use one or more established businesses as a "front".
+Suppose that you wish to set up an invisible, untraceable business, and for whatever
+reason do not want ot use a corporation, an LLC, nor a nominee, you can follow these
+steps:
+
+1. Locate retail businesses or public offices where the owners are willing to act on
+your behalf in return for a commission. Contact them in person or via a representative.
+Your business could be in repair, replacement, software, small products, information,
+reports, or any other kind of business where *the customer would contact the store
+or office*.
+2. Checks will be made out to your dealers, and the dealers will pay you or your rep
+in cash. They will want a receipt for their tax records, but this can be in any business
+name you like (who would ever check?).
+3. You keep good records with QuickBooks (no audit trail when you correct errors), list
+the income on your personal tax return (Schedule C), and all's well with your world.
+
 ## Some thoughts
 
 ### Alternative Identity
