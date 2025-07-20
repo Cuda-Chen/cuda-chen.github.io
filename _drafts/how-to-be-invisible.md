@@ -1114,3 +1114,12 @@ might be a great choice. However, consider the Chip is originated from China
 - https://www.ptt.cc/bbs/Gossiping/M.1752554134.A.F1C.html
   - Mandarin content
   - Pawning your properties (including real estate) to a pawnshop migth be an idea.
+
+### Medical Records
+
+#### leaving no tracks in governmental health-insurance system
+
+- https://www.youtube.com/post/UgkxVt68RJYsxySyDZSg97duyNva77oFWas1
+  - Mandarin content
+  - You can see doctors in either self-pay medical care or declare a self-pay
+treatment in governmental health-insurance system.
