@@ -1123,3 +1123,14 @@ might be a great choice. However, consider the Chip is originated from China
   - Mandarin content
   - You can see doctors in either self-pay medical care or declare a self-pay
 treatment in governmental health-insurance system.
+
+### Digital Traces
+
+### hide WHOIS domain information
+
+- https://www.reddit.com/r/selfhosted/comments/y2rx5q/hide_whois_domain_information/
+- https://www.reputationdefender.com/blog/privacy/how-remove-whois-database-information-and-protect-your-online-privacy
+
+> You need to transfer your domain to a registrar that provides Whois privacy. For that to work, the registrar must support your top level domain, and you must unlock the domain before transfer.
+> However, be aware that if whois privacy isn't used from the start, and when the domain was registered, your whois data, including the ttansfer, can be looked up via domain history.
+> To be protected 100%, I would dump the domain, and register a new one with a registrar that provides Whois privacy. Namecheap does it for free.
