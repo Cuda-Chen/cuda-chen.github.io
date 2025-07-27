@@ -1095,6 +1095,25 @@ name you like (who would ever check?).
 3. You keep good records with QuickBooks (no audit trail when you correct errors), list
 the income on your personal tax return (Schedule C), and all's well with your world.
 
+## Chapter 22 The Dangers of Facial Recognition
+
+### can facial recognition be defeated?
+
+Perhaps, but only with extreme effort. Facial recognition works by measuring the distance
+from you eyes to another point on your face, and it will become more difficult if you:
+
+- Wear a baseball cap.
+- Wear tinted or dark glasses.
+- Have facial hair.
+- Have on dark eyeliner.
+- Wear a ski mask (you wish!).
+- Smile (it distorts the biometrics).
+
+If you are determined to post a picture of yourself anywhere on the Internet, you might
+consider a picture showing your profile, thus hiding your key measurements. Or, use a
+photograph where your head is just a small part of the picture, such as my own picture
+on the dust jacket of this book.
+
 ## Some thoughts
 
 ### Alternative Identity
@@ -1126,7 +1145,7 @@ treatment in governmental health-insurance system.
 
 ### Digital Traces
 
-### hide WHOIS domain information
+#### hide WHOIS domain information
 
 - https://www.reddit.com/r/selfhosted/comments/y2rx5q/hide_whois_domain_information/
 - https://www.reputationdefender.com/blog/privacy/how-remove-whois-database-information-and-protect-your-online-privacy
@@ -1134,3 +1153,7 @@ treatment in governmental health-insurance system.
 > You need to transfer your domain to a registrar that provides Whois privacy. For that to work, the registrar must support your top level domain, and you must unlock the domain before transfer.
 > However, be aware that if whois privacy isn't used from the start, and when the domain was registered, your whois data, including the ttansfer, can be looked up via domain history.
 > To be protected 100%, I would dump the domain, and register a new one with a registrar that provides Whois privacy. Namecheap does it for free.
+
+### Facial Recognition
+
+- Beaware of Apple FaceID.
