@@ -1114,6 +1114,117 @@ consider a picture showing your profile, thus hiding your key measurements. Or, 
 photograph where your head is just a small part of the picture, such as my own picture
 on the dust jacket of this book.
 
+## Chapter 23 Ten Additional Privacy Tips
+
+Check http://blog.invisible-privacy.com for more privacy tips.
+
+### 1. how you can hide your identity when you stay at hotel
+
+Hotels nowadays require valid credit card and government-issued ID.
+Yet we still can achieve the goal:
+
+1. Get a single credit card account.
+2. Apply a second card in your "professional" name
+3. When travelling, you either travel under your real name, but give
+out the professional name, or vice versa.
+  - Of course, you show your password when check in.
+  - If being asked, you explain that the name in your password identifies
+you, but the reservation was made in your professional name because your
+credit card is in that name.
+
+### 2. how you can hide your secret home address from the UPS
+
+You can give the following example to the supplier:
+
+> (your name with abbreviation)
+> ATTENTION--HOLD
+> (The address of UPS Customer Center)
+
+Then, pick up your package at UPS Customer Center with using passport for ID.
+
+### 3. how to hide your last name when you order online
+
+The trick is opena a back account in the name of a trust. Once that's done,
+you're all set because your credit card will have an added abbreviation after
+your last name. For instance, suppose your name is Jane Doe, your credit card
+will read Jane Doe TTEE. The TTEE is short for trustee and is listed because
+you are the trustee for your trust account.
+
+#### AMAZON.COM
+
+Open an account in the name of Jane Ttee. Forever after, Amazon will thinkn
+that Ttrr is your last name.
+
+#### Fedex and UPS
+
+First, you order your goods in the name of Jane D. Ttee. When picking your
+package, shown your passport when asked for ID. If being questioned, show
+your credit card with a simple explaination such as "I ordered this and I
+had to fill our my name as shown on my credit card. I guess they didn't
+understand that Ttee just means that I am a trustee on this account but
+anyway, the package is for me. My name is Jane and my last name does start
+with a W."
+
+### 4. how to avoid trouble from trash truck drivers
+
+Most of the trash truck drivers are just out to do their job and deserve our
+respect. However, you should keep a low profile by disposing of telltable boxes
+at some other location.
+
+### 5. how to activate a new credit card without revealing your e-mail address or telephone number
+
+Use a pay phone or phones in hotels.
+
+### 6. how to use a legimitate return address that will not be traced back to you
+
+Use a ghost address.
+
+### 7. how to delay the serving of a subpoena
+
+- If your *are* served, have your legal beagle bring a motion to quash. Have him
+claim that service was improper and statutory requirements were not met.
+- When all else fails, follow the advice of the anonymous writer whoe penned these words:
+
+> When uncertain,
+>   Or in doubt,
+> Run in circles!
+>   Scream and shout!
+
+### 8. how to handle unwanted mail
+
+Make up some stickers with either of these two message:
+
+- **MOVED. NO FORWARDING ADDRESS**
+- **NOT DELIVERABLE AS ADDRESSED
+UNABLE TO FORWARD**
+
+Whenever you meet an unwanted letters, place the sticker over the
+address (but not the name). You also should black out the barcode
+along the bottom. Then, draw an arrow pointing bck to the return 
+address.
+
+### 9. how to send private, secret information by e-mail
+
+1. Put your meessage into a self-destruct service.
+2. Put the link to message into an e-mail.
+3. When e-mail arrivce, click the link to read the message. Remember,
+once you leave the page, the message is *gone*.
+
+### 10. how to create an invisible owner for your new business
+
+First, choose a three-word business name with the same
+initials as yours. Then invent a man's name with the same initials.
+For instance:
+
+    *Your actual name:*    Anita B. Chavez
+    *Business name:*       Awesome Birthday Cards
+    *"Owner" name:*        Albert B. Caldwell
+    *Checks made out to:*  A.B.C (bank will allow this)
+
+The poopsite is true, of course, if you are a man who wishes
+to sell merchandise that will appeal to women. Choose a woman's
+name that seems best to go with the product.
+
 ## Some thoughts
 
 ### Alternative Identity
@@ -1157,3 +1268,13 @@ treatment in governmental health-insurance system.
 ### Facial Recognition
 
 - Beaware of Apple FaceID.
+
+### Hiding Your Name
+
+#### countries that do not use abbreviation
+
+The mentioned countries may face the following issues, and you have to 
+come up with another solution:
+
+- added abbreviation after your last name. 
+- picking package when asked for checking the name of receiver.
