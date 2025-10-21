@@ -1225,6 +1225,94 @@ The poopsite is true, of course, if you are a man who wishes
 to sell merchandise that will appeal to women. Choose a woman's
 name that seems best to go with the product.
 
+## Chapter 24 How to Disappear and Never be Found
+
+The best time to prepare an escape is before the trouble starts.
+The following are your three top priorities:
+
+1. Have a detailed plan.
+2. Have a valid passport.
+3. Have cash on hand.
+
+There are varying levels of disappearances. Let's start with the
+most common one.
+
+### level one escape
+
+- Often you must flee within twenty-four hours, and sometimes
+in twenty-four minutes.
+- Let's say you are a young woan who's just learned that your
+ex-lover is on the way to you and ready to kidnap you.
+- From this point on:
+  - Remove the battery from your cell phone or else wrap it tightly
+in alumimum foil.
+  - Empty your bank account and/or borrow from your friends.
+  - Do not use a credit/debit card.
+  - Make no further withdrawals from an ATM.
+- Gas up the car and flee the city and if possible the state (of course obey all traccit signs and stay within the speed limit).
+- Use only the U.S. mail to communicate with your family and friends.
+- Avoid all major hotel and motel chains. Instead, choose a small
+mom-and-pop motel where they will accept whatever name you give them
+as long as you pay cash. 
+  - Or, better yet, stay with an old friend who is unknown to
+your stalker, or tent a room from a private party, using another name.
+- Use a pay phone to call someone back home who can tell you
+what's going on.
+- Only when the cost is clear will you return.
+
+### level two escape
+
+- This is when you need to vanish for a few years, perhaps until
+some certain time period has run out.
+- If you can afford to do so, get out of the country.
+  - Choose the place that won't make yourself stand out.
+
+### level three escape
+
+- This is when you plan to cut all ties and apparently vanish from
+the face of the earth.
+  - It s extremely difficult, often impossible, and resorted to only when
+all oterh options have been exhausted.
+- Before you go, pick up a copy of Frank Ahearn's book *How to 
+Disappear*. which deals primarily with extreme situation.
+- If you can afford, it leave the country.
+  - Don't try to hide in Western Eurpoe or in any police state.
+  - A good choice might be one of the tax havens in order to minimize any
+requirements for filing a tax form.
+  - A court name chagne and new identity documents from another country
+will enable you to stay out of the international database at airports,
+seaports, train stations, etc.
+- However, no matter how much money you have, or in what part of the earth
+you live, if someone with unlimited funds (such as a government) is after
+you, you will sooner or later be caught.
+
+### leave the kids behind
+
+In any case, trying to escape from a criminally abusive person is fraught
+with danger. For that reason, document the abuses well beforehead and
+flee to a shelter with your children. Once there, make sure that a service
+on. The fact that you took yourself to a children's shelter or to a
+battered-woman's shelter will help establish your innocence in any
+allegations that surface later.
+
+### slow down any pursuit
+
+Plan your escape in advance. Confiscate any firearms they may have and get
+rid of them. Clean yout your bank accounts, scoop up anything small that
+you can later sell on Craigslist or use to get a loan at a pawn shop.
+Disable your ex's vehicle, but not by setting it on fire or crashing it
+somewhere. Do something that will not be obvious, such as puring 
+long-grain rice into the radiator.
+
+Be sure not to do that in a garage, however, as the green fluid will slop
+out on the floor and give away the plan. So if that won't work, then take
+off the oil fillter cap and pour in as much sand as you can.
+
+On the other hand, if giving away your flight does not matter, then just
+cur every cable you can find under the hood. Or, drop a wrench accross the
+battery terminals and jump back. Or, remove the valva caps to flatten
+all four tires. Or if you're *really* mad, all of the above.
+
 ## Some thoughts
 
 ### Alternative Identity
