@@ -1313,6 +1313,70 @@ cur every cable you can find under the hood. Or, drop a wrench accross the
 battery terminals and jump back. Or, remove the valva caps to flatten
 all four tires. Or if you're *really* mad, all of the above.
 
+## Chapter 25 Cool Stuff That Did Not Fit in Earlier
+
+### are most PIs competnet?
+
+... many more who barely plod through
+
+### traver tips
+
+#### private home
+
+Not only *not* leaving a key, bot do not even say you are leaving (Use timers
+that turn on lights, TV, stereo, sprinklers, etc. at varying times.).
+
+#### apartment
+
+No one should be permitted to visit your apartment unaccompanied, except
+a life-and-death emergency!
+
+It is always better to change the key without management's knowledge
+and get any complaints (it just a minor lease violation) than to be dead!
+
+#### check your laptop
+
+One remedy--if you must get a secret file through customs--is to mail
+it ahead on a memory chip. Another is to have everything in the cloud.
+
+### crossing into Mexico or Canada
+
+- Dress like a tourist. Clean and neat but no tie.
+- Do not cross with anything to declare, or with any item
+even remotely suspicious. Next best way is on foot, at a busy crossing,
+during the busiest hours, but taking a car is certainly more convenient,
+despite the fact that your license plate may go into a computer. (Here's
+where it pays off to have your car registered in the name of an LLC.)
+- Do not cross into Mexico with an RV if you can avoid it.
+- If there are several lines leading to multiple booths at the crossing,
+pick your lane and then stick with it.
+- Never cross in either direction with a flippant attitude.
+- When asking for the purpose of your trip, always be specific: "We're
+going up to Abbotsford to buy a Clipper canoe," or "We're going to the boat
+show at the Winnipeg Convention Centre."
+- If being asked having been arrest, *tell the truth*--even it it was a false
+arrest. Their computers are connected with U.S. law-enforcement databases
+going back to the Spanish-American War!
+- Never use a false ID.
+
+### how to deal with clerks and tellers
+
+First of all, dress like they do, or just a bit better.
+Nest, deal with the opposite sex.
+
+### credit card security measure
+
+To protect yourself against this possibility, as soon as you sign the slip,
+*cross out the last four digits of the number* (both on the original, and
+on your copy). If anyone protests, assure hime or her that you absolutely
+positively have this legal right.
+However, the best protection is to never, even, use a credit card if
+using cash is an option.
+
+### fake IDs
+
+***Always useless.***
+
 ## Some thoughts
 
 ### Alternative Identity
