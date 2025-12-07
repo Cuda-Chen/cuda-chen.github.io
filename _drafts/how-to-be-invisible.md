@@ -1377,6 +1377,87 @@ using cash is an option.
 
 ***Always useless.***
 
+### here's a *really* low profile
+
+> However, I do not necessarily recommend Kate's use of the
+> dark to enhance her privacy. In many areas, it would be dangerous
+> for a lone woman to be out so late at night.
+> *by author Luna*
+
+### the "last four" digits
+
+The numbers (using with SSN) can identify you.
+The easy solution is to have some other four-digit number ready to use
+such as ahead of time, a date in history, or the house number where
+you once lived long ago.
+
+### serious warning about resumes!
+
+> For some jobs, it's hard not to put your resume on the Internet.
+> How about just leave something unharm?
+> *by myself*
+
+### filling out forms
+
+Never list your home address and specifically ask how such information
+is later disposed of.
+
+### recorded music on hold
+
+When on hold with music, the receptor is listening to what you may be
+saying to another person while waiting to come back on line.
+
+### never hire an employee
+
+Just run a self or small business.
+
+### are you under surveillance?
+
+PI can use SUV to observe you.
+
+### information-sharing
+
+### how to cope with the loss of your home
+
+1. **Lesson learned.** Never again by anything that you cannot
+pay cash of
+2. **Relief.** No ore backbreaking mortgage payments.
+3. **Freedom.** Move to anywhere at anytime you like.
+4. **Privacy.**
+
+### magnetic locks
+
+Good to counter PIs as these locks have to be destroyed with
+a visible harm.
+
+### a $20 unit that will put any burglar on the run!
+
+Put a $20 loud horn, crying when the phone lines are cut, can let
+the burglars shit their pants!
+
+### provacy problems in public schools
+
+> For writing essay in Skill Writing Test,
+> your teachers has asked you to write about one thing you would
+> like to change about yourself. Name one thing about yourself
+> and give specific reasons why you would like to change it. Give
+> enough details so your teacher will understand your ideas.
+
+Explain to your children that their answers may become a
+part of their student files ... and come back years later to haunt
+them.
+
+### allow your kids to skip college
+
+If you are concerned about privacy, remember that all privacy
+will be lost until they graduate or drop out.
+
+> In some countries, a college degree is necessary for finding
+> a jobs.
+> How about coming up with another idea that get a college
+> degree and retain some privacy?
+> *by myself*
+
 ## Some thoughts
 
 ### Alternative Identity
