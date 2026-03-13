@@ -22,7 +22,7 @@ to tracking the progress, I made some tasks for possible
 solutions:
 
 1. Half-byte lookup table
-2. Barrett reduction with carry-less multiplication
+2. Barrett reduction
 3. Multi-byte lookup table
 
 ## OK, What're the Scene of Valkey CRC16 Hash?
@@ -35,6 +35,32 @@ is at most 20 Bytes, and the maintainers are pretty concerned
 the usage of L1 cache (i.e., avoid evicting the data in L1 cache) [^3]
 
 ## Get the Hands Dirty
+
+### half-byte lookup table
+
+> https://github.com/valkey-io/valkey/pull/2300
+
+### Barrett reduction
+
+> https://github.com/valkey-io/valkey/pull/2691
+
+### multi-byte lookup table
+
+> https://github.com/valkey-io/valkey/pull/2790
+
+## Let's benchmark!
+
+### single cluster
+
+### multi-cluster (3 primary + 3 secondary)
+
+## All Seems Good, But Why Don't Get Accepted?
+
+By the report from reviewers [^5], the multi-byte lookup table solution
+does not yield well on their testing environment, or, almost has the same performance compared
+to original one.
+
+
 
 ## What I Get When the Journey Ends
 
@@ -66,3 +92,5 @@ mentioned how Valkey clustering mode.
 [^3]: https://github.com/valkey-io/valkey/pull/2691#issuecomment-3402032831
 
 [^4]: https://github.com/zuiderkwast
+
+[^5]: https://github.com/valkey-io/valkey/pull/2790#issuecomment-4012948361
