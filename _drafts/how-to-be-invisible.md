@@ -1458,6 +1458,25 @@ will be lost until they graduate or drop out.
 > degree and retain some privacy?
 > *by myself*
 
+## Chapter 26 Considering A Move to Another Country?
+
+### where might you move to?
+
+Often you need to declare foreign country earnings. Remind this.
+
+### Perpetual Tourist (PT)
+
+### why choose spanish?
+
+The third place of speaking language. Period.
+
+### conclusion
+
+Whenever you live, your country is not perfect, but neither is any
+other nation on the planet. If you plan a future move, the best advice
+is to first ***visit*** there. Rent a modest apartment for three months.
+Check out the prices of everything from food to real estate.
+
 ## Some thoughts
 
 ### Alternative Identity
