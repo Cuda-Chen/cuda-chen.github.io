@@ -89,29 +89,42 @@ static inline uint16_t crc16_base(uint16_t crc, uint8_t v) {
 ```c
 static inline uint16_t crc16_base(uint16_t crc, uint8_t v) {
 	crc ^= v << 8;
-    __m128i orig = _mm_set_epi64x(0x0, (uint64_t)(crc) << (8));
-    __m128i tmp = orig;
 
     uint64_t p = 0x11021;
     
-    // 0x111303471a041
-    // 1 0001 0001 0011 0000 0011 0100 0111 0001 1010 0000 0100 0001
-    // 1000 0010 0000 0101 1000 1110 0010 1100 0000 1100 1000 1000 1
-    // 1[000 0|010 0|000 0|101 1|000 1|110 0|010 1|100 0|000 1|100 1|000 1|000 1]
-    // 1  0      4     0     b    1     c      5    8      1     9     1    1
+    /* 0x111303471a041
+     * 1 0001 0001 0011 0000 0011 0100 0111 0001 1010 0000 0100 0001
+     * 1000 0010 0000 0101 1000 1110 0010 1100 0000 1100 1000 1000 1
+     * 1[000 0|010 0|000 0|101 1|000 1|110 0|010 1|100 0|000 1|100 1|000 1|000 1]
+     * 1  0      4     0     b    1     c      5    8      1     9     1    1
+     */
     uint64_t mu = 0x111303471a041; // 2^64 / p
 
+    /* Set 'p' and 'mu' into the same xmm register to save register usage. */
     __m128i mul = _mm_set_epi64x(p, mu);
 
+    /* Shift left in purpose so that the intermediate result 
+     * after multiply with 'mu' will appear in the upper half of xmm register.
+     */
+    __m128i orig = _mm_set_epi64x(0x0, (uint64_t)(crc) << (8));
+    __m128i tmp = orig;
+
+    /* Multiply with 'mu'.
+     * Recall that the intermediate result of CRC appears in the upper
+     * half of xmm register.
+     */
     tmp = _mm_clmulepi64_si128(
             tmp,
             mul, 0x00);
 
+    /* Multiply with 'p'. */
     tmp = _mm_clmulepi64_si128(tmp, 
             mul, 0x11);
 
+    /* Subtract with 'orig'. */
     tmp = _mm_xor_si128(tmp, orig);
 
+    /* The result CRC is in bit [0..15]. */
     uint16_t ret = (uint16_t)(_mm_extract_epi16(tmp, 0x0));
 
     return ret;
