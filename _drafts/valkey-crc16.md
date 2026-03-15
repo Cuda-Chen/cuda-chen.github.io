@@ -27,7 +27,7 @@ solutions:
 
 ## OK, What Does Valkey CRC16 Hash Used for?
 
-Valkey utilize CRC16 to hash the key into slots (with modulo 16384),
+Valkey utilize CRC16 (formally CRC16/CCITT [^8]) to hash the key into slots (with modulo 16384),
 which is enabled in clustering mode [^2]. 
 
 What's more, provided by the maintainers, the length of key
@@ -36,9 +36,15 @@ the usage of L1 cache (i.e., avoid evicting the data in L1 cache) [^3]
 
 ## Get My Hands Dirty
 
-original
+Let's look the original implementation (with some modifications):
 
 ```c
+/* We are going to optimize this function. */
+static inline uint16_t crc16_base(uint16_t crc, uint8_t tmp) {
+    crc = (crc << 8) ^ crc16tab[((crc >> 8) ^ (uint8_t)buf[counter]) & 0x00FF];
+    return crc;
+}
+
 uint16_t crc16(const char *buf, int len) {
     int counter;
     uint16_t crc = 0;
@@ -50,6 +56,23 @@ uint16_t crc16(const char *buf, int len) {
 }
 ```
 
+To prove any of my solutions is better, we need to benchmark.
+There are two benchmark scenarios: single cluster and multi-cluster (3 primary plus
+3 secondary nodes).
+
+I list my benchmark environment as follows:
+
+- CPU: Intel(R) Core(TM) i5-3230M CPU @ 2.60GHz
+- RAM: 16 GB
+- OS: Linux 6.8.0-101-generic
+
+### single cluster
+
+#### benchmark procedures
+
+```
+
+```
 ### half-byte lookup table
 
 > View the implementation here: https://github.com/valkey-io/valkey/pull/2300.
@@ -233,49 +256,6 @@ uint16_t crc16(const char *buf, int len) {
 }
 ```
 
-## Let's benchmark!
-
-To prove any of my solutions is better, we need to benchmark.
-There are two benchmark scenarios: single cluster and multi-cluster (3 primary plus
-3 secondary nodes).
-
-I list my benchmark environment:
-
-- CPU: Intel(R) Core(TM) i5-3230M CPU @ 2.60GHz
-- RAM: 16 GB
-- OS: Linux 6.8.0-101-generic
-
-### single cluster
-
-#### benchmark procedures
-
-```
-
-```
-
-#### benchmark result
-
-##### half-byte lookup table
-
-##### Barrett reduction
-
-##### multi-byte lookup table
-
-### multi-cluster
-
-#### benchmark procedures
-
-```
-```
-
-#### benchmark result
-
-##### half-byte lookup table
-
-##### Barrett reduction
-
-##### multi-byte lookup table
-
 ## Multi-byte Lookup Table Seems Good, But Why It Doesn't Get Accepted?
 
 By the report from reviewers [^5], the multi-byte lookup table solution
@@ -325,3 +305,5 @@ mentioned how Valkey clustering mode.
 [^6]: https://github.com/valkey-io/valkey/pull/3338
 
 [^7]: https://github.com/komrad36/CRC#option-7-2-byte-tabular
+
+[^8]: https://srecord.sourceforge.net/crc16-ccitt.html
