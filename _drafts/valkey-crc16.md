@@ -99,9 +99,17 @@ $ ./utils/create-cluster/create-cluster stop
 $ ./utils/create-cluster/create-cluster clean
 ```
 
+### benchmark metrics
+
+RPS (Requests Per Second) and latency.
+
 ### half-byte lookup table
 
-> View the implementation here: https://github.com/valkey-io/valkey/pull/2300.
+> View the PR here: https://github.com/valkey-io/valkey/pull/2300.
+
+Explained in [my CRC32-C contribution on sse2neon]({% link _posts/2024-02-27-optimize-mm-crc32-u8-conversion-in-sse2neon.md %}),
+this method reduces the size of lookup table, and it maybe benefitical
+as it reduces the stress of L1 cache.
 
 ```c
 const uint16_t crc16_tbl[16] = {
@@ -131,9 +139,20 @@ static inline uint16_t crc16_base(uint16_t crc, uint8_t v) {
 }
 ```
 
+Nevertheless, after benchmarking, I got a much inferior 
+results (about 10% impact) on RPS and latency because it needs extra step
+to calculate CRC.
+
 ### Barrett reduction
 
-> View the implementation here: https://github.com/valkey-io/valkey/pull/2691
+> View the PR here: https://github.com/valkey-io/valkey/pull/2691
+
+Mentioned in [my sse2neon contribution]({% link _posts/2024-02-27-optimize-mm-crc32-u8-conversion-in-sse2neon.md %}), this technique required no lookup table, and the carry-less multiplication
+needs a moderate cycle count (e.g., Ivy Bridge, my test environment, requireds 8 cycle).
+
+What's more, the Valkey community are excited about this because this utilize SIMD instruction,
+which maybe unlock the performance further.
+
 
 ```c
 static inline uint16_t crc16_base(uint16_t crc, uint8_t v) {
@@ -173,13 +192,22 @@ static inline uint16_t crc16_base(uint16_t crc, uint8_t v) {
 }
 ```
 
+However, I still get inferior benchmark results. The reason is that this technique
+usually acts well when input message length is at least 128 Bytes, whereas
+the input message length in Valkey is at most 20 Bytes. As a result, not benefitical
+but worse than original method.
+
 ### multi-byte lookup table
 
 > View the implementation here: https://github.com/valkey-io/valkey/pull/2790
 
-Adopted from [^7]
+Adopted from [^7], processing more bytes in the same time gives boost on
+performance. But, it required more memory space. As a consequence, I need
+to benchmark different size of LUT to check whether it triggers L1 cache
+eviction or not.
 
-No vital improvement after 3-byte LUT
+After benchmarking, it shows no vital improvement on the LUT consuming
+more than 2-byte LUT. So I just put the 2-byte LUT implementation.
 
 ```c
 static const uint16_t crc16tab[]= {
@@ -304,7 +332,8 @@ latency (measured in seconds)
 | --- | --- | --- |
 | 0.737666667 | 0.719 | 2.5305016% |
 
-Seems pretty good (recall this will be applied worldwide). Yet I got rejected.
+Though it seems pretty good (recall this will be applied worldwide), I still got rejected
+from merging.
 
 ## Multi-byte Lookup Table Seems Good, But Why It Doesn't Get Accepted?
 
@@ -312,7 +341,7 @@ By the report from reviewers [^5], the multi-byte lookup table solution
 does not yield well on their testing environment, or, almost has the same performance compared
 to original one.
 
-For no any choices, I decided to end this optimization journey.
+For not coming up any ideas, I decided to end this optimization journey.
 
 ## What I Get When the Journey Ends
 
