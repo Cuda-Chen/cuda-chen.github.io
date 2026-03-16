@@ -66,13 +66,39 @@ I list my benchmark environment as follows:
 - RAM: 16 GB
 - OS: Linux 6.8.0-101-generic
 
-### single cluster
+### benchmark procedures
 
-#### benchmark procedures
-
-```
+#### single cluster [^9]
 
 ```
+$ cd src
+$ rm dump.rdb nodes.conf # clean up any old data files (if they exist)
+$ ./valkey-server --cluster-enabled yes --save '' &
+(...)
+2622423:M 07 Oct 2025 17:48:58.872 * Server initialized
+2622423:M 07 Oct 2025 17:48:58.873 * Ready to accept connections tcp
+
+$ ./valkey-cli ./valkey-cli cluster addslotsrange 0 16383
+OK
+$ ./valkey-cli cluster info | head -3
+cluster_state:ok
+cluster_slots_assigned:16384
+cluster_slots_ok:16384
+```
+
+#### multi-cluster
+
+```
+# in Valkey repo root
+
+$ ./utils/create-cluster/create-cluster start
+$ ./utils/create-cluster/create-cluster create
+$ ./src/valkey-server --cluster -p <port of one of primary nodes>
+$ ./src/valkey-benchmark --cluster -p <port of one of primary nodes> --threads 3 -P 10 -n 10000000 -r 1000000 -t get -q
+$ ./utils/create-cluster/create-cluster stop
+$ ./utils/create-cluster/create-cluster clean
+```
+
 ### half-byte lookup table
 
 > View the implementation here: https://github.com/valkey-io/valkey/pull/2300.
@@ -99,8 +125,8 @@ const uint16_t crc16_tbl[16] = {
 
 static inline uint16_t crc16_base(uint16_t crc, uint8_t v) {
     crc ^= v << 8;
-    crc = (crc << 4) ^ crc16_tbl[crc >> 12];
-    crc = (crc << 4) ^ crc16_tbl[crc >> 12];
+    crc = (crc << 4) ^ crc16_tbl[crc >> (16 - 4)];
+    crc = (crc << 4) ^ crc16_tbl[crc >> (16 - 4)];
     return crc;
 }
 ```
@@ -114,13 +140,6 @@ static inline uint16_t crc16_base(uint16_t crc, uint8_t v) {
 	crc ^= v << 8;
 
     uint64_t p = 0x11021;
-    
-    /* 0x111303471a041
-     * 1 0001 0001 0011 0000 0011 0100 0111 0001 1010 0000 0100 0001
-     * 1000 0010 0000 0101 1000 1110 0010 1100 0000 1100 1000 1000 1
-     * 1[000 0|010 0|000 0|101 1|000 1|110 0|010 1|100 0|000 1|100 1|000 1|000 1]
-     * 1  0      4     0     b    1     c      5    8      1     9     1    1
-     */
     uint64_t mu = 0x111303471a041; // 2^64 / p
 
     /* Set 'p' and 'mu' into the same xmm register to save register usage. */
@@ -245,7 +264,6 @@ uint16_t crc16(const char *buf, int len) {
         uint16_t tmp = ((a << 8) | b);
 
         crc ^= tmp;
-        /* fit LITTLE-ENDIAN architecture */
         crc = crc16tab[1 * 256 + (uint8_t)(crc >> 8)] ^ crc16tab[0 * 256 + (uint8_t)(crc >> 0)];
     }
 
@@ -255,6 +273,38 @@ uint16_t crc16(const char *buf, int len) {
     return crc;
 }
 ```
+
+And the benchmark:
+
+single cluster
+
+RPS
+
+| Base | This PR | Performance gain |
+| --- | --- | --- |
+| 362040.906666667 | 351379.29 | -2.9448652% |
+
+latency (measured in seconds)
+
+| Base | This PR | Performance gain |
+| --- | --- | --- |
+| 1.161666667 | 1.124333333 | 3.2137734% |
+
+multi-cluster
+
+RPS
+
+| Base | This PR | Performance gain |
+| --- | --- | --- |
+| 479107.686666667 | 484595.01 | 1.1453215% |
+
+latency (measured in seconds)
+
+| Base | This PR | Performance gain |
+| --- | --- | --- |
+| 0.737666667 | 0.719 | 2.5305016% |
+
+Seems pretty good (recall this will be applied worldwide). Yet I got rejected.
 
 ## Multi-byte Lookup Table Seems Good, But Why It Doesn't Get Accepted?
 
@@ -307,3 +357,5 @@ mentioned how Valkey clustering mode.
 [^7]: https://github.com/komrad36/CRC#option-7-2-byte-tabular
 
 [^8]: https://srecord.sourceforge.net/crc16-ccitt.html
+
+[^9]: https://github.com/valkey-io/valkey/pull/2691#issuecomment-3377506364
