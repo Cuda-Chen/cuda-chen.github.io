@@ -43,6 +43,11 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
 
+# Enable RSS feed
+minima:
+  social_links:
+    - { platform: rss, user_url: /feed.xml }
+
 # Disqus Comments
 disqus:
     # Leave shortname blank to disable comments site-wide.
