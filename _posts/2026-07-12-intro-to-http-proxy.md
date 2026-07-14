@@ -59,7 +59,7 @@ adress or the domain (in above codeblock the proxy extracts `example.com).
 5. The proxy fetches the resource then stream the HTTP response back to the client
 over the original connection.
 
-### How An HTTPS Proxy Works
+### How An HTTP Proxy Works on HTTPS Traffic
 
 As the proxy cannot read the HTTPS request because it is encrypted via TLS,
 the proxy will blindly forward TCP traffics using the HTTP `CONNECT` method.
