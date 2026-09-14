@@ -18,7 +18,9 @@ long input string.
 
 ## The Starting Point
 
-Months ago, I received a PR [^1] that claimed to have better
+Months ago, I received a PR [^1] related to `_mm_movemask_epi8()`
+[^3], one of the famous intrinsic that usually applies on string pattern
+matching. The PR claimed to have better
 performance by copying high bytes directly and extract the
 16-bit result, reducing assembly instructions from seven to six.
 Nevertheless, it got inferior performance on A32 platform.
@@ -30,9 +32,28 @@ furthermore.
 
 ## Check the Occurences of A Character
 
-movemask
+Suppose we are going to find the indices of an ASCII-encoded character `'#'`
+in a string `"c#dach#nblog#ere"`, we can use the following steps to
+efficiently find the indices:
+
+1. Fill a MMX register (`a`) with eight `'#'` (0x23).
+2. Load the string into another MMX register (`b`) with `"c#dach#nblog#ere"`.
+3. Perform elementwise AND between `a` and `b`.
+4. Retrieve the MSB of each element, then store into an integer.
+5. Count the indicies of one (usually you can use popcnt, formally
+Hamming weight [^4] with better performance). 
+
+For `_mm_movemask_epi8()` it merges the whole steps from 1. to 5.,
+yielding better performance with hardware integration and ease of use:
+
+> int _mm_movemask_epi8 (__m128i a)
+> Create mask from the most significant bit of each 8-bit element in a, and store the result in dst. 
 
 ## My Optimization
+
+### Base
+
+### Apply VPADD
 
 ## Closing Thoughts
 
@@ -41,3 +62,7 @@ movemask
 [^1]: https://github.com/DLTcollab/sse2neon/pull/768
 
 [^2]: https://github.com/DLTcollab/sse2neon/pull/769
+
+[^3]: https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#text=_mm_movemask_epi8
+
+[^4]:  https://en.wikipedia.org/wiki/Hamming_weight
