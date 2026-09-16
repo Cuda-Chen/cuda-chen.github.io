@@ -1,6 +1,6 @@
 ---
 layout: post
-title:
+title: "Simplicity Acts Well: Gaining 25% Shorter Latency on Armv7-A"
 category: [Programming]
 tags: [C, C++, sse2neon, Open Source Contribution, A32, Arm, NEON]
 ---
@@ -105,15 +105,84 @@ uint8x16_t output = vreinterpretq_u8_u64(bits);
 return vgetq_lane_u8(output, 0) | (vgetq_lane_u8(output, 8) << 8);
 ```
 
-For the base algorithm it utilize VSRA [^6], which has five latency cycles
-on Armv7-A [^5].
+For the base algorithm it utilize VSRA (Vector Shift Right by immediate value and Accumulate) [^6], 
+which has at most four latency cycles on Armv7-A [^8].
 
 ### Apply VPADD
 
 > The whole optimization is hosted on [^2].
 
-Shown in [^5], we can use VPADD [^7] and a mask for a set of powers of 2
-to "shift" the MSB of each element .
+We can use VPADD (Vector Pairwise Add) [^7], 
+which has at most three latency cycles mentioned in [^5],
+and a mask for a set of powers of 2 to first "shift" the MSB of each element
+(recall the maskout value is either `0x00` or `0xff`, and what we
+interest is the final integer with each bit position corresponds to 
+the index of each element in a register) then accumulate.
+
+Below shows the flow of applying VPADD instruction in our scenario:
+
+```
+=========================================================================================
+EXAMPLE INPUT (Hex):
+[ 80 | 00 | 81 | 00 | 00 | FF | 00 | C0 || 01 | 7F | 82 | 00 | 00 | 00 | 00 | 80 ]
+=========================================================================================
+
+-----------------------------------------------------------------------------------------
+STEP 1: vshrq_n_s8 (Arithmetic Shift Right by 7)
+-----------------------------------------------------------------------------------------
+The arithmetic shift duplicates the MSB across all 8 bits of each lane.
+If MSB is 1 -> 0xFF. If MSB is 0 -> 0x00.
+
+MSB    :    1    0    1    0    0    1    0    1 ||    0    0    1    0    0    0    0    1
+mask   : [ FF | 00 | FF | 00 | 00 | FF | 00 | FF || 00 | 00 | FF | 00 | 00 | 00 | 00 | FF ]
+
+-----------------------------------------------------------------------------------------
+STEP 2: vandq_u8 (Bitwise AND with Powers of 2)
+-----------------------------------------------------------------------------------------
+Isolates a specific bit-weight for each lane to prepare for summation.
+
+w      : [  1 |  2 |  4 |  8 | 16 | 32 | 64 |128 ||  1 |  2 |  4 |  8 | 16 | 32 | 64 |128 ]
+mask   : [ FF | 00 | FF | 00 | 00 | FF | 00 | FF || 00 | 00 | FF | 00 | 00 | 00 | 00 | FF ]
+weighted:[  1 |  0 |  4 |  0 |  0 | 32 |  0 |128 ||  0 |  0 |  4 |  0 |  0 |  0 |  0 |128 ]
+         \_______________ LOW HALF ______________/  \_______________ HIGH HALF _____________/
+
+-----------------------------------------------------------------------------------------
+STEP 3: vpadd_u8 (Horizontal Pairwise Addition)
+-----------------------------------------------------------------------------------------
+Accumulates the weights. Each `vpadd_u8` halves the number of elements by adding adjacent pairs.
+
+1st vpadd_u8 (low, high): Adds adjacent pairs in LOW, then adjacent pairs in HIGH.
+low sums : (1+0)=1, (4+0)=4, (0+32)=32, (0+128)=128
+high sums: (0+0)=0, (4+0)=4, (0+0)=0, (0+128)=128
+p =      [  1 |  4 | 32 |128 ||  0 |  4 |  0 |128 ]
+
+2nd vpadd_u8 (p, p): Adds adjacent pairs of the new vector 'p'.
+sums     : (1+4)=5, (32+128)=160, (0+4)=4, (0+128)=128 ... (repeated for high)
+p =      [  5 | 160|  4 | 128||  5 | 160|  4 | 128]
+
+3rd vpadd_u8 (p, p): Adds adjacent pairs one last time.
+sums     : (5+160)=165, (4+128)=132 ... (repeated)
+p =      [ 165| 132| 165| 132|| 165| 132| 165| 132]
+
+(Note: 165 in hex is 0xA5. 132 in hex is 0x84).
+p (Hex) = [ A5 | 84 | A5 | 84 | A5 | 84 | A5 | 84 ]
+
+-----------------------------------------------------------------------------------------
+STEP 4: vget_lane_u16 (Extract the 16-bit integer)
+-----------------------------------------------------------------------------------------
+Reinterprets the vector as 16-bit integers and extracts the 0th lane (the first two bytes).
+Because ARM is little-endian, byte 0 (A5) is the lower byte, and byte 1 (84) is the upper.
+
+Extracted Hex = 0x84A5
+
+Binary Result:
+  1000 0100   1010 0101
+  \_______/   \_______/
+   High MSBs   Low MSBs
+
+```
+
+The reference implementation is shown here:
 
 ```c
 // Step 1: Extract MSB of each byte as 0x00 or 0xFF
@@ -130,11 +199,41 @@ p = vpadd_u8(p, p);
 return vget_lane_u16(vreinterpret_u16_u8(p), 0);
 ```
 
-For the drawback is that if the matched element resides in the
-first round, it results in inferior performance (about 13% degration)
-as this optimization needs to load the shift mask once.
+By this implementation, almost all the benchmarks improve significantly.
+The drawback is that if the matched element resides in the
+first round, it results in inferior performance (about at most 13% degration
+of execution time) as this optimization needs to load the shift mask into register.
+
+The entire benchmark table is depicted as follows:
+
+```
+    +---------------------------+--------------------+--------------------+--------------+
+    | Benchmark                 | Current (ns)       | This PR (ns)       | Speedup Rate |
+    +---------------------------+--------------------+--------------------+--------------+
+    | BM_Throughput_AllZero     | 2.6525282890229187 | 2.4566457585583303 | 7.9735766%   |
+    | BM_Throughput_AllOnes     | 2.8733532406965994 | 2.4557148112294884 | 17.0067969%  |
+    | BM_Throughput_Alternating |  3.342313203681577 | 2.4557671038580566 | 36.1005772%  |
+    | BM_Throughput_CmpResult   | 2.6522269210890794 | 2.4555904849335204 | 8.0077048%   |
+    | BM_Throughput_Random      | 2.9464822592339894 | 2.4562281095118546 | 19.9596344%  |
+    | BM_Latency                |  8.103782835634545 |  6.482648720958982 | 25.00728%    |
+    | BM_Memchr_FoundAt2048     |  266.1089131830451 | 219.28191142185295 | 21.3547034%  |
+    | BM_Memchr_NotFound        |  528.9246602358438 |  441.7387922789431 | 19.7369734%  |
+    | BM_Memchr_FoundAt0        | 2.5823763925921757 | 2.9466702218510674 | -12.3628978% |
+    +---------------------------+--------------------+--------------------+--------------+
+```
 
 ## Closing Thoughts
+
+In this post, I take a brief history of string pattern matching. Then,
+I introduction `_mm_movemask_epi8()`, the swiss-knife of constructing
+the occurence indices of a certain pattern.
+Next, I propose my implementation with a persuasive benchmark result
+on almost the pattern matching case. Ultimately, the implementation
+is recorded in the world-class sse2neon project, leveraging all Armv7-A
+platform with better performance and saving the power consumption.
+
+As there are a lot of types of optimizing string pattern matching, leave
+your comments for the further discussion of your own method!
 
 ## References
 
@@ -146,8 +245,10 @@ as this optimization needs to load the shift mask once.
 
 [^4]: https://en.wikipedia.org/wiki/Hamming_weight
 
-[^5]: 
+[^5]: https://support.arm.com/documentation/ddi0409/h/Instruction-Timing/Instruction-specific-scheduling/Advanced-SIMD-integer-arithmetic-instructions?lang=en 
 
 [^6]: https://support.arm.com/documentation/dui0473/k/neon-and-vfp-instructions/vsra--by-immediate-?lang=en
 
 [^7]: https://support.arm.com/documentation/ddi0406/b/Application-Level-Architecture/Instruction-Details/Alphabetical-list-of-instructions/VPADD--integer-?lang=en
+
+[^8]: https://support.arm.com/documentation/ddi0409/h/Instruction-Timing/Instruction-specific-scheduling/Advanced-SIMD-integer-shift-instructions?lang=en
